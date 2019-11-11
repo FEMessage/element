@@ -9,8 +9,10 @@ git:
 install:
   - yarn --frozen-lockfile
 script:
+  - yarn test
   - yarn stdver
-  - yarn deploy:build
+  # build file to ensure generate versions.json
+  - yarn build:file && yarn deploy:build
   - yarn dist
 cache: yarn
 deploy:

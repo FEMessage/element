@@ -5,19 +5,31 @@
       "path": "/changelog"
     },
     {
+      "name": "Element React",
+      "href": "https://elemefe.github.io/element-react/"
+    },
+    {
+      "name": "Element Angular",
+      "href": "https://element-angular.faas.ele.me/"
+    },
+    {
       "name": "开发指南",
       "children": [
+        {
+          "path": "/installation",
+          "name": "安装"
+        },
         {
           "path": "/quickstart",
           "name": "快速上手"
         },
         {
-          "path": "/custom-theme",
-          "name": "deepexi主题"
-        },
-        {
           "path": "/i18n",
           "name": "国际化"
+        },
+        {
+          "path": "/custom-theme",
+          "name": "自定义主题"
         },
         {
           "path": "/transition",
@@ -289,6 +301,14 @@
     {
       "name": "Changelog",
       "path": "/changelog"
+    },
+    {
+      "name": "Element React",
+      "href": "https://elemefe.github.io/element-react/"
+    },
+    {
+      "name": "Element Angular",
+      "href": "https://element-angular.faas.ele.me/"
     },
     {
       "name": "Development",
@@ -579,6 +599,14 @@
     {
       "name": "Changelog",
       "path": "/changelog"
+    },
+    {
+      "name": "Element React",
+      "href": "https://elemefe.github.io/element-react/"
+    },
+    {
+      "name": "Element Angular",
+      "href": "https://element-angular.faas.ele.me/"
     },
     {
       "name": "Development",

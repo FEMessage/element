@@ -329,10 +329,10 @@
               class="nav-dropdown"
               :class="{ 'is-active': verDropdownVisible }">
               <span>
-                {{ version }}
-                <i class="el-icon-arrow-down el-icon--right"></i>
+                element: {{ elementVersion }}
+                <!-- <i class="el-icon-arrow-down el-icon--right"></i> -->
               </span>
-              <el-dropdown-menu
+              <!-- <el-dropdown-menu
                 slot="dropdown"
                 class="nav-dropdown-list"
                 @input="handleVerDropdownToggle">
@@ -342,12 +342,35 @@
                   @click.native="switchVersion(item)">
                   {{ item }}
                 </el-dropdown-item>
-              </el-dropdown-menu>
+              </el-dropdown-menu> -->
+            </el-dropdown>
+          </li>
+
+          <li class="nav-item nav-versions" v-show="isComponentPage">
+            <el-dropdown
+              trigger="click"
+              class="nav-dropdown"
+              :class="{ 'is-active': verDropdownVisible }">
+              <span>
+                deepexi: {{ deepexiVersion }}
+                <!-- <i class="el-icon-arrow-down el-icon--right"></i> -->
+              </span>
+              <!-- <el-dropdown-menu
+                slot="dropdown"
+                class="nav-dropdown-list"
+                @input="handleVerDropdownToggle">
+                <el-dropdown-item
+                  v-for="item in Object.keys(versions)"
+                  :key="item"
+                  @click.native="switchVersion(item)">
+                  {{ item }}
+                </el-dropdown-item>
+              </el-dropdown-menu> -->
             </el-dropdown>
           </li>
 
           <!-- 语言选择器 -->
-          <li class="nav-item lang-item">
+          <!-- <li class="nav-item lang-item">
             <el-dropdown
               trigger="click"
               class="nav-dropdown nav-lang"
@@ -368,7 +391,7 @@
                 </el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
-          </li>
+          </li> -->
         </ul>
       </div>
     </header>
@@ -390,8 +413,8 @@
     data() {
       return {
         active: '',
-        versions: [],
-        version,
+        versions: {},
+        deepexiVersion: version,
         verDropdownVisible: true,
         langDropdownVisible: true,
         langs: {
@@ -411,6 +434,10 @@
     },
 
     computed: {
+      elementVersion() {
+        console.log(this.versions);
+        return Object.keys(this.versions)[0];
+      },
       lang() {
         return this.$route.path.split('/')[1] || 'zh-CN';
       },
@@ -478,7 +505,7 @@
           }, {});
         }
       };
-      xhr.open('GET', '/versions.json');
+      xhr.open('GET', '/element/versions.json');
       xhr.send();
       let primaryLast = '#409EFF';
       bus.$on(ACTION_USER_CONFIG_UPDATE, (val) => {

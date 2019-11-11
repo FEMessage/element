@@ -9,6 +9,9 @@
     "packages",
     "types"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "typings": "types/index.d.ts",
   "scripts": {
     "bootstrap": "yarn || npm i",
@@ -27,7 +30,9 @@
     "lint": "eslint src/**/* test/**/* packages/**/* build/**/* --quiet",
     "pub": "npm run bootstrap && sh build/git-release.sh && sh build/release.sh && node build/bin/gen-indices.js && sh build/deploy-faas.sh",
     "test": "npm run lint && npm run build:theme && cross-env CI_ENV=/dev/ BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
-    "test:watch": "npm run build:theme && cross-env BABEL_ENV=test karma start test/unit/karma.conf.js"
+    "test:watch": "npm run build:theme && cross-env BABEL_ENV=test karma start test/unit/karma.conf.js",
+    "stdver": "standard-version -m '[skip ci] chore(release): v%s'",
+    "gren": "gren release --override"
   },
   "faas": [
     {
@@ -63,8 +68,10 @@
     "async-validator": "~1.8.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.0",
     "deepmerge": "^1.2.0",
+    "github-release-notes": "^0.17.0",
     "normalize-wheel": "^1.0.1",
     "resize-observer-polyfill": "^1.5.0",
+    "standard-version": "^7.0.0",
     "throttle-debounce": "^1.0.1"
   },
   "peerDependencies": {

@@ -1,12 +1,3 @@
-# deepexi 自定义主题element
-element-ui版本为2.4.11
-## 二次开发
-
-```sh
-#安装 
-#如果是windows用户, 请先删除yarn.lock再安装，注意不要提交yarn.lock
-yarn
-
 <p align="center">
   <b>Special thanks to the generous sponsorship by:</b>
 </p>
@@ -32,9 +23,6 @@ yarn
   </tbody>
 </table>
 
-#构建网站
-yarn deploy:build
-
 ## Links
 - Homepage and documentation
   - [International users](http://element.eleme.io/#/en-US)
@@ -59,13 +47,16 @@ yarn deploy:build
 
 ## Install
 ```shell
-npm install element-ui -S
+npm install @femessage/element-ui -S
+
+#or
+yarn add @femessage/element-ui
 ```
 
 ## Quick Start
 ``` javascript
 import Vue from 'vue'
-import Element from 'element-ui'
+import Element from '@femessage/element-ui'
 
 Vue.use(Element)
 
@@ -79,7 +70,7 @@ import {
 Vue.component(Select.name, Select)
 Vue.component(Button.name, Button)
 ```
-For more information, please refer to [Quick Start](http://element.eleme.io/#/en-US/component/quickstart) in our documentation.
+For more information, please refer to [Quick Start](http://femessgae.github.io/#/zh-CN/component/quickstart) in our documentation.
 
 ## Browser Support
 Modern browsers and Internet Explorer 10+.
@@ -90,7 +81,7 @@ Skip this part if you just want to use Element.
 For those who are interested in contributing to Element, please refer to our contributing guide ([中文](https://github.com/ElemeFE/element/blob/master/.github/CONTRIBUTING.zh-CN.md) | [English](https://github.com/ElemeFE/element/blob/master/.github/CONTRIBUTING.en-US.md) | [Español](https://github.com/ElemeFE/element/blob/master/.github/CONTRIBUTING.es.md) | [Français](https://github.com/ElemeFE/element/blob/master/.github/CONTRIBUTING.fr-FR.md)) to see how to run this project.
 
 ## Changelog
-Detailed changes for each release are documented in the [release notes](https://github.com/ElemeFE/element/releases).
+Detailed changes for each release are documented in the [release notes](https://github.com/femessage/element/releases).
 
 ## FAQ
 We have collected some [frequently asked questions](https://github.com/ElemeFE/element/blob/master/FAQ.md). Before reporting an issue, please search if the FAQ has the answer to your problem.
@@ -169,22 +160,11 @@ Support us with a monthly donation and help us continue our activities. [[Become
 <a href="https://opencollective.com/element/backer/28/website" target="_blank"><img src="https://opencollective.com/element/backer/28/avatar.svg"></a>
 <a href="https://opencollective.com/element/backer/29/website" target="_blank"><img src="https://opencollective.com/element/backer/29/avatar.svg"></a>
 
-
-## 部署
-
-### 网站
-在feature-theme-deepexi分支提交即会自动构建网站，并发布至github pages
-
-### 主题
-执行`publish-theme.sh`即可发布主题
-
 ## Join Discussion Group
 
 Scan the QR code using [Dingtalk App](https://www.dingtalk.com/) to join in discussion group :
 
 <img alt="Join Discusion Group" src="https://user-images.githubusercontent.com/17680888/66537329-9a4b9100-eb52-11e9-9d99-65469cfdae58.jpeg" width="300">
-
-[在nuxt框架中使用自定义主题](https://femessage.github.io/element/#/zh-CN/component/custom-theme)
 
 ## LICENSE
 [MIT](LICENSE)
