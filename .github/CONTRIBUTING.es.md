@@ -48,10 +48,6 @@ npm run dev
 ```
 
 > **Notice**: modify `examples/play/index.vue` file, use the component you contribute, then run `npm run dev:play`, go ahead [http://localhost:8085](http://localhost:8085), get result, more quickly and friendly.
-
-Para armar:
-
-```
 shell
 npm run dist
 ```

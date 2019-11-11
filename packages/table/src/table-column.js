@@ -298,6 +298,32 @@ export default {
     this.registerComplexWatchers();
   },
 
+  methods: {
+    renderTreeCell(data) {
+      if (!data.treeNode) return null;
+      const ele = [];
+      ele.push(<span class="el-table__indent" style={{'padding-left': data.treeNode.indent + 'px'}}></span>);
+      if (data.treeNode.hasChildren) {
+        ele.push(<div class={ ['el-table__expand-icon', data.treeNode.expanded ? 'el-table__expand-icon--expanded' : '']}
+          on-click={this.handleTreeExpandIconClick.bind(this, data)}>
+          <i class='el-icon el-icon-arrow-right'></i>
+        </div>);
+      } else {
+        ele.push(<span class="el-table__placeholder"></span>);
+      }
+      return ele;
+    },
+
+    handleTreeExpandIconClick(data, e) {
+      e.stopPropagation();
+      if (data.store.states.lazy && !data.treeNode.loaded) {
+        data.store.loadData(data.row, data.treeNode);
+      } else {
+        data.store.toggleTreeExpansion(data.treeNode.rowKey);
+      }
+    }
+  },
+
   mounted() {
     const owner = this.owner;
     const parent = this.columnOrTableParent;

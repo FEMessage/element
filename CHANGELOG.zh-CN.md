@@ -499,7 +499,6 @@ Docs
 
 - Form
   - 修复 `label-width` 为 `auto` 的样式 (#14955 by @ziyoung)
-
 #### 优化
 - Docs
   - 修复文档内图片链接错误 (#14957 by @iamkun)
@@ -522,7 +521,6 @@ Docs
   - 可以设置背景色 (#14939 by @ziyoung)
 - Form
   - `label-width` 支持自动宽度 (#14944 by @ziyoung)
-
 #### 优化
 - Docs
   - 更新西班牙语文档 (#14913 by @Gonzalo2310)

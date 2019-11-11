@@ -500,7 +500,6 @@ Docs
 
 - Form
   - Fix auto `label-width` style (#14955 by @ziyoung)
-
 #### Optimization
 - Docs
   - Fix doc img link error (#14957 by @iamkun)
@@ -523,7 +522,6 @@ Docs
   - Background color can be configured (#14939 by @ziyoung)
 - Form
   - `label-width` supports auto width (#14944 by @ziyoung)
-
 #### Optimization
 - Docs
   - Update Spanish docs (#14913 by @Gonzalo2310)

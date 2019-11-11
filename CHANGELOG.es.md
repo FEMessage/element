@@ -1240,7 +1240,6 @@
   - Corregido se disparaban los dos eventos nativos de click cuando se hacia click en el Switch, #9760
 
 
-
 ### 2.1.0 Charcoal
 
 *2018-01-31*

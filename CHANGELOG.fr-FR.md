@@ -702,7 +702,6 @@ Docs
 #### Breaking changes
 - Table
   - Fix params order of row events (by @jikkai in #12086)
-
 ### 2.5.4
 
 *2019-02-01*
