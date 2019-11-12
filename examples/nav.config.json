@@ -293,6 +293,15 @@
               "title": "Drawer 抽屉"
             }
           ]
+        },
+        {
+          "groupName": "SPaaS",
+          "list": [
+            {
+              "path": "/lr-container",
+              "title": "LrContainer 左右布局容器"
+            }
+          ]
         }
       ]
     }
@@ -589,6 +598,15 @@
             {
               "path": "/drawer",
               "title": "Drawer"
+            }
+          ]
+        },
+        {
+          "groupName": "SPaaS",
+          "list": [
+            {
+              "path": "/lr-container",
+              "title": "LrContainer"
             }
           ]
         }
@@ -889,6 +907,15 @@
               "title": "Drawer"
             }
           ]
+        },
+        {
+          "groupName": "SPaaS",
+          "list": [
+            {
+              "path": "/lr-container",
+              "title": "LrContainer"
+            }
+          ]
         }
       ]
     }
@@ -1185,6 +1212,15 @@
             {
               "path": "/drawer",
               "title": "Drawer"
+            }
+          ]
+        },
+        {
+          "groupName": "SPaaS",
+          "list": [
+            {
+              "path": "/lr-container",
+              "title": "LrContainer"
             }
           ]
         }
