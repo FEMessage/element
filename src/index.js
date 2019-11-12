@@ -83,6 +83,7 @@ import Avatar from '../packages/avatar/index.js';
 import Drawer from '../packages/drawer/index.js';
 import Popconfirm from '../packages/popconfirm/index.js';
 import LrContainer from '../packages/lr-container/index.js';
+import LoadingButton from '../packages/loading-button/index.js';
 import locale from 'element-ui/src/locale';
 import CollapseTransition from 'element-ui/src/transitions/collapse-transition';
 
@@ -165,6 +166,7 @@ const components = [
   Drawer,
   Popconfirm,
   LrContainer,
+  LoadingButton,
   CollapseTransition
 ];
 
@@ -287,5 +289,6 @@ export default {
   Avatar,
   Drawer,
   Popconfirm,
-  LrContainer
+  LrContainer,
+  LoadingButton
 };

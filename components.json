@@ -81,5 +81,6 @@
   "avatar": "./packages/avatar/index.js",
   "drawer": "./packages/drawer/index.js",
   "popconfirm": "./packages/popconfirm/index.js",
-  "lr-container": "./packages/lr-container/index.js"
+  "lr-container": "./packages/lr-container/index.js",
+  "loading-button": "./packages/loading-button/index.js"
 }
