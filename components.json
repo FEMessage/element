@@ -84,5 +84,6 @@
   "lr-container": "./packages/lr-container/index.js",
   "loading-button": "./packages/loading-button/index.js",
   "message-box-center": "./packages/message-box-center/index.js",
-  "tabs-dotted": "./packages/tabs-dotted/index.js"
+  "tabs-dotted": "./packages/tabs-dotted/index.js",
+  "data-mapper": "./packages/data-mapper/index.js"
 }

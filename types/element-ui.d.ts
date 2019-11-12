@@ -84,6 +84,7 @@ import { ElLrContainer } from './lr-container'
 import { ElLoadingButton } from './loading-button'
 import { ElMessageBoxCenter } from './message-box-center'
 import { ElTabsDotted } from './tabs-dotted'
+import { ElDataMapper } from './data-mapper'
 
 export interface InstallationOptions {
   locale: any,
@@ -360,3 +361,6 @@ export class MessageBoxCenter extends ElMessageBoxCenter {}
 
 /** TabsDotted Component */
 export class TabsDotted extends ElTabsDotted {}
+
+/** DataMapper Component */
+export class DataMapper extends ElDataMapper {}

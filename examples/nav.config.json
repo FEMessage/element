@@ -312,6 +312,10 @@
             {
               "path": "/tabs-dotted",
               "title": "TabsDotted 点分Tab标签"
+            },
+            {
+              "path": "/data-mapper",
+              "title": "DataMapper 数据映射"
             }
           ]
         }
@@ -631,6 +635,10 @@
             {
               "path": "/tabs-dotted",
               "title": "TabsDotted"
+            },
+            {
+              "path": "/data-mapper",
+              "title": "DataMapper"
             }
           ]
         }
@@ -950,6 +958,10 @@
             {
               "path": "/tabs-dotted",
               "title": "TabsDotted"
+            },
+            {
+              "path": "/data-mapper",
+              "title": "DataMapper"
             }
           ]
         }
@@ -1269,6 +1281,10 @@
             {
               "path": "/tabs-dotted",
               "title": "TabsDotted"
+            },
+            {
+              "path": "/data-mapper",
+              "title": "DataMapper"
             }
           ]
         }
