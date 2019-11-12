@@ -984,6 +984,10 @@ $--skeleton-to-color: #e6e6e6;
 --------------------------*/
 $--empty-font-size: $--font-size-base;
 
+/* Affix
+--------------------------*/
+$--zindex-affix: 10;
+
 $--breakpoints: (
   'xs' : (max-width: $--sm - 1),
   'sm' : (min-width: $--sm),

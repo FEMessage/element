@@ -94,6 +94,7 @@ import StatusSteps from '../packages/status-steps/index.js';
 import Panel from '../packages/panel/index.js';
 import Skeleton from '../packages/skeleton/index.js';
 import Empty from '../packages/empty/index.js';
+import Affix from '../packages/affix/index.js';
 import locale from 'element-ui/src/locale';
 import CollapseTransition from 'element-ui/src/transitions/collapse-transition';
 
@@ -186,6 +187,7 @@ const components = [
   Panel,
   Skeleton,
   Empty,
+  Affix,
   CollapseTransition
 ];
 
@@ -321,5 +323,6 @@ export default {
   StatusSteps,
   Panel,
   Skeleton,
-  Empty
+  Empty,
+  Affix
 };

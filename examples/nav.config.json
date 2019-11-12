@@ -344,6 +344,10 @@
             {
               "path": "/empty",
               "title": "Empty 无数据"
+            },
+            {
+              "path": "/affix",
+              "title": "Affix 固钉"
             }
           ]
         }
@@ -695,6 +699,10 @@
             {
               "path": "/empty",
               "title": "Empty"
+            },
+            {
+              "path": "/affix",
+              "title": "Affix"
             }
           ]
         }
@@ -1046,6 +1054,10 @@
             {
               "path": "/empty",
               "title": "Empty"
+            },
+            {
+              "path": "/affix",
+              "title": "Affix"
             }
           ]
         }
@@ -1397,6 +1409,10 @@
             {
               "path": "/empty",
               "title": "Empty"
+            },
+            {
+              "path": "/affix",
+              "title": "Affix"
             }
           ]
         }

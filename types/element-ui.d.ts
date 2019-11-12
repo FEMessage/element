@@ -92,6 +92,7 @@ import { ElStatusSteps } from './status-steps'
 import { ElPanel } from './panel'
 import { ElSkeleton } from './skeleton'
 import { ElEmpty } from './empty'
+import { ElAffix } from './affix'
 
 export interface InstallationOptions {
   locale: any,
@@ -392,3 +393,6 @@ export class Skeleton extends ElSkeleton {}
 
 /** Empty Component */
 export class Empty extends ElEmpty {}
+
+/** Affix Component */
+export class Affix extends ElAffix {}
