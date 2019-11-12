@@ -980,6 +980,10 @@ $--aside-border-color: $--border-color-base;
 $--skeleton-color: #f2f2f2;
 $--skeleton-to-color: #e6e6e6;
 
+/* Empty
+--------------------------*/
+$--empty-font-size: $--font-size-base;
+
 $--breakpoints: (
   'xs' : (max-width: $--sm - 1),
   'sm' : (min-width: $--sm),

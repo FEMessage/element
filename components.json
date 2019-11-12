@@ -91,5 +91,6 @@
   "icon-checkbox": "./packages/icon-checkbox/index.js",
   "status-steps": "./packages/status-steps/index.js",
   "panel": "./packages/panel/index.js",
-  "skeleton": "./packages/skeleton/index.js"
+  "skeleton": "./packages/skeleton/index.js",
+  "empty": "./packages/empty/index.js"
 }

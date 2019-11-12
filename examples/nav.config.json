@@ -340,6 +340,10 @@
             {
               "path": "/skeleton",
               "title": "Skeleton 骨架屏"
+            },
+            {
+              "path": "/empty",
+              "title": "Empty 无数据"
             }
           ]
         }
@@ -687,6 +691,10 @@
             {
               "path": "/skeleton",
               "title": "Skeleton"
+            },
+            {
+              "path": "/empty",
+              "title": "Empty"
             }
           ]
         }
@@ -1034,6 +1042,10 @@
             {
               "path": "/skeleton",
               "title": "Skeleton"
+            },
+            {
+              "path": "/empty",
+              "title": "Empty"
             }
           ]
         }
@@ -1381,6 +1393,10 @@
             {
               "path": "/skeleton",
               "title": "Skeleton"
+            },
+            {
+              "path": "/empty",
+              "title": "Empty"
             }
           ]
         }

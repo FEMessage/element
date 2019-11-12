@@ -93,6 +93,7 @@ import IconCheckbox from '../packages/icon-checkbox/index.js';
 import StatusSteps from '../packages/status-steps/index.js';
 import Panel from '../packages/panel/index.js';
 import Skeleton from '../packages/skeleton/index.js';
+import Empty from '../packages/empty/index.js';
 import locale from 'element-ui/src/locale';
 import CollapseTransition from 'element-ui/src/transitions/collapse-transition';
 
@@ -184,6 +185,7 @@ const components = [
   StatusSteps,
   Panel,
   Skeleton,
+  Empty,
   CollapseTransition
 ];
 
@@ -318,5 +320,6 @@ export default {
   IconCheckbox,
   StatusSteps,
   Panel,
-  Skeleton
+  Skeleton,
+  Empty
 };
