@@ -88,6 +88,7 @@ import { ElDataMapper } from './data-mapper'
 import { ElCheckboxImgButton } from './checkbox-img-button'
 import { ElRadioImgButton } from './radio-img-button'
 import { ElIconCheckbox } from './icon-checkbox'
+import { ElStatusSteps } from './status-steps'
 
 export interface InstallationOptions {
   locale: any,
@@ -376,3 +377,6 @@ export class RadioImgButton extends ElRadioImgButton {}
 
 /** IconCheckbox Component */
 export class IconCheckbox extends ElIconCheckbox {}
+
+/** StatusSteps Component */
+export class StatusSteps extends ElStatusSteps {}

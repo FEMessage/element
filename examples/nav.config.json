@@ -328,6 +328,10 @@
             {
               "path": "/icon-checkbox",
               "title": "IconCheckbox 多选按钮"
+            },
+            {
+              "path": "/status-steps",
+              "title": "StatusSteps 简约步骤条"
             }
           ]
         }
@@ -663,6 +667,10 @@
             {
               "path": "/icon-checkbox",
               "title": "IconCheckbox"
+            },
+            {
+              "path": "/status-steps",
+              "title": "StatusSteps"
             }
           ]
         }
@@ -998,6 +1006,10 @@
             {
               "path": "/icon-checkbox",
               "title": "IconCheckbox"
+            },
+            {
+              "path": "/status-steps",
+              "title": "StatusSteps"
             }
           ]
         }
@@ -1333,6 +1345,10 @@
             {
               "path": "/icon-checkbox",
               "title": "IconCheckbox"
+            },
+            {
+              "path": "/status-steps",
+              "title": "StatusSteps"
             }
           ]
         }
