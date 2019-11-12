@@ -85,6 +85,7 @@ import { ElLoadingButton } from './loading-button'
 import { ElMessageBoxCenter } from './message-box-center'
 import { ElTabsDotted } from './tabs-dotted'
 import { ElDataMapper } from './data-mapper'
+import { ElCheckboxImgButton } from './checkbox-img-button'
 
 export interface InstallationOptions {
   locale: any,
@@ -364,3 +365,6 @@ export class TabsDotted extends ElTabsDotted {}
 
 /** DataMapper Component */
 export class DataMapper extends ElDataMapper {}
+
+/** CheckboxImgButton Component */
+export class CheckboxImgButton extends ElCheckboxImgButton {}

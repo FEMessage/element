@@ -87,6 +87,7 @@ import LoadingButton from '../packages/loading-button/index.js';
 import MessageBoxCenter from '../packages/message-box-center/index.js';
 import TabsDotted from '../packages/tabs-dotted/index.js';
 import DataMapper from '../packages/data-mapper/index.js';
+import CheckboxImgButton from '../packages/checkbox-img-button/index.js';
 import locale from 'element-ui/src/locale';
 import CollapseTransition from 'element-ui/src/transitions/collapse-transition';
 
@@ -172,6 +173,7 @@ const components = [
   LoadingButton,
   TabsDotted,
   DataMapper,
+  CheckboxImgButton,
   CollapseTransition
 ];
 
@@ -300,5 +302,6 @@ export default {
   LoadingButton,
   MessageBoxCenter,
   TabsDotted,
-  DataMapper
+  DataMapper,
+  CheckboxImgButton
 };
