@@ -324,6 +324,10 @@
             {
               "path": "/radio-img-button",
               "title": "RadioImgButton radio扩展"
+            },
+            {
+              "path": "/icon-checkbox",
+              "title": "IconCheckbox 多选按钮"
             }
           ]
         }
@@ -655,6 +659,10 @@
             {
               "path": "/radio-img-button",
               "title": "RadioImgButton"
+            },
+            {
+              "path": "/icon-checkbox",
+              "title": "IconCheckbox"
             }
           ]
         }
@@ -986,6 +994,10 @@
             {
               "path": "/radio-img-button",
               "title": "RadioImgButton"
+            },
+            {
+              "path": "/icon-checkbox",
+              "title": "IconCheckbox"
             }
           ]
         }
@@ -1317,6 +1329,10 @@
             {
               "path": "/radio-img-button",
               "title": "RadioImgButton"
+            },
+            {
+              "path": "/icon-checkbox",
+              "title": "IconCheckbox"
             }
           ]
         }

@@ -89,6 +89,7 @@ import TabsDotted from '../packages/tabs-dotted/index.js';
 import DataMapper from '../packages/data-mapper/index.js';
 import CheckboxImgButton from '../packages/checkbox-img-button/index.js';
 import RadioImgButton from '../packages/radio-img-button/index.js';
+import IconCheckbox from '../packages/icon-checkbox/index.js';
 import locale from 'element-ui/src/locale';
 import CollapseTransition from 'element-ui/src/transitions/collapse-transition';
 
@@ -176,6 +177,7 @@ const components = [
   DataMapper,
   CheckboxImgButton,
   RadioImgButton,
+  IconCheckbox,
   CollapseTransition
 ];
 
@@ -306,5 +308,6 @@ export default {
   TabsDotted,
   DataMapper,
   CheckboxImgButton,
-  RadioImgButton
+  RadioImgButton,
+  IconCheckbox
 };
