@@ -304,6 +304,10 @@
             {
               "path": "/loading-button",
               "title": "LoadingButton 加载按钮"
+            },
+            {
+              "path": "/message-box-center",
+              "title": "MessageBoxCenter 居中提示弹窗"
             }
           ]
         }
@@ -615,6 +619,10 @@
             {
               "path": "/loading-button",
               "title": "LoadingButton"
+            },
+            {
+              "path": "/message-box-center",
+              "title": "MessageBoxCenter"
             }
           ]
         }
@@ -926,6 +934,10 @@
             {
               "path": "/loading-button",
               "title": "LoadingButton"
+            },
+            {
+              "path": "/message-box-center",
+              "title": "MessageBoxCenter"
             }
           ]
         }
@@ -1237,6 +1249,10 @@
             {
               "path": "/loading-button",
               "title": "LoadingButton"
+            },
+            {
+              "path": "/message-box-center",
+              "title": "MessageBoxCenter"
             }
           ]
         }

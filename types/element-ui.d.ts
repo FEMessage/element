@@ -82,6 +82,7 @@ import { ElDrawer } from './drawer'
 import { ElPopconfirm } from './popconfirm'
 import { ElLrContainer } from './lr-container'
 import { ElLoadingButton } from './loading-button'
+import { ElMessageBoxCenter } from './message-box-center'
 
 export interface InstallationOptions {
   locale: any,
@@ -352,3 +353,6 @@ export class LrContainer extends ElLrContainer {}
 
 /** LoadingButton Component */
 export class LoadingButton extends ElLoadingButton {}
+
+/** MessageBoxCenter Component */
+export class MessageBoxCenter extends ElMessageBoxCenter {}

@@ -84,6 +84,7 @@ import Drawer from '../packages/drawer/index.js';
 import Popconfirm from '../packages/popconfirm/index.js';
 import LrContainer from '../packages/lr-container/index.js';
 import LoadingButton from '../packages/loading-button/index.js';
+import MessageBoxCenter from '../packages/message-box-center/index.js';
 import locale from 'element-ui/src/locale';
 import CollapseTransition from 'element-ui/src/transitions/collapse-transition';
 
@@ -193,6 +194,8 @@ const install = function(Vue, opts = {}) {
   Vue.prototype.$prompt = MessageBox.prompt;
   Vue.prototype.$notify = Notification;
   Vue.prototype.$message = Message;
+  Vue.prototype.$alertCenter = MessageBoxCenter.alert;
+  Vue.prototype.$confirmCenter = MessageBoxCenter.confirm;
 
 };
 
@@ -290,5 +293,6 @@ export default {
   Drawer,
   Popconfirm,
   LrContainer,
-  LoadingButton
+  LoadingButton,
+  MessageBoxCenter
 };
