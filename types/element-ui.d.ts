@@ -86,6 +86,7 @@ import { ElMessageBoxCenter } from './message-box-center'
 import { ElTabsDotted } from './tabs-dotted'
 import { ElDataMapper } from './data-mapper'
 import { ElCheckboxImgButton } from './checkbox-img-button'
+import { ElRadioImgButton } from './radio-img-button'
 
 export interface InstallationOptions {
   locale: any,
@@ -368,3 +369,6 @@ export class DataMapper extends ElDataMapper {}
 
 /** CheckboxImgButton Component */
 export class CheckboxImgButton extends ElCheckboxImgButton {}
+
+/** RadioImgButton Component */
+export class RadioImgButton extends ElRadioImgButton {}

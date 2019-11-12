@@ -320,6 +320,10 @@
             {
               "path": "/checkbox-img-button",
               "title": "CheckboxImgButton checkbox扩展"
+            },
+            {
+              "path": "/radio-img-button",
+              "title": "RadioImgButton radio扩展"
             }
           ]
         }
@@ -647,6 +651,10 @@
             {
               "path": "/checkbox-img-button",
               "title": "CheckboxImgButton"
+            },
+            {
+              "path": "/radio-img-button",
+              "title": "RadioImgButton"
             }
           ]
         }
@@ -974,6 +982,10 @@
             {
               "path": "/checkbox-img-button",
               "title": "CheckboxImgButton"
+            },
+            {
+              "path": "/radio-img-button",
+              "title": "RadioImgButton"
             }
           ]
         }
@@ -1301,6 +1313,10 @@
             {
               "path": "/checkbox-img-button",
               "title": "CheckboxImgButton"
+            },
+            {
+              "path": "/radio-img-button",
+              "title": "RadioImgButton"
             }
           ]
         }
