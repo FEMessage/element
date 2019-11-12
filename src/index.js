@@ -92,6 +92,7 @@ import RadioImgButton from '../packages/radio-img-button/index.js';
 import IconCheckbox from '../packages/icon-checkbox/index.js';
 import StatusSteps from '../packages/status-steps/index.js';
 import Panel from '../packages/panel/index.js';
+import Skeleton from '../packages/skeleton/index.js';
 import locale from 'element-ui/src/locale';
 import CollapseTransition from 'element-ui/src/transitions/collapse-transition';
 
@@ -182,6 +183,7 @@ const components = [
   IconCheckbox,
   StatusSteps,
   Panel,
+  Skeleton,
   CollapseTransition
 ];
 
@@ -315,5 +317,6 @@ export default {
   RadioImgButton,
   IconCheckbox,
   StatusSteps,
-  Panel
+  Panel,
+  Skeleton
 };

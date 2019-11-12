@@ -975,6 +975,10 @@ $--xl: 1920px !default;
 --------------------------*/
 $--aside-border-color: $--border-color-base;
 
+/* Skeleton
+--------------------------*/
+$--skeleton-color: #f2f2f2;
+$--skeleton-to-color: #e6e6e6;
 
 $--breakpoints: (
   'xs' : (max-width: $--sm - 1),

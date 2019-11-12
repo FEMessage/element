@@ -336,6 +336,10 @@
             {
               "path": "/panel",
               "title": "Panel 展示板"
+            },
+            {
+              "path": "/skeleton",
+              "title": "Skeleton 骨架屏"
             }
           ]
         }
@@ -679,6 +683,10 @@
             {
               "path": "/panel",
               "title": "Panel"
+            },
+            {
+              "path": "/skeleton",
+              "title": "Skeleton"
             }
           ]
         }
@@ -1022,6 +1030,10 @@
             {
               "path": "/panel",
               "title": "Panel"
+            },
+            {
+              "path": "/skeleton",
+              "title": "Skeleton"
             }
           ]
         }
@@ -1365,6 +1377,10 @@
             {
               "path": "/panel",
               "title": "Panel"
+            },
+            {
+              "path": "/skeleton",
+              "title": "Skeleton"
             }
           ]
         }

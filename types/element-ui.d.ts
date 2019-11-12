@@ -90,6 +90,7 @@ import { ElRadioImgButton } from './radio-img-button'
 import { ElIconCheckbox } from './icon-checkbox'
 import { ElStatusSteps } from './status-steps'
 import { ElPanel } from './panel'
+import { ElSkeleton } from './skeleton'
 
 export interface InstallationOptions {
   locale: any,
@@ -384,3 +385,6 @@ export class StatusSteps extends ElStatusSteps {}
 
 /** Panel Component */
 export class Panel extends ElPanel {}
+
+/** Skeleton Component */
+export class Skeleton extends ElSkeleton {}
