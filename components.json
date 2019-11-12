@@ -89,5 +89,6 @@
   "checkbox-img-button": "./packages/checkbox-img-button/index.js",
   "radio-img-button": "./packages/radio-img-button/index.js",
   "icon-checkbox": "./packages/icon-checkbox/index.js",
-  "status-steps": "./packages/status-steps/index.js"
+  "status-steps": "./packages/status-steps/index.js",
+  "panel": "./packages/panel/index.js"
 }

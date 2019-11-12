@@ -332,6 +332,10 @@
             {
               "path": "/status-steps",
               "title": "StatusSteps 简约步骤条"
+            },
+            {
+              "path": "/panel",
+              "title": "Panel 展示板"
             }
           ]
         }
@@ -671,6 +675,10 @@
             {
               "path": "/status-steps",
               "title": "StatusSteps"
+            },
+            {
+              "path": "/panel",
+              "title": "Panel"
             }
           ]
         }
@@ -1010,6 +1018,10 @@
             {
               "path": "/status-steps",
               "title": "StatusSteps"
+            },
+            {
+              "path": "/panel",
+              "title": "Panel"
             }
           ]
         }
@@ -1349,6 +1361,10 @@
             {
               "path": "/status-steps",
               "title": "StatusSteps"
+            },
+            {
+              "path": "/panel",
+              "title": "Panel"
             }
           ]
         }
