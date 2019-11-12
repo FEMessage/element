@@ -971,6 +971,11 @@ $--md: 992px !default;
 $--lg: 1200px !default;
 $--xl: 1920px !default;
 
+/* LrContainer
+--------------------------*/
+$--aside-border-color: $--border-color-base;
+
+
 $--breakpoints: (
   'xs' : (max-width: $--sm - 1),
   'sm' : (min-width: $--sm),
