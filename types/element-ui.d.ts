@@ -83,6 +83,7 @@ import { ElPopconfirm } from './popconfirm'
 import { ElLrContainer } from './lr-container'
 import { ElLoadingButton } from './loading-button'
 import { ElMessageBoxCenter } from './message-box-center'
+import { ElTabsDotted } from './tabs-dotted'
 
 export interface InstallationOptions {
   locale: any,
@@ -356,3 +357,6 @@ export class LoadingButton extends ElLoadingButton {}
 
 /** MessageBoxCenter Component */
 export class MessageBoxCenter extends ElMessageBoxCenter {}
+
+/** TabsDotted Component */
+export class TabsDotted extends ElTabsDotted {}

@@ -85,6 +85,7 @@ import Popconfirm from '../packages/popconfirm/index.js';
 import LrContainer from '../packages/lr-container/index.js';
 import LoadingButton from '../packages/loading-button/index.js';
 import MessageBoxCenter from '../packages/message-box-center/index.js';
+import TabsDotted from '../packages/tabs-dotted/index.js';
 import locale from 'element-ui/src/locale';
 import CollapseTransition from 'element-ui/src/transitions/collapse-transition';
 
@@ -168,6 +169,7 @@ const components = [
   Popconfirm,
   LrContainer,
   LoadingButton,
+  TabsDotted,
   CollapseTransition
 ];
 
@@ -294,5 +296,6 @@ export default {
   Popconfirm,
   LrContainer,
   LoadingButton,
-  MessageBoxCenter
+  MessageBoxCenter,
+  TabsDotted
 };

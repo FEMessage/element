@@ -308,6 +308,10 @@
             {
               "path": "/message-box-center",
               "title": "MessageBoxCenter 居中提示弹窗"
+            },
+            {
+              "path": "/tabs-dotted",
+              "title": "TabsDotted 点分Tab标签"
             }
           ]
         }
@@ -623,6 +627,10 @@
             {
               "path": "/message-box-center",
               "title": "MessageBoxCenter"
+            },
+            {
+              "path": "/tabs-dotted",
+              "title": "TabsDotted"
             }
           ]
         }
@@ -938,6 +946,10 @@
             {
               "path": "/message-box-center",
               "title": "MessageBoxCenter"
+            },
+            {
+              "path": "/tabs-dotted",
+              "title": "TabsDotted"
             }
           ]
         }
@@ -1253,6 +1265,10 @@
             {
               "path": "/message-box-center",
               "title": "MessageBoxCenter"
+            },
+            {
+              "path": "/tabs-dotted",
+              "title": "TabsDotted"
             }
           ]
         }
