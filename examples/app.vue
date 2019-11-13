@@ -47,9 +47,9 @@
 
     watch: {
       lang(val) {
-        if (val === 'zh-CN') {
-          this.suggestJump();
-        }
+        // if (val === 'zh-CN') {
+        //   this.suggestJump();
+        // }
         localize(val);
       }
     },
@@ -73,13 +73,6 @@
             });
         }, 1000);
       }
-    },
-
-    mounted() {
-      localize(this.lang);
-      // if (this.lang === 'zh-CN') {
-      //   this.suggestJump();
-      // }
     }
   };
 </script>
