@@ -18,8 +18,8 @@
   const lang = location.hash.replace('#', '').split('/')[1] || 'zh-CN';
   const localize = lang => {
     switch (lang) {
-      case 'zh-CN':
-        use(zhLocale);
+      case 'en-US':
+        use(enLocale);
         break;
       case 'es':
         use(esLocale);
@@ -28,7 +28,7 @@
         use(frLocale);
         break;
       default:
-        use(enLocale);
+        use(zhLocale);
     }
   };
   localize(lang);
