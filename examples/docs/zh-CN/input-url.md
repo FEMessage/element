@@ -25,23 +25,25 @@ export default {
 ### 不显示错误检查
 
 当出现在form里时，不会显示自带的错误检查
+
 :::demo
 
 ```html
 <template>
-  <el-form-renderer :content="content" />
+  <el-form :modal="formData" label-width="50px">
+    <el-form-item label="url" prop="url">
+      <el-input-url v-model="formData.url"></el-input-url>
+    </el-form-item>
+  </el-form>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      content: [
-        {
-          id: 'url',
-          type: 'input-url'
-        }
-      ]
+      formData:{
+        url: ''
+      }
     }
   },
 }
