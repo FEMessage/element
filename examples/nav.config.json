@@ -295,6 +295,15 @@
           ]
         },
         {
+          "groupName": "Input-Enhance",
+          "list": [
+            {
+              "path": "/input-email",
+              "title": "InputEmail 邮件输入组件"
+            }
+          ]
+        },
+        {
           "groupName": "SPaaS",
           "list": [
             {
@@ -646,6 +655,15 @@
             {
               "path": "/drawer",
               "title": "Drawer"
+            }
+          ]
+        },
+        {
+          "groupName": "Input-Enhance",
+          "list": [
+            {
+              "path": "/input-email",
+              "title": "InputEmail 邮件输入组件"
             }
           ]
         },
@@ -1005,6 +1023,15 @@
           ]
         },
         {
+          "groupName": "Input-Enhance",
+          "list": [
+            {
+              "path": "/input-email",
+              "title": "InputEmail 邮件输入组件"
+            }
+          ]
+        },
+        {
           "groupName": "SPaaS",
           "list": [
             {
@@ -1356,6 +1383,15 @@
             {
               "path": "/drawer",
               "title": "Drawer"
+            }
+          ]
+        },
+        {
+          "groupName": "Input-Enhance",
+          "list": [
+            {
+              "path": "/input-email",
+              "title": "InputEmail 邮件输入组件"
             }
           ]
         },
