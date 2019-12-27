@@ -94,6 +94,7 @@ import { ElSkeleton } from './skeleton'
 import { ElEmpty } from './empty'
 import { ElAffix } from './affix'
 import { ElInputEmail } from './input-email'
+import { ElInputPhone } from './input-phone'
 
 export interface InstallationOptions {
   locale: any,
@@ -400,3 +401,6 @@ export class Affix extends ElAffix {}
 
 /** InputEmail Component */
 export class InputEmail extends ElInputEmail {}
+
+/** InputPhone Component */
+export class InputPhone extends ElInputPhone {}
