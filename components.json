@@ -97,5 +97,6 @@
   "input-email": "./packages/input-email/index.js",
   "input-phone": "./packages/input-phone/index.js",
   "input-id-card": "./packages/input-id-card/index.js",
-  "input-semver": "./packages/input-semver/index.js"
+  "input-semver": "./packages/input-semver/index.js",
+  "input-url": "./packages/input-url/index.js"
 }
