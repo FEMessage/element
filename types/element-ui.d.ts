@@ -96,6 +96,7 @@ import { ElAffix } from './affix'
 import { ElInputEmail } from './input-email'
 import { ElInputPhone } from './input-phone'
 import { ElInputIdCard } from './input-id-card'
+import { ElInputSemver } from './input-semver'
 
 export interface InstallationOptions {
   locale: any,
@@ -408,3 +409,6 @@ export class InputPhone extends ElInputPhone {}
 
 /** InputIdCard Component */
 export class InputIdCard extends ElInputIdCard {}
+
+/** InputSemver Component */
+export class InputSemver extends ElInputSemver {}

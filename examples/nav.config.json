@@ -308,6 +308,10 @@
             {
               "path": "/input-id-card",
               "title": "InputIdCard 身份证号码校验输入框"
+            },
+            {
+              "path": "/input-semver",
+              "title": "InputSemver 版本号输入"
             }
           ]
         },
@@ -737,6 +741,10 @@
             {
               "path": "/input-id-card",
               "title": "InputIdCard"
+            },
+            {
+              "path": "/input-semver",
+              "title": "InputSemver"
             }
           ]
         }
@@ -1109,6 +1117,10 @@
             {
               "path": "/input-id-card",
               "title": "InputIdCard"
+            },
+            {
+              "path": "/input-semver",
+              "title": "InputSemver"
             }
           ]
         }
@@ -1481,6 +1493,10 @@
             {
               "path": "/input-id-card",
               "title": "InputIdCard"
+            },
+            {
+              "path": "/input-semver",
+              "title": "InputSemver"
             }
           ]
         }

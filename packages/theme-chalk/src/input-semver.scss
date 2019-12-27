@@ -1,0 +1,10 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(input-semver) {
+  &.is-error.semver-input {
+    .el-input__inner {
+      border: 1px solid $--color-danger;
+    }
+  }
+}
