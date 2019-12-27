@@ -1,0 +1,35 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(input-id-card) {
+  .el-zoom-in-top-enter-active, .el-zoom-in-top-leave-active {
+    opacity: 1;
+    transform: scaleY(1);
+    transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1), opacity 300ms cubic-bezier(0.23, 1, 0.32, 1);
+    transform-origin: center top;
+  }
+
+  .el-zoom-in-top-enter, .el-zoom-in-top-leave-active {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+
+  &.self-form-item {
+    margin-bottom: 22px;
+    position: relative;
+
+    .self-form-item__error {
+      color: $--color-danger;
+      font-size: 12px;
+      line-height: 1;
+      padding-top: 4px;
+      position: absolute;
+      top: 100%;
+      left: 0;
+    }
+
+    &.is-error .el-input__inner {
+      border-color: $--color-danger;
+    }
+  }
+}
