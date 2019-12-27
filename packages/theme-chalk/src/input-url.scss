@@ -4,7 +4,7 @@
 @include b(input-url) {
   &::after{
     content: '非法url地址';
-    color: $error-color;
+    color: $--color-danger;
     font-size: 12px;
     line-height: 1;
     padding-top: 4px;

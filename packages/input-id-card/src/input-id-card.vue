@@ -14,21 +14,18 @@
       @blur="handleBlur"
       v-on="$listeners"
       v-model="innerValue"
-    >
-    </el-input>
+    ></el-input>
     <transition name="el-zoom-in-top">
       <div
         class="self-form-item__error"
         v-if="!isInElFormItem && validateState === 'error'"
-      >
-        {{validateMessage}}
-      </div>
+      >{{validateMessage}}</div>
     </transition>
   </div>
 </template>
 
 <script>
-import isIDCard from './isIDCard.js';
+import isIDCard from './is-id-card.js';
 export default {
   name: 'ElInputIdCard',
 
@@ -60,7 +57,9 @@ export default {
 
   computed: {
     attrs() {
-      const {type, maxlength, ...rest} = this.$attrs;
+      const { ...rest } = this.$attrs;
+      delete rest.type;
+      delete rest.maxlength;
       return rest;
     },
 
@@ -74,7 +73,7 @@ export default {
 
     rules() {
       return [
-        {required: true, message: '请输入身份证号', trigger: 'blur'},
+        { required: true, message: '请输入身份证号', trigger: 'blur' },
         {
           validator: this.validateIdCard,
           trigger: ['blur', 'change']
@@ -121,7 +120,7 @@ export default {
       }
     },
 
-    fixWithExampleID(value = '', opts = {boundary: this.valueLen}) {
+    fixWithExampleID(value = '', opts = { boundary: this.valueLen }) {
       if (value.length > opts.boundary) {
         return value;
       }

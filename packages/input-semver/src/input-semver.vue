@@ -1,6 +1,14 @@
 <template>
-  <el-input placeholder="请输入版本号" v-bind="$attrs" v-on="$listeners" :value="version" class="semver-input" :class="{'is-error':!isValid}" @input="handelInput" @blur="handleBlur">
-  </el-input>
+  <el-input
+    placeholder="请输入版本号"
+    v-bind="$attrs"
+    v-on="$listeners"
+    :value="version"
+    class="semver-input"
+    :class="{'is-error':!isValid}"
+    @input="handelInput"
+    @blur="handleBlur"
+  ></el-input>
 </template>
 <script>
 /**
@@ -15,7 +23,7 @@ const VERSION_PATTERN = /^v?([1-9]\d*|0)\.([1-9]\d*|0)\.([1-9]\d*|0)$/;
 const NONSENSE_VERSION = '0.0.0';
 const MIN_VERSION = '0.0.1';
 const DEFAULT_VERSION = '1.0.0';
-const v = 'v'
+const v = 'v';
 
 // 自动填充规则
 const autoPaddingRegularList = [
@@ -50,22 +58,22 @@ const autoFixRegular = [
     // 都为0只保留一个0
     regular: /^v?([1-9]\d*|0)\.([1-9]\d*|0)\.0+$/,
     fixStr(str) {
-      let stringList = str.split('.')
-      let last = stringList.length - 1
+      let stringList = str.split('.');
+      let last = stringList.length - 1;
 
-      stringList[last] = stringList[last].replace(/^0+/, '0')
-      return stringList.join('.')
+      stringList[last] = stringList[last].replace(/^0+/, '0');
+      return stringList.join('.');
     }
   },
   {
     // 将1.1.000001格式连续的0去掉为1.1.1
     regular: /^v?([1-9]\d*|0)\.([1-9]\d*|0)\.0+[1-9]\d*$/,
     fixStr(str) {
-      let stringList = str.split('.')
-      let last = stringList.length - 1
+      let stringList = str.split('.');
+      let last = stringList.length - 1;
 
-      stringList[last] = stringList[last].replace(/^0+/, '')
-      return stringList.join('.')
+      stringList[last] = stringList[last].replace(/^0+/, '');
+      return stringList.join('.');
     }
   },
   {
@@ -75,7 +83,7 @@ const autoFixRegular = [
       return str
         .split('.')
         .slice(0, 3)
-        .join('.')
+        .join('.');
     }
   }
 ];
@@ -144,12 +152,12 @@ export default {
       // 如果需要阻止非法输入,则替换除了开头的第一个v，数字，点为空
       if (this.preventIllegal) {
         e = e.replace(/[^\d\.]/g, function(data) {
-          if (data == v && e.startsWith(v) && !hasV) {
+          if (data === v && e.startsWith(v) && !hasV) {
             hasV = true;
             return v;
           }
           return '';
-        })
+        });
       }
 
       // 如果需要前缀且当前value不是v开头,则自动带上v
@@ -158,8 +166,8 @@ export default {
 
       // this is hack! magic function
       this.$nextTick(() => {
-        this.notify({value, isValid});
-      })
+        this.notify({ value, isValid });
+      });
     },
     // 失去焦点时进行判断
     handleBlur() {
@@ -230,14 +238,14 @@ export default {
       this.isValid = isValid;
     },
     // 对外通知
-    notify({value, isValid = true}) {
+    notify({ value, isValid = true }) {
       this.updateValue(value);
       this.updateValid(isValid);
     },
     checkVersionVaild(version = '') {
       // 不允许 0.0.0
       return (
-        version.split('.').some(item => item != 0) &&
+        version.split('.').some(item => item !== 0) &&
         this.validRegular.test(version)
       );
     },
