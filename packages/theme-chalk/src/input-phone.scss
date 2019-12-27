@@ -1,0 +1,12 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(input-phone) {
+
+
+  &.input-error {
+    .el-input__inner:focus {
+      border-color: $--color-danger !important;
+    }
+  }
+}

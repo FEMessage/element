@@ -96,6 +96,7 @@ import Skeleton from '../packages/skeleton/index.js';
 import Empty from '../packages/empty/index.js';
 import Affix from '../packages/affix/index.js';
 import InputEmail from '../packages/input-email/index.js';
+import InputPhone from '../packages/input-phone/index.js';
 import locale from 'element-ui/src/locale';
 import CollapseTransition from 'element-ui/src/transitions/collapse-transition';
 
@@ -190,6 +191,7 @@ const components = [
   Empty,
   Affix,
   InputEmail,
+  InputPhone,
   CollapseTransition
 ];
 
@@ -327,5 +329,6 @@ export default {
   Skeleton,
   Empty,
   Affix,
-  InputEmail
+  InputEmail,
+  InputPhone
 };

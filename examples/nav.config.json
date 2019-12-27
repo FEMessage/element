@@ -300,6 +300,10 @@
             {
               "path": "/input-email",
               "title": "InputEmail 邮件输入组件"
+            },
+            {
+              "path": "/input-phone",
+              "title": "InputPhone 手机号码输入"
             }
           ]
         },
@@ -721,6 +725,10 @@
             {
               "path": "/affix",
               "title": "Affix"
+            },
+            {
+              "path": "/input-phone",
+              "title": "InputPhone"
             }
           ]
         }
@@ -1085,6 +1093,10 @@
             {
               "path": "/affix",
               "title": "Affix"
+            },
+            {
+              "path": "/input-phone",
+              "title": "InputPhone"
             }
           ]
         }
@@ -1392,6 +1404,10 @@
             {
               "path": "/input-email",
               "title": "InputEmail 邮件输入组件"
+            },
+            {
+              "path": "/input-phone",
+              "title": "InputPhone"
             }
           ]
         },
