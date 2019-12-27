@@ -96,3 +96,45 @@ export default {
 ```
 
 :::
+
+### Attributes
+
+| 参数      |   说明    |  类型     | 可选值       | 默认值   |
+|---------- | -------- |---------- |-------------  |-------- |
+| value | 版本号 | string   |  —  |  —  |
+| prevent-illegal | 是否阻止非法输入字符 | boolean   |  —  |  true  |
+| auto-padding | 是否根据填充规则进行自动填充 | boolean   |  —  |  true  |
+| prefix | 是否需要v前缀 | boolean   |  —  |  true  |
+| valid-regular | 自定义格式校验规则 | regExp   |  —  |  /^v?([1-9]\d*|0)\.([1-9]\d*|0)\.([1-9]\d*|0)$/  |
+| auto-padding-regular-list | 自定义自动填充规则 | array   |  —  |  autoPaddingRegularList(见下面)  |
+
+#### autoPaddingRegularList
+
+```javascript
+[
+  {
+    regular: VERSION_PATTERN,
+    padding: ''
+  },
+  {
+    regular: /^v?([1-9]\d*|0)\.([1-9]\d*|0)\.$/,
+    padding: '0'
+  },
+  {
+    regular: /^v?([1-9]\d*|0)\.([1-9]\d*|0)$/,
+    padding: '.0'
+  },
+  {
+    regular: /^v?([1-9]\d*|0)\.$/,
+    padding: '0.0'
+  },
+  {
+    regular: /^v?([1-9]\d*|0)$/,
+    padding: '.0.0'
+  },
+  {
+    regular: /^v?$/,
+    padding: DEFAULT_VERSION
+  }
+]
+```

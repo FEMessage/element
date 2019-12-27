@@ -38,12 +38,8 @@ export default {
     placeholder: {
       type: String,
       default: '请输入身份证号'
-    },
-
-    prop: {
-      type: String,
-      default: 'identityNumber'
     }
+    
   },
 
   data() {

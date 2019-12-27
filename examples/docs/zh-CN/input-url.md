@@ -73,3 +73,11 @@ export default {
 ```
 
 :::
+
+### Attributes
+
+| 参数      |   说明    |  类型     | 可选值       | 默认值   |
+|---------- | -------- |---------- |-------------  |-------- |
+| value | url地址 | string   |  —  |  —  |
+| git | 是否开启校验git仓库地址。<br>模板：http[s] ://host.xz[:port]/path/to/repo.git/ | boolean   |  —  |  false  |
+| ssh | git仓库地址是否还包含ssh类型，仅当git===true时生效。<br>模板：[user@]host.xz:path/to/repo.git/ | boolean   |  —  |  false  |

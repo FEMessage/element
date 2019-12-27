@@ -21,3 +21,11 @@ export default {
 ```
 
 :::
+
+
+### Attributes
+
+| 参数      |   说明    |  类型     | 可选值       | 默认值   |
+|---------- | -------- |---------- |-------------  |-------- |
+| value | 身份证号码 | string   |  —  |  —  |
+| placeholder | 输入框placeholder | string   |  —  |  请输入身份证号  |
