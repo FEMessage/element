@@ -312,6 +312,10 @@
             {
               "path": "/input-semver",
               "title": "InputSemver 版本号输入"
+            },
+            {
+              "path": "/input-url",
+              "title": "InputUrl url输入组件"
             }
           ]
         },
@@ -745,6 +749,10 @@
             {
               "path": "/input-semver",
               "title": "InputSemver"
+            },
+            {
+              "path": "/input-url",
+              "title": "InputUrl"
             }
           ]
         }
@@ -1121,6 +1129,10 @@
             {
               "path": "/input-semver",
               "title": "InputSemver"
+            },
+            {
+              "path": "/input-url",
+              "title": "InputUrl"
             }
           ]
         }
@@ -1497,6 +1509,10 @@
             {
               "path": "/input-semver",
               "title": "InputSemver"
+            },
+            {
+              "path": "/input-url",
+              "title": "InputUrl"
             }
           ]
         }

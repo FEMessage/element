@@ -1,0 +1,28 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(input-url) {
+  &::after{
+    content: '非法url地址';
+    color: $error-color;
+    font-size: 12px;
+    line-height: 1;
+    padding-top: 4px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    transform: translateY(-50%);
+    transition: opacity 200ms linear, transform 200ms linear;
+  }
+
+  &.invalid{
+    &::after{
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .el-input__inner{
+      border-color: $--color-danger;
+    }
+  }
+}
