@@ -130,5 +130,5 @@ export default {
       return `${value}${fix}`;
     }
   }
-}
+};
 </script>
