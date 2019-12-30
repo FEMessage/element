@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: "ElSwitchEnhance",
+  name: 'ElSwitchEnhance',
   props: {
     square: {
       type: Boolean,
