@@ -7,15 +7,13 @@
 :::demo 绑定`v-model`到一个`Boolean`类型的变量。可以使用`active-color`属性与`inactive-color`属性来设置开关的背景色。
 
 ```html
-<template>
-  <el-switch-enhance v-model="switchValue0" active-text="开" inactive-text="关" />
-</template>
+<el-switch-enhance v-model="value0" active-text="开" inactive-text="关" />
 
 <script>
 export default {
   data() {
     return {
-      switchValue0: true
+      value0: false
     }
   }
 }
@@ -29,15 +27,13 @@ export default {
 :::demo 使用 `inline-text` 属性将提示文字放到组件内部
 
 ```html
-<template>
-  <el-switch-enhance
-    v-model="value1"
-    :width="85"
-    inline-text
-    active-text="按月付费"
-    inactive-text="按年付费"
-  />
-</template>
+<el-switch-enhance
+  v-model="value1"
+  :width="85"
+  inline-text
+  active-text="按月付费"
+  inactive-text="按年付费"
+/>
 
 <script>
 export default {
@@ -56,16 +52,14 @@ export default {
 :::demo 使用 `square` 属性减小组件圆角
 
 ```html
-<template>
-  <el-switch-enhance
-    v-model="value2"
-    square
-    inline-text
-    :width="70"
-    active-text="已启用"
-    inactive-text="已关闭"
-  />
-</template>
+<el-switch-enhance
+  v-model="value2"
+  square
+  inline-text
+  :width="70"
+  active-text="已启用"
+  inactive-text="已关闭"
+/>
 
 <script>
 export default {
