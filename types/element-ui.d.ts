@@ -93,6 +93,7 @@ import { ElPanel } from './panel'
 import { ElSkeleton } from './skeleton'
 import { ElEmpty } from './empty'
 import { ElAffix } from './affix'
+import { ElSwitchEnhance } from './switch-enhance'
 
 import { ElInputIdCard } from './input-id-card'
 import { ElInputPhone } from './input-phone'
@@ -405,3 +406,6 @@ export class InputIdCard extends ElInputIdCard {}
 
 /** InputPhone Component */
 export class InputPhone extends ElInputPhone {}
+
+/** SwitchEnhance Component */
+export class SwitchEnhance extends ElSwitchEnhance {}

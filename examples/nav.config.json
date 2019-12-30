@@ -367,6 +367,10 @@
             {
               "path": "/input-phone",
               "title": "InputPhone 手机号码输入"
+            },
+            {
+              "path": "/switch-enhance",
+              "title": "SwitchEnhance 开关增强"
             }
           ]
         }
@@ -731,6 +735,10 @@
             {
               "path": "/input-id-card",
               "title": "InputIdCard"
+            },
+            {
+              "path": "/switch-enhance",
+              "title": "SwitchEnhance"
             }
           ]
         }
@@ -1095,6 +1103,10 @@
             {
               "path": "/input-id-card",
               "title": "InputIdCard"
+            },
+            {
+              "path": "/switch-enhance",
+              "title": "SwitchEnhance"
             }
           ]
         }
@@ -1458,6 +1470,10 @@
             {
               "path": "/input-id-card",
               "title": "InputIdCard"
+            },
+            {
+              "path": "/switch-enhance",
+              "title": "SwitchEnhance"
             }
           ]
         }

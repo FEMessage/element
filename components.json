@@ -96,4 +96,5 @@
   "affix": "./packages/affix/index.js",
   "input-id-card": "./packages/input-id-card/index.js",
   "input-phone": "./packages/input-phone/index.js"
+  "switch-enhance": "./packages/switch-enhance/index.js"
 }
