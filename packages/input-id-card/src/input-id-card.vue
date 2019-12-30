@@ -39,7 +39,6 @@ export default {
       type: String,
       default: '请输入身份证号'
     }
-    
   },
 
   data() {
