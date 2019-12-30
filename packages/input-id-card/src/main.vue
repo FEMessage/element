@@ -26,6 +26,17 @@
 
 <script>
 import isIDCard from './is-id-card.js';
+
+const validateIdCard = (rule, value, callback) => {
+  if (!value) {
+    return callback(new Error('请输入身份证号'));
+  }
+  if (isIDCard(value)) {
+    callback();
+  } else {
+    callback(new Error('请输入正确的身份证号'));
+  }
+};
 export default {
   name: 'ElInputIdCard',
 
@@ -64,16 +75,6 @@ export default {
 
     ElFormItem() {
       return this.$parent;
-    },
-
-    rules() {
-      return [
-        { required: true, message: '请输入身份证号', trigger: 'blur' },
-        {
-          validator: this.validateIdCard,
-          trigger: ['blur', 'change']
-        }
-      ];
     }
   },
 
@@ -85,6 +86,16 @@ export default {
     }
   },
 
+  rules() {
+    return [
+      { required: true, message: '请输入身份证号', trigger: 'blur' },
+      {
+        validator: validateIdCard,
+        trigger: ['blur', 'change']
+      }
+    ];
+  },
+
   methods: {
     handleBlur(e) {
       // 补全 补0
@@ -94,18 +105,6 @@ export default {
       // 验证
       // this.validateIdCard([], this.innerValue, this.validateCallback)
     },
-
-    validateIdCard(rule, value, callback) {
-      if (!value) {
-        return callback(new Error('请输入身份证号'));
-      }
-      if (isIDCard(value)) {
-        callback();
-      } else {
-        callback(new Error('请输入正确的身份证号'));
-      }
-    },
-
     validateCallback(error) {
       if (error) {
         this.validateState = 'error';
