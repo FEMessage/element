@@ -297,6 +297,15 @@
           ]
         },
         {
+          "groupName": "Input-Enhance",
+          "list": [
+            {
+              "path": "/input-id-card",
+              "title": "InputIdCard 身份证号码校验输入框"
+            }
+          ]
+        },
+        {
           "groupName": "Wheel",
           "list": [
             {
@@ -706,6 +715,10 @@
             {
               "path": "/affix",
               "title": "Affix"
+            },
+            {
+              "path": "/input-id-card",
+              "title": "InputIdCard"
             }
           ]
         }
@@ -1062,6 +1075,10 @@
             {
               "path": "/affix",
               "title": "Affix"
+            },
+            {
+              "path": "/input-id-card",
+              "title": "InputIdCard"
             }
           ]
         }
@@ -1417,6 +1434,10 @@
             {
               "path": "/affix",
               "title": "Affix"
+            },
+            {
+              "path": "/input-id-card",
+              "title": "InputIdCard"
             }
           ]
         }
