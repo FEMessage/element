@@ -99,7 +99,7 @@ import InputEmail from '../packages/input-email/index.js';
 import InputPhone from '../packages/input-phone/index.js';
 import InputIdCard from '../packages/input-id-card/index.js';
 import InputSemver from '../packages/input-semver/index.js';
-import InputUrl from '../packages/input-url/index.js';
+// import InputUrl from '../packages/input-url/index.js';
 import locale from 'element-ui/src/locale';
 import CollapseTransition from 'element-ui/src/transitions/collapse-transition';
 
@@ -197,7 +197,7 @@ const components = [
   InputPhone,
   InputIdCard,
   InputSemver,
-  InputUrl,
+  // InputUrl,
   CollapseTransition
 ];
 
@@ -338,6 +338,6 @@ export default {
   InputEmail,
   InputPhone,
   InputIdCard,
-  InputSemver,
-  InputUrl
+  InputSemver
+  // InputUrl
 };
