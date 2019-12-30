@@ -1,12 +1,31 @@
 ## InputPhone 手机号码输入
 
-基本用法
+### 基本用法
+
 :::demo
 
 ```html
-<template>
-  <el-input-phone v-model="phone" />
-</template>
+<el-input-phone v-model="phone" />
+
+<script>
+export default {
+  data() {
+    return {
+      phone: '132'
+    }
+  }
+}
+</script>
+```
+
+:::
+
+### 禁用自动填充
+
+:::demo
+
+```html
+<el-input-phone v-model="phone" :auto-fill="false" />
 
 <script>
 export default {
