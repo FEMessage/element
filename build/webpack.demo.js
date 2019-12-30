@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const config = require('./config');
 
@@ -140,11 +140,11 @@ if (isProd) {
     })
   );
   webpackConfig.optimization.minimizer.push(
-    // new UglifyJsPlugin({
-    //   cache: true,
-    //   parallel: true,
-    //   sourceMap: false
-    // }),
+    new UglifyJsPlugin({
+      cache: true,
+      parallel: true,
+      sourceMap: false
+    }),
     new OptimizeCSSAssetsPlugin({})
   );
   // https://webpack.js.org/configuration/optimization/#optimizationsplitchunks
