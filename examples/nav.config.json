@@ -297,6 +297,15 @@
           ]
         },
         {
+          "groupName": "Input-Enhance",
+          "list": [
+            {
+              "path": "/input-phone",
+              "title": "InputPhone 手机号码输入"
+            }
+          ]
+        },
+        {
           "groupName": "Wheel",
           "list": [
             {
@@ -350,6 +359,10 @@
             {
               "path": "/affix",
               "title": "Affix 固钉"
+            },
+            {
+              "path": "/input-phone",
+              "title": "InputPhone 手机号码输入"
             }
           ]
         }
@@ -706,6 +719,10 @@
             {
               "path": "/affix",
               "title": "Affix"
+            },
+            {
+              "path": "/input-phone",
+              "title": "InputPhone"
             }
           ]
         }
@@ -1062,6 +1079,10 @@
             {
               "path": "/affix",
               "title": "Affix"
+            },
+            {
+              "path": "/input-phone",
+              "title": "InputPhone"
             }
           ]
         }
@@ -1417,6 +1438,10 @@
             {
               "path": "/affix",
               "title": "Affix"
+            },
+            {
+              "path": "/input-phone",
+              "title": "InputPhone"
             }
           ]
         }
