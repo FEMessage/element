@@ -32,9 +32,7 @@ export default {
 :::demo
 
 ```html
-<template>
-  <el-input-email v-model="email" :email-list="list" />
-</template>
+<el-input-email v-model="email" :email-list="list" />
 
 <script>
 export default {
@@ -57,9 +55,7 @@ export default {
 ::: demo
 
 ```html
-<template>
-  <el-input-email v-model="email" :auto-fill="false" />
-</template>
+<el-input-email v-model="email" :auto-fill="false" />
 
 <script>
 export default {
