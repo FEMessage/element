@@ -123,3 +123,9 @@ export default {
   }
 };
 </script>
+
+<style>
+.el-input-email {
+  width: 100%;
+}
+</style>
