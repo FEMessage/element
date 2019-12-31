@@ -3,6 +3,7 @@
     <el-switch
       :class="[{'square': square}, {'inline-text': inlineText}]"
       v-bind="$attrs"
+      v-model="value"
       v-on="$listeners"
     />
   </div>
@@ -20,6 +21,11 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  data() {
+    return {
+      value: this.$attrs.value
+    };
   }
 };
 </script>

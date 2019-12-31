@@ -7,20 +7,19 @@
 :::demo 绑定`v-model`到一个`Boolean`类型的变量。可以使用`active-color`属性与`inactive-color`属性来设置开关的背景色。
 
 ```html
-<el-switch-enhance v-model="value0" active-text="开" inactive-text="关" />
+<el-switch-enhance v-model="value" active-text="开" inactive-text="关" />
 
 <script>
-export default {
-  data() {
-    return {
-      value0: false
+  export default {
+    data() {
+      return {
+        value: true
+      }
     }
-  }
-}
+  };
 </script>
 ```
 :::
-
 
 ## 文字在切换内部
 
