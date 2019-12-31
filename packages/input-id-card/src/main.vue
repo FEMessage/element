@@ -1,15 +1,15 @@
 <template>
-    <el-input
-      class="el-input-id-card"
-      type="text"
-      :maxlength="valueLen"
-      :placeholder="placeholder"
-      :class="[{'is-error': isError}]"
-      v-bind="attrs"
-      @blur="handleBlur"
-      v-on="$listeners"
-      v-model="innerValue"
-    ></el-input>
+  <el-input
+    class="el-input-id-card"
+    type="text"
+    :maxlength="valueLen"
+    :placeholder="placeholder"
+    :class="[{'is-error': isError}]"
+    v-bind="attrs"
+    @blur="handleBlur"
+    v-on="$listeners"
+    v-model="innerValue"
+  ></el-input>
 </template>
 
 <script>
