@@ -1,18 +1,22 @@
 ## InputIdCard 身份证号码校验输入框
 
-### 基本用法
+### 结合el-form-renderer使用
 
 :::demo
 
 ```html
-<el-input-id-card v-model="value"></el-input-id-card>
-
+<el-form-renderer :content="content"></el-form-renderer>
 
 <script>
+// 正确的import方式
+// import {ElInputIdCard} from '@femessage/element-ui'
+const ElInputIdCard = require('../../../packages/input-id-card/src/main.vue').default
 export default {
   data() {
     return {
-      value: ''
+      content: [
+        {id:'id',label:'身份证号码',component: ElInputIdCard}
+      ]
     }
   }
 }
@@ -20,6 +24,7 @@ export default {
 ```
 
 :::
+
 
 ### Attributes
 
