@@ -77,7 +77,6 @@
     "throttle-debounce": "^1.0.1"
   },
   "peerDependencies": {
-    "@femessage/el-form-renderer": "^1.12.1",
     "vue": "^2.5.17"
   },
   "devDependencies": {
