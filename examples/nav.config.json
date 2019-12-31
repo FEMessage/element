@@ -300,8 +300,12 @@
           "groupName": "Input-Enhance",
           "list": [
             {
+              "path": "/input-id-card",
+              "title": "InputIdCard 身份证输入框"
+            },
+            {
               "path": "/input-phone",
-              "title": "InputPhone 手机号码输入"
+              "title": "InputPhone 手机号输入框"
             }
           ]
         },
@@ -723,6 +727,10 @@
             {
               "path": "/input-phone",
               "title": "InputPhone"
+            },
+            {
+              "path": "/input-id-card",
+              "title": "InputIdCard"
             }
           ]
         }
@@ -1083,6 +1091,10 @@
             {
               "path": "/input-phone",
               "title": "InputPhone"
+            },
+            {
+              "path": "/input-id-card",
+              "title": "InputIdCard"
             }
           ]
         }
@@ -1442,6 +1454,10 @@
             {
               "path": "/input-phone",
               "title": "InputPhone"
+            },
+            {
+              "path": "/input-id-card",
+              "title": "InputIdCard"
             }
           ]
         }
