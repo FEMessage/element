@@ -302,6 +302,10 @@
             {
               "path": "/input-id-card",
               "title": "InputIdCard 身份证号码校验输入框"
+            },
+            {
+              "path": "/input-phone",
+              "title": "InputPhone 手机号码输入"
             }
           ]
         },
@@ -359,6 +363,10 @@
             {
               "path": "/affix",
               "title": "Affix 固钉"
+            },
+            {
+              "path": "/input-phone",
+              "title": "InputPhone 手机号码输入"
             }
           ]
         }
@@ -715,6 +723,10 @@
             {
               "path": "/affix",
               "title": "Affix"
+            },
+            {
+              "path": "/input-phone",
+              "title": "InputPhone"
             },
             {
               "path": "/input-id-card",
@@ -1077,6 +1089,10 @@
               "title": "Affix"
             },
             {
+              "path": "/input-phone",
+              "title": "InputPhone"
+            },
+            {
               "path": "/input-id-card",
               "title": "InputIdCard"
             }
@@ -1434,6 +1450,10 @@
             {
               "path": "/affix",
               "title": "Affix"
+            },
+            {
+              "path": "/input-phone",
+              "title": "InputPhone"
             },
             {
               "path": "/input-id-card",
