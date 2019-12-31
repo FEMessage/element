@@ -1,6 +1,6 @@
 <template>
   <el-input
-    :class="['el-input-url', {invalid: !valid}]"
+    :class="['el-input-url', {'is-error': !valid}]"
     :value="value"
     :maxlength="2000"
     v-bind="$attrs"
@@ -14,12 +14,16 @@
 import {
   isWebUri,
   isHttpsGitRepo,
-  isGitRepo,
-  normalizeUrl,
-  normalizeGitUrl
+  isGitRepo
 } from './util.js';
 
-export default {
+const validator = (rule, value, callback) => {
+  // console.log('validate', rule, value);
+  // console.log(ElInputUrl);
+  return false;
+};
+
+const ElInputUrl = {
   name: 'ElInputUrl',
   props: {
     /**
@@ -44,6 +48,10 @@ export default {
     ssh: {
       type: Boolean,
       default: false
+    },
+    message: {
+      type: String,
+      default: '请输入正确的url地址'
     }
   },
   data() {
@@ -58,20 +66,20 @@ export default {
       } else {
         return isWebUri;
       }
-    },
-    normalize() {
-      return this.git ? normalizeGitUrl : normalizeUrl;
     }
   },
+  rules() {
+    return [
+      // {required: true, trigger: 'blur'},
+      {validator, message: ElInputUrl.message, trigger: ['blur']}
+    ];
+  },
   methods: {
-    onBlur() {
-      let {value} = this;
-      value = this.normalize(value);
-      this.$emit('input', value);
-      if (this.$parent.$options.name !== 'ElFormItem') {
-        this.valid = this.validator(value);
-      }
+    onBlur($event) {
+      this.valid = this.validator(this.value);
     }
   }
 };
+
+export default ElInputUrl;
 </script>

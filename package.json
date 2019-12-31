@@ -69,7 +69,6 @@
     "babel-helper-vue-jsx-merge-props": "^2.0.0",
     "classnames": "^2.2.6",
     "deepmerge": "^1.2.0",
-    "normalize-url": "^4.5.0",
     "normalize-wheel": "^1.0.1",
     "omit.js": "^1.0.2",
     "raf": "^3.4.1",
@@ -79,11 +78,14 @@
     "valid-url": "^1.0.9"
   },
   "peerDependencies": {
+    "@femessage/el-form-renderer": "^1.12.1",
     "vue": "^2.5.17"
   },
   "devDependencies": {
+    "@babel/runtime": "^7.7.7",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
+    "@femessage/el-form-renderer": "^1.12.1",
     "@femessage/github-release-notes": "^0.19.0",
     "@vue/component-compiler-utils": "^2.6.0",
     "algoliasearch": "^3.24.5",

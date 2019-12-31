@@ -6,7 +6,7 @@
 
 ```html
 <template>
-  <el-input-url v-model="url" />
+  <el-input-url class="el-form-item" v-model="url" />
 </template>
 
 <script>
@@ -22,28 +22,25 @@ export default {
 
 :::
 
-### 不显示错误检查
-
-当出现在form里时，不会显示自带的错误检查
+### 配合el-form-renderer使用
 
 :::demo
 
 ```html
-<template>
-  <el-form :modal="formData" label-width="50px">
-    <el-form-item label="url" prop="url">
-      <el-input-url v-model="formData.url"></el-input-url>
-    </el-form-item>
-  </el-form>
-</template>
+<el-form-renderer :content="content" label-width="50px"></el-form-renderer>
 
 <script>
+const ElInputUrl = require('../../../packages/input-url/src/main.vue').default
 export default {
   data() {
     return {
-      formData:{
-        url: ''
-      }
+      content: [
+        {
+          id: 'url',
+          label: 'url',
+          component: ElInputUrl
+        }
+      ]
     }
   },
 }
@@ -57,15 +54,17 @@ export default {
 :::demo
 
 ```html
-<template>
-  <el-input-url v-model="url" git />
-</template>
+<div>
+  url模式：<el-input-url class="el-form-item" v-model="url" git />
+  ssh模式: <el-input-url class="el-form-item" v-model="ssh" git ssh />
+</div>
 
 <script>
 export default {
   data() {
     return {
-      url: 'git@github.com:FEMessage/el-data-table.git'
+      url: 'http://www.github.com/femessage/element.git',
+      ssh: 'git@github.com:FEMessage/el-data-table.git'
     }
   },
 }
