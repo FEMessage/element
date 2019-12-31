@@ -1,4 +1,4 @@
-## InputIdCard 身份证号码输入框
+## InputIdCard 身份证输入框
 
 ### 结合el-form-renderer使用
 

@@ -1,4 +1,4 @@
-## InputPhone 手机号码输入框
+## InputPhone 手机号输入框
 
 ### 结合el-form-renderer使用
 
