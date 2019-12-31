@@ -6,7 +6,8 @@
     :placeholder="placeholder"
     v-bind="attrs"
     v-on="$listeners"
-    v-model="innerValue"
+    :value="value"
+    @input="handleInput"
   ></el-input>
 </template>
 
@@ -40,7 +41,6 @@ export default {
 
   data() {
     return {
-      innerValue: '',
       valueLen: 18
     };
   },
@@ -54,14 +54,6 @@ export default {
     }
   },
 
-  watch: {
-    innerValue(newVal, oldVal) {
-      if (newVal !== oldVal) {
-        this.$emit('input', this.innerValue);
-      }
-    }
-  },
-
   rules() {
     return [
       { required: true, message: '请输入身份证号', trigger: 'blur' },
@@ -70,6 +62,12 @@ export default {
         trigger: ['blur', 'change']
       }
     ];
+  },
+
+  methods: {
+    handleInput(value) {
+      this.$emit('input', value);
+    }
   }
 };
 </script>
