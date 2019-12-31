@@ -2,7 +2,7 @@
   <!-- number 多用于数量累加之类操作，而且 tel 有对应软键盘适配 -->
   <el-input
     type="tel"
-    :class="['el-input-phone', {'input-error': isError}]"
+    :class="['el-input-phone', {'is-error': isError}]"
     v-bind="$attrs"
     :value="value"
     :placeholder="placeholder"
@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import {areaGroup, DEFAULTVALUE} from './const.js';
+import {areaGroup} from './const.js';
 
-export default {
+const ElInputPhone = {
   name: 'ElInputPhone',
   props: {
     /**
@@ -29,21 +29,26 @@ export default {
     placeholder: {
       type: String,
       default: '请输入手机号码'
-    },
-    /**
-     * 自动填充
-     */
-    autoFill: {
-      type: Boolean,
-      default: true
     }
   },
   data() {
     return {
-      isError: false,
-      select: areaGroup.china
-      // options: Object.values(areaGroup)
+      isError: false
     };
+  },
+  rules() {
+    return [
+      {
+        validator(rule, value, callback) {
+          if (!areaGroup.china.regEx.test(value)) {
+            callback('请输入正确的手机号码');
+            return false;
+          }
+          return true;
+        },
+        trigger: ['blur', 'change']
+      }
+    ];
   },
   methods: {
     handleInput(value) {
@@ -57,32 +62,12 @@ export default {
       this.verifyInput(value);
     },
     handleBlur(event) {
-      this.verifyLength(event.target.value);
       this.$nextTick(() => {
         this.verifyInput(event.target.value);
       });
     },
     verifyInput(value) {
-      if (!this.select.regEx.test(value)) {
-        this.isError = true;
-        return;
-      }
-      this.isError = false;
-    },
-    verifyLength(value) {
-      if (
-        !value.length ||
-        value.length === 1 ||
-        !this.select.regExPrefix.test(value)
-      ) {
-        this.autoFill && this.emitInput(DEFAULTVALUE);
-        return;
-      }
-      if (value.length < this.select.max) {
-        const diffCount = this.select.max - value.length + 1;
-        this.emitInput(value + Array(diffCount).join('0'));
-        return;
-      }
+      this.isError = !areaGroup.china.regEx.test(value);
     },
     emitInput(value) {
       /**
@@ -92,4 +77,6 @@ export default {
     }
   }
 };
+
+export default ElInputPhone;
 </script>

@@ -5,7 +5,7 @@
 :::demo
 
 ```html
-<el-input-phone v-model="phone" />
+<el-input-phone class="el-form-item" v-model="phone" />
 
 <script>
 export default {
@@ -20,18 +20,23 @@ export default {
 
 :::
 
-### 禁用自动填充
+### 结合el-form-renderer使用
+
+在form-renderer里监听change和blur事件
 
 :::demo
 
 ```html
-<el-input-phone v-model="phone" :auto-fill="false" />
+<el-form-renderer :content="content" label-width="80px"></el-form-renderer>
 
 <script>
+const ElInputPhone = require('../../../packages/input-phone/src/main.vue').default
 export default {
   data() {
     return {
-      phone: '132'
+      content:[
+        {id: 'phone', label: 'Phone', component: ElInputPhone}
+      ]
     }
   }
 }
@@ -46,4 +51,3 @@ export default {
 |---------- | -------- |---------- |-------------  |-------- |
 | value | 手机号 | string   |  —  |  —  |
 | placeholder | 输入框placeholder | string   |  —  |  请输入手机号码  |
-| auto-fill | blur事件自动是否填充默认值 | boolean   |  —  |  true  |
