@@ -1,25 +1,5 @@
 ## InputPhone 手机号码输入
 
-### 基本用法
-
-:::demo
-
-```html
-<el-input-phone class="el-form-item" v-model="phone" />
-
-<script>
-export default {
-  data() {
-    return {
-      phone: '132'
-    }
-  }
-}
-</script>
-```
-
-:::
-
 ### 结合el-form-renderer使用
 
 在form-renderer里监听change和blur事件
@@ -30,6 +10,8 @@ export default {
 <el-form-renderer :content="content" label-width="80px"></el-form-renderer>
 
 <script>
+// 正确import方式
+// import {InputPhone} from '@femessage/element-ui'
 const ElInputPhone = require('../../../packages/input-phone/src/main.vue').default
 export default {
   data() {

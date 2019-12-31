@@ -2,12 +2,11 @@
   <!-- number 多用于数量累加之类操作，而且 tel 有对应软键盘适配 -->
   <el-input
     type="tel"
-    :class="['el-input-phone', {'is-error': isError}]"
+    class="el-input-phone"
     v-bind="$attrs"
     :value="value"
     :placeholder="placeholder"
     @input="handleInput"
-    @blur="handleBlur"
   />
 </template>
 
@@ -59,15 +58,6 @@ const ElInputPhone = {
         return;
       }
       this.emitInput(newValue);
-      this.verifyInput(value);
-    },
-    handleBlur(event) {
-      this.$nextTick(() => {
-        this.verifyInput(event.target.value);
-      });
-    },
-    verifyInput(value) {
-      this.isError = !areaGroup.china.regEx.test(value);
     },
     emitInput(value) {
       /**
@@ -79,4 +69,5 @@ const ElInputPhone = {
 };
 
 export default ElInputPhone;
+
 </script>
