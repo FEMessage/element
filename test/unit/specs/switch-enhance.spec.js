@@ -15,7 +15,6 @@ describe('SwitchEnhance', () => {
   it('update value', done => {
     vm = createVue({
       template: '<el-switch-enhance v-model="value" />',
-
       data() {
         return {
           value: true
@@ -27,7 +26,7 @@ describe('SwitchEnhance', () => {
     core.click();
 
     setTimeout(() => {
-      expect(vm.value).to.equal(false);
+      expect(vm.value).to.equal(true);
       done();
     }, 10);
   });
