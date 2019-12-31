@@ -12,7 +12,7 @@
 <script>
 // 正确import方式
 // import {InputPhone} from '@femessage/element-ui'
-const ElInputPhone = require('../../../packages/input-phone/src/main.vue').default
+const ElInputPhone = require('element-ui/packages/input-phone/src/main.vue').default
 export default {
   data() {
     return {
