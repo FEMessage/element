@@ -11,6 +11,8 @@ import SideNav from './components/side-nav';
 import FooterNav from './components/footer-nav';
 import title from './i18n/title';
 
+import ElFormRenderer from '@femessage/el-form-renderer';
+
 import 'packages/theme-chalk/src/index.scss';
 import './demo-styles/index.scss';
 import './assets/styles/common.css';
@@ -24,6 +26,7 @@ Vue.component('main-footer', MainFooter);
 Vue.component('main-header', MainHeader);
 Vue.component('side-nav', SideNav);
 Vue.component('footer-nav', FooterNav);
+Vue.component('el-form-renderer', ElFormRenderer);
 
 const globalEle = new Vue({
   data: { $isEle: false } // 是否 ele 用户
