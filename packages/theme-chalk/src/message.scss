@@ -18,6 +18,7 @@
   padding: $--message-padding;
   display: flex;
   align-items: center;
+  z-index: $--index-peak;
 
   @include when(center) {
     justify-content: center;

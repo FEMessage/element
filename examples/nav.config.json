@@ -302,6 +302,14 @@
             {
               "path": "/input-email",
               "title": "InputEmail 邮件输入组件"
+            },
+            {
+              "path": "/input-id-card",
+              "title": "InputIdCard 身份证输入框"
+            },
+            {
+              "path": "/input-phone",
+              "title": "InputPhone 手机号输入框"
             }
           ]
         },
@@ -359,6 +367,10 @@
             {
               "path": "/affix",
               "title": "Affix 固钉"
+            },
+            {
+              "path": "/input-phone",
+              "title": "InputPhone 手机号码输入"
             }
           ]
         }
@@ -717,8 +729,17 @@
               "title": "Affix"
             },
             {
+<<<<<<< HEAD
               "path": "/input-email",
               "title": "InputEmail"
+=======
+              "path": "/input-phone",
+              "title": "InputPhone"
+            },
+            {
+              "path": "/input-id-card",
+              "title": "InputIdCard"
+>>>>>>> dev
             }
           ]
         }
@@ -1077,8 +1098,17 @@
               "title": "Affix"
             },
             {
+<<<<<<< HEAD
               "path": "/input-email",
               "title": "InputEmail"
+=======
+              "path": "/input-phone",
+              "title": "InputPhone"
+            },
+            {
+              "path": "/input-id-card",
+              "title": "InputIdCard"
+>>>>>>> dev
             }
           ]
         }
@@ -1436,8 +1466,17 @@
               "title": "Affix"
             },
             {
+<<<<<<< HEAD
               "path": "/input-email",
               "title": "InputEmail"
+=======
+              "path": "/input-phone",
+              "title": "InputPhone"
+            },
+            {
+              "path": "/input-id-card",
+              "title": "InputIdCard"
+>>>>>>> dev
             }
           ]
         }
