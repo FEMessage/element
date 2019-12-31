@@ -4,6 +4,7 @@
     type="tel"
     class="el-input-phone"
     v-bind="$attrs"
+    v-on="$listeners"
     :value="value"
     :placeholder="placeholder"
     @input="handleInput"
