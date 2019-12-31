@@ -301,7 +301,7 @@
           "list": [
             {
               "path": "/input-email",
-              "title": "InputEmail 邮件输入组件"
+              "title": "InputEmail 邮件输入框"
             },
             {
               "path": "/input-id-card",
@@ -729,17 +729,16 @@
               "title": "Affix"
             },
             {
-<<<<<<< HEAD
               "path": "/input-email",
               "title": "InputEmail"
-=======
+            },
+            {
               "path": "/input-phone",
               "title": "InputPhone"
             },
             {
               "path": "/input-id-card",
               "title": "InputIdCard"
->>>>>>> dev
             }
           ]
         }
@@ -1098,17 +1097,16 @@
               "title": "Affix"
             },
             {
-<<<<<<< HEAD
               "path": "/input-email",
               "title": "InputEmail"
-=======
+            },
+            {
               "path": "/input-phone",
               "title": "InputPhone"
             },
             {
               "path": "/input-id-card",
               "title": "InputIdCard"
->>>>>>> dev
             }
           ]
         }
@@ -1466,17 +1464,16 @@
               "title": "Affix"
             },
             {
-<<<<<<< HEAD
               "path": "/input-email",
               "title": "InputEmail"
-=======
+            },
+            {
               "path": "/input-phone",
               "title": "InputPhone"
             },
             {
               "path": "/input-id-card",
               "title": "InputIdCard"
->>>>>>> dev
             }
           ]
         }
