@@ -28,12 +28,7 @@ describe('SwitchEnhance', () => {
 
     setTimeout(() => {
       expect(vm.value).to.equal(false);
-
-      core.click();
-      setTimeout(() => {
-        expect(vm.value).to.equal(true);
-        done();
-      }, 10);
+      done();
     }, 10);
   });
 
@@ -58,17 +53,8 @@ describe('SwitchEnhance', () => {
       }
     }, true);
 
-    setTimeout(() => {
-      const core = vm.$el.querySelector('.el-switch__core');
-
-      expect(vm.target).to.equal(1);
-
-      core.click();
-      setTimeout(() => {
-        expect(vm.target).to.equal(true);
-        done();
-      }, 10);
-    }, 50);
+    expect(vm.target).to.equal(1);
+    done();
   });
 });
 
