@@ -301,11 +301,11 @@
           "list": [
             {
               "path": "/input-id-card",
-              "title": "InputIdCard 身份证号码校验输入框"
+              "title": "InputIdCard 身份证号码输入框"
             },
             {
               "path": "/input-phone",
-              "title": "InputPhone 手机号码输入"
+              "title": "InputPhone 手机号码输入框"
             }
           ]
         },
