@@ -17,8 +17,16 @@ export default {
   data() {
     return {
       content:[
-        {id: 'email', label: 'email', component: ElInputEmail}
-      ]
+        {
+          id: 'email',
+          label: 'email',
+          component: ElInputEmail,
+          default: '',
+          on: {
+            input: ([v]) => console.log(v)
+          }
+        }
+      ],
     }
   }
 }
