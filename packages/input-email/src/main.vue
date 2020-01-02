@@ -28,7 +28,7 @@ export default {
   },
   props: {
     /**
-     * 邮箱列表
+     * 提示补全的邮箱列表
      */
     emailList: {
       type: Array,
