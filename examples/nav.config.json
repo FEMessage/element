@@ -306,6 +306,10 @@
             {
               "path": "/input-phone",
               "title": "InputPhone 手机号输入框"
+            },
+            {
+              "path": "/input-email",
+              "title": "InputEmail 邮箱地址输入框"
             }
           ]
         },
@@ -363,14 +367,6 @@
             {
               "path": "/affix",
               "title": "Affix 固钉"
-            },
-            {
-              "path": "/input-phone",
-              "title": "InputPhone 手机号码输入"
-            },
-            {
-              "path": "/input-email",
-              "title": "InputEmail 邮箱地址输入"
             }
           ]
         }
