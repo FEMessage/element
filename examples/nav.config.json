@@ -367,6 +367,10 @@
             {
               "path": "/input-phone",
               "title": "InputPhone 手机号码输入"
+            },
+            {
+              "path": "/input-email",
+              "title": "InputEmail 邮箱地址输入"
             }
           ]
         }
@@ -731,6 +735,10 @@
             {
               "path": "/input-id-card",
               "title": "InputIdCard"
+            },
+            {
+              "path": "/input-email",
+              "title": "InputEmail"
             }
           ]
         }
@@ -1095,6 +1103,10 @@
             {
               "path": "/input-id-card",
               "title": "InputIdCard"
+            },
+            {
+              "path": "/input-email",
+              "title": "InputEmail"
             }
           ]
         }
@@ -1458,6 +1470,10 @@
             {
               "path": "/input-id-card",
               "title": "InputIdCard"
+            },
+            {
+              "path": "/input-email",
+              "title": "InputEmail"
             }
           ]
         }
