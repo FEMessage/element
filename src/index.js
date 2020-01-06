@@ -97,6 +97,7 @@ import Empty from '../packages/empty/index.js';
 import Affix from '../packages/affix/index.js';
 import InputIdCard from '../packages/input-id-card/index.js';
 import InputPhone from '../packages/input-phone/index.js';
+import FormTable from '../packages/form-table/index.js';
 import locale from 'element-ui/src/locale';
 import CollapseTransition from 'element-ui/src/transitions/collapse-transition';
 
@@ -192,6 +193,7 @@ const components = [
   Affix,
   InputIdCard,
   InputPhone,
+  FormTable,
   CollapseTransition
 ];
 
@@ -330,5 +332,6 @@ export default {
   Empty,
   Affix,
   InputIdCard,
-  InputPhone
+  InputPhone,
+  FormTable
 };

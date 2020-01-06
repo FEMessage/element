@@ -1,0 +1,20 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(form-table) {
+  .el-table td, .el-table th{
+    padding-bottom: 0;
+    .required{
+      color: $--color-danger;
+    }
+  }
+  .el-form-item__error{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    width: 100%;
+  }
+  .danger-button{
+    color: $--color-danger;
+  }
+}
