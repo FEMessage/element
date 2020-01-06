@@ -608,8 +608,8 @@ export default {
       }
     },
     deleteTag(tag) {
-      const { checkedValue } = this;
-      const index = checkedValue.findIndex(v => valueEquals(v, tag.node.path));
+      const { checkedValue, props: { emitPath = true }} = this;
+      const index = checkedValue.findIndex(v => valueEquals(v, tag.node[emitPath ? 'path' : 'value']));
       const val = checkedValue[index];
       // 不能用 splice，因为 checkedValue 的监听器会再判断一次引用是否相同
       this.checkedValue = checkedValue.filter((n, i) => i !== index);
