@@ -4,11 +4,11 @@
 @include b(switch-enhance) {
   .square {
     .el-switch__core {
-      border-radius: 4px;
+      border-radius: $--card-border-radius;
     }
 
     .el-switch__core::after {
-      border-radius: 4px;
+      border-radius: $--card-border-radius;
     }
   }
 
