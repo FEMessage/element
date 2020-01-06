@@ -367,6 +367,10 @@
             {
               "path": "/affix",
               "title": "Affix 固钉"
+            },
+            {
+              "path": "/switch-enhance",
+              "title": "SwitchEnhance 开关增强"
             }
           ]
         }
@@ -735,6 +739,10 @@
             {
               "path": "/input-email",
               "title": "InputEmail"
+            },
+            {
+              "path": "/switch-enhance",
+              "title": "SwitchEnhance"
             }
           ]
         }
@@ -1103,6 +1111,10 @@
             {
               "path": "/input-email",
               "title": "InputEmail"
+            },
+            {
+              "path": "/switch-enhance",
+              "title": "SwitchEnhance"
             }
           ]
         }
@@ -1470,6 +1482,10 @@
             {
               "path": "/input-email",
               "title": "InputEmail"
+            },
+            {
+              "path": "/switch-enhance",
+              "title": "SwitchEnhance"
             }
           ]
         }
