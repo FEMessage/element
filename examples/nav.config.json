@@ -371,6 +371,10 @@
             {
               "path": "/form-table",
               "title": "FormTable 表格式表单组件"
+            },
+            {
+              "path": "/switch-enhance",
+              "title": "SwitchEnhance 开关增强"
             }
           ]
         }
@@ -739,6 +743,10 @@
             {
               "path": "/form-table",
               "title": "FormTable"
+            },
+            {
+              "path": "/switch-enhance",
+              "title": "SwitchEnhance"
             }
           ]
         }
@@ -1105,8 +1113,12 @@
               "title": "InputIdCard"
             },
             {
-              "path": "/form-table",
+			  "path": "/form-table",
               "title": "FormTable"
+            },
+            {
+              "path": "/switch-enhance",
+              "title": "SwitchEnhance"
             }
           ]
         }
@@ -1472,8 +1484,12 @@
               "title": "InputIdCard"
             },
             {
-              "path": "/form-table",
+			  "path": "/form-table",
               "title": "FormTable"
+            },
+            {
+              "path": "/switch-enhance",
+              "title": "SwitchEnhance"
             }
           ]
         }

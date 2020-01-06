@@ -93,10 +93,10 @@ import { ElPanel } from './panel'
 import { ElSkeleton } from './skeleton'
 import { ElEmpty } from './empty'
 import { ElAffix } from './affix'
+import { ElSwitchEnhance } from './switch-enhance'
 
 import { ElInputIdCard } from './input-id-card'
 import { ElInputPhone } from './input-phone'
-import { ElFormTable } from './form-table'
 
 export interface InstallationOptions {
   locale: any,
@@ -406,6 +406,9 @@ export class InputIdCard extends ElInputIdCard {}
 
 /** InputPhone Component */
 export class InputPhone extends ElInputPhone {}
+
+/** SwitchEnhance Component */
+export class SwitchEnhance extends ElSwitchEnhance {}
 
 /** FormTable Component */
 export class FormTable extends ElFormTable {}
