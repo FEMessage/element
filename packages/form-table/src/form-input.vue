@@ -36,7 +36,7 @@ export default {
     };
   },
   mounted() {
-    this.options = this.column.options || [];
+    this.options = this.column.options || this.options;
   },
   methods: {
     event(on, data) {

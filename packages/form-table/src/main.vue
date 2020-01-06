@@ -24,12 +24,15 @@
       </el-table-column>
       <el-table-column label="操作">
         <el-form-item slot-scope="scope">
-          <el-button class="danger-button" type="text" @click="deleteRow(scope.row,scope.$index)">{{deleteText}}</el-button>
+          <el-button class="danger-button" type="text" v-bind="deleteProp"
+           @click="deleteRow(scope.row,scope.$index)">{{deleteText}}</el-button>
         </el-form-item>
       </el-table-column>
     </el-table>
     <div>
-      <el-button type="text" v-bind="addProp" @click="addRow">{{addText}}</el-button>
+      <el-button type="text" v-bind="addProp" @click="addRow">
+        <slot name="add">{{addText}}</slot>
+      </el-button>
     </div>
   </el-form>
 </template>
@@ -60,6 +63,12 @@ export default {
     addText: {
       type: String,
       default: '添加'
+    },
+    deleteProp: {
+      type: Object,
+      default() {
+        return {};
+      }
     },
     addProp: {
       type: Object,
@@ -128,18 +137,19 @@ export default {
     addRow() {
       this.$emit('input', this.model.data.concat([{...this.basicData}]));
     },
-    setOptions(prop, options, index = -1) {
+    setOptions(id, options, index = -1) {
       if (index > -1) {
-        const formItem = this.$refs[`formItem-${prop}-${index}`];
+        const formItem = this.$refs[`formItem-${id}-${index}`];
         formItem[0] && formItem[0].setOptions(options);
       } else {
         for (let i = 0; i < this.model.data.length; i++) {
-          this.setOptions(prop, options, i);
+          this.setOptions(id, options, i);
         }
+        this.columns.find(column => column.id === id).options = options;
       }
     },
-    validate() {
-      return this.$refs.form.validate();
+    validate(callback) {
+      return this.$refs.form.validate(callback);
     }
   }
 };

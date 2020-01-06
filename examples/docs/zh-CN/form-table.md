@@ -52,3 +52,74 @@ export default {
 
 :::
 
+### 使用setOptions
+
+setOptions使用方法和el-form-renderer的基本一致。但有第三个参数index来单独设置某行的options，没有第三个参数则设置所有行的options
+
+:::demo
+
+```html
+<el-form-table ref="form" :columns="columns" v-model="data"></el-form-table>
+
+<script>
+export default {
+  data() {
+    return {
+      data: [],
+      columns:[
+        {id: 'name', label: '姓名', type: 'input', el: {placeholder: '输入姓名'}, rules: [{required: true, trigger: 'blur', message: '请输入姓名'}]},
+        {
+          id: 'province',
+          label: '省',
+          type: 'select',
+          el: {placeholder: '选择省'},
+          on: {
+            change: this.setCityOptions
+          }
+        },
+        {id: 'city' , label: '市', type: 'select', el: {placeholder: '选择市'}, options: [{label: '男', value: 'male'}, {label: '女', value: 'female'}]}
+      ]
+    }
+  },
+  mounted(){
+    setTimeout(()=>{
+      this.$refs.form.setOptions('province', [{label:'广东', value: '1'}, {label: '江苏', value: '2'}])
+    },100)
+  },
+  methods: {
+    setCityOptions(data, value){
+      if(value === '1') {
+        this.$refs.form.setOptions('city', [{label: '广州', value: '11'}, {label: '深圳', value: '12'}], data.index)
+      }else if(value === '2') {
+        this.$refs.form.setOptions('city', [{label: '南京', value: '21'}, {label: '无锡', value: '22'}], data.index)
+      }
+    }
+  }
+}
+</script>
+```
+
+:::
+
+### Attributes
+
+| 参数      |   说明    |  类型     | 可选值       | 默认值   |
+|---------- | -------- |---------- |-------------  |-------- |
+| value | 表单数据 | array   |  —  |  —  |
+| columns | 表单字段,table列属性;和el-form-renderer的content基本一致 | array   |  —  |  —  |
+| deleteText | 删除按钮文案 | string   |  —  |  删除  |
+| addText | 添加按钮文案 | string   |  —  |  添加  |
+| deleteProp | 删除按钮属性，和el-button属性 | object  |  —  |  —  |
+| addProp | 添加按钮属性，和el-button属性 | object  |  —  |  —  |
+
+### Methods
+
+| 方法名      | 说明          | 参数
+|---------- |-------------- | --------------
+| validate | 返回el-form的validate方法 | Function(callback: Function(boolean, object))
+
+### Slot
+
+| name | 说明 |
+|------|--------|
+| add | 添加按钮的slot，当添加按钮样式文案等无法满足时使用 |
