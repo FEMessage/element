@@ -2,7 +2,7 @@
 
 ### 基本使用
 
-columns兼容el-form-renderer的基本属性，表单数据支持双向绑定
+columns兼容el-form-renderer的基本属性，表单数据支持双向绑定。type暂时只支持input和select，和支持自定义component属性。
 
 :::demo
 
