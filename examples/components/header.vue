@@ -330,7 +330,7 @@
               :class="{ 'is-active': verDropdownVisible }">
               <span>
                 element: {{ elementVersion }}
-                <i class="el-icon-arrow-down el-icon--right"></i>
+                <!-- <i class="el-icon-arrow-down el-icon--right"></i> -->
               </span>
               <el-dropdown-menu
                 slot="dropdown"
@@ -353,7 +353,7 @@
               :class="{ 'is-active': verDropdownVisible }">
               <span>
                 deepexi: {{ deepexiVersion }}
-                <i class="el-icon-arrow-down el-icon--right"></i>
+                <!-- <i class="el-icon-arrow-down el-icon--right"></i> -->
               </span>
               <el-dropdown-menu
                 slot="dropdown"
