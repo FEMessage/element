@@ -336,6 +336,5 @@ export default {
   InputIdCard,
   InputPhone,
   FormTable,
-  Affix,
   SwitchEnhance
 };
