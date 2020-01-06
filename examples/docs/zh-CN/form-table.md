@@ -77,7 +77,7 @@ export default {
             change: this.setCityOptions
           }
         },
-        {id: 'city' , label: '市', type: 'select', el: {placeholder: '选择市'}, options: [{label: '男', value: 'male'}, {label: '女', value: 'female'}]}
+        {id: 'city' , label: '市', type: 'select', el: {placeholder: '选择市'}, options: []}
       ]
     }
   },
