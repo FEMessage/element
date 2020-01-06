@@ -347,13 +347,16 @@
           </li>
 
           <li class="nav-item nav-versions" v-show="isComponentPage">
-            <el-dropdown
+            <div class="nav-dropdown el-dropdown">
+              <span class="el-dropdown-selfdefine">deepexi: {{ deepexiVersion }}</span>
+            </div>
+            <!-- <el-dropdown
               trigger="click"
               class="nav-dropdown"
               :class="{ 'is-active': verDropdownVisible }">
               <span>
                 deepexi: {{ deepexiVersion }}
-                <!-- <i class="el-icon-arrow-down el-icon--right"></i> -->
+                <i class="el-icon-arrow-down el-icon--right"></i>
               </span>
               <el-dropdown-menu
                 slot="dropdown"
@@ -366,7 +369,7 @@
                   {{ item }}
                 </el-dropdown-item>
               </el-dropdown-menu>
-            </el-dropdown>
+            </el-dropdown> -->
           </li>
 
           <!-- 语言选择器 -->
