@@ -17,15 +17,13 @@ import defaultEmailList from './email-list.js';
 const emailReg = /^[\w-]+@[\w-]+(\.[\w-]+)+$/;
 export default {
   name: 'ElInputEmail',
-  rules() {
-    return [
-      {
-        pattern: emailReg,
-        message: '请输入正确的邮箱地址',
-        trigger: ['blur', 'change']
-      }
-    ];
-  },
+  rules: [
+    {
+      pattern: emailReg,
+      message: '请输入正确的邮箱地址',
+      trigger: 'blur'
+    }
+  ],
   props: {
     /**
      * 提示补全的邮箱列表

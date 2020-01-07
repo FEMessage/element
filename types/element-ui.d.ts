@@ -98,6 +98,7 @@ import { ElSwitchEnhance } from './switch-enhance'
 import { ElInputIdCard } from './input-id-card'
 import { ElInputPhone } from './input-phone'
 import { ElInputEmail } from './input-email'
+import { ElInputUrl } from './input-url'
 
 export interface InstallationOptions {
   locale: any,
@@ -413,3 +414,6 @@ export class InputEmail extends ElInputEmail {}
 
 /** SwitchEnhance Component */
 export class SwitchEnhance extends ElSwitchEnhance {}
+
+/** InputUrl Component */
+export class InputUrl extends ElInputUrl {}

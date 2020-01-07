@@ -2,7 +2,7 @@
 
 ### 结合el-form-renderer使用
 
-在form-renderer里监听change和blur事件
+在 el-form-renderer 里监听 blur 事件
 
 :::demo
 
@@ -11,7 +11,7 @@
 
 <script>
 // 正确import方式
-// import {ElInputEmal} from '@femessage/element-ui'
+// import {ElInputEmail} from '@femessage/element-ui'
 const ElInputEmail = require('element-ui/packages/input-email/src/main.vue').default
 export default {
   data() {

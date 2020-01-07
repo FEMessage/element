@@ -310,6 +310,10 @@
             {
               "path": "/input-email",
               "title": "InputEmail 邮箱地址输入框"
+            },
+            {
+              "path": "/input-url",
+              "title": "InputUrl URL 输入框"
             }
           ]
         },
@@ -743,6 +747,10 @@
             {
               "path": "/switch-enhance",
               "title": "SwitchEnhance"
+            },
+            {
+              "path": "/input-url",
+              "title": "InputUrl"
             }
           ]
         }
@@ -1115,6 +1123,10 @@
             {
               "path": "/switch-enhance",
               "title": "SwitchEnhance"
+            },
+            {
+              "path": "/input-url",
+              "title": "InputUrl"
             }
           ]
         }
@@ -1486,6 +1498,10 @@
             {
               "path": "/switch-enhance",
               "title": "SwitchEnhance"
+            },
+            {
+              "path": "/input-url",
+              "title": "InputUrl"
             }
           ]
         }
