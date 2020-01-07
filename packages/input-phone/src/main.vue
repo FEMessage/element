@@ -36,20 +36,18 @@ const ElInputPhone = {
       isError: false
     };
   },
-  rules() {
-    return [
-      {
-        validator(rule, value, callback) {
-          if (!areaGroup.china.regEx.test(value)) {
-            callback('请输入正确的手机号码');
-            return false;
-          }
-          return true;
-        },
-        trigger: ['blur', 'change']
-      }
-    ];
-  },
+  rules: [
+    {
+      validator(rule, value, callback) {
+        if (!areaGroup.china.regEx.test(value)) {
+          callback('请输入正确的手机号码');
+          return false;
+        }
+        return true;
+      },
+      trigger: 'blur'
+    }
+  ],
   methods: {
     handleInput(value) {
       // 只能输出数字

@@ -94,9 +94,11 @@ import { ElSkeleton } from './skeleton'
 import { ElEmpty } from './empty'
 import { ElAffix } from './affix'
 import { ElSwitchEnhance } from './switch-enhance'
-
+import { ElEditTable } from './edit-table'
 import { ElInputIdCard } from './input-id-card'
 import { ElInputPhone } from './input-phone'
+import { ElInputEmail } from './input-email'
+import { ElInputUrl } from './input-url'
 
 export interface InstallationOptions {
   locale: any,
@@ -407,8 +409,14 @@ export class InputIdCard extends ElInputIdCard {}
 /** InputPhone Component */
 export class InputPhone extends ElInputPhone {}
 
+/** InputEmail Component */
+export class InputEmail extends ElInputEmail {}
+
 /** SwitchEnhance Component */
 export class SwitchEnhance extends ElSwitchEnhance {}
 
 /** EditTable Component */
 export class EditTable extends ElEditTable {}
+
+/** InputUrl Component */
+export class InputUrl extends ElInputUrl {}

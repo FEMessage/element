@@ -54,15 +54,13 @@ export default {
     }
   },
 
-  rules() {
-    return [
-      { required: true, message: '请输入身份证号', trigger: 'blur' },
-      {
-        validator: validateIdCard,
-        trigger: ['blur', 'change']
-      }
-    ];
-  },
+  rules: [
+    { required: true, message: '请输入身份证号', trigger: 'blur' },
+    {
+      validator: validateIdCard,
+      trigger: 'blur'
+    }
+  ],
 
   methods: {
     handleInput(value) {
