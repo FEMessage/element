@@ -21,7 +21,7 @@ export default {
         else cb(new Error('请输入正确的 URL 地址'));
       },
       trigger: 'blur'
-    },
+    }
   ],
   props: {
     /**
