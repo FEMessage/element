@@ -2,24 +2,19 @@
   <el-input
     class="el-input-url"
     :value="value"
-    :maxlength="2000"
+    :placeholder="placeholder"
     v-bind="$attrs"
-    :placeholder="$attrs.placeholder || '请输入url'"
     v-on="$listeners"
   />
 </template>
 
 <script>
-import validUrl from 'valid-url';
-
 export default {
   name: 'ElInputUrl',
   rules: [
     {
-      validator(r, v, cb) {
-        if (validUrl.isWebUri(v)) cb();
-        else cb(new Error('请输入正确的 URL 地址'));
-      },
+      type: 'url',
+      message: '请输入正确的 URL 地址',
       trigger: 'blur'
     }
   ],
@@ -30,6 +25,13 @@ export default {
     value: {
       type: String,
       default: ''
+    },
+    /**
+     * 输入框占位符
+     */
+    placeholder: {
+      type: String,
+      default: '请输入 URL 地址'
     }
   }
 };
