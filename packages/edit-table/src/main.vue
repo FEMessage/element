@@ -1,5 +1,5 @@
 <template>
-  <el-form class="el-form-table" ref="form" :model="model">
+  <el-form class="el-edit-table" ref="form" :model="model">
     <el-table ref="table" :data="model.data">
       <el-table-column
         v-for="(column,index) in columns"
@@ -41,7 +41,7 @@
 import FormInput from './form-input.vue';
 const isNotFalse = [0, '0', false];
 export default {
-  name: 'ElFormTable',
+  name: 'ElEditTable',
   components: {
     FormInput
   },

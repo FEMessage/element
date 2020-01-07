@@ -1,4 +1,4 @@
-## FormTable 表格式表单组件
+## EditTable 表格式表单组件
 
 ### 基本使用
 
@@ -7,7 +7,7 @@ columns兼容el-form-renderer的基本属性，表单数据支持双向绑定。
 :::demo
 
 ```html
-<el-form-table ref="form" :columns="columns" v-model="data"></el-form-table>
+<el-edit-table ref="form" :columns="columns" v-model="data"></el-edit-table>
 <el-button @click="validate">校验表单</el-button>
 <div>当前数据：{{data}}</div>
 
@@ -59,7 +59,7 @@ setOptions使用方法和el-form-renderer的基本一致。但有第三个参数
 :::demo
 
 ```html
-<el-form-table ref="form" :columns="columns" v-model="data"></el-form-table>
+<el-edit-table ref="form" :columns="columns" v-model="data"></el-edit-table>
 
 <script>
 export default {
@@ -114,9 +114,10 @@ export default {
 
 ### Methods
 
-| 方法名      | 说明          | 参数
-|---------- |-------------- | --------------
-| validate | 返回el-form的validate方法 | Function(callback: Function(boolean, object))
+| 方法名      | 说明          | 参数 |
+|---------- |-------------- | -------------- |
+| validate | 返回el-form的validate方法 | Function(callback: Function(boolean, object))|
+|setOptions|同el-form-renderer的setOptions方法,前2个参数为列id,选项数组;第3个参数为所在行，起始行为0，不传则修改所有行的options|Function(id:string,options: array,index: number)|
 
 ### Slot
 

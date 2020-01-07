@@ -410,5 +410,5 @@ export class InputPhone extends ElInputPhone {}
 /** SwitchEnhance Component */
 export class SwitchEnhance extends ElSwitchEnhance {}
 
-/** FormTable Component */
-export class FormTable extends ElFormTable {}
+/** EditTable Component */
+export class EditTable extends ElEditTable {}

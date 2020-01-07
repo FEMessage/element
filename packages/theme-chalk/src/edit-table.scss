@@ -1,7 +1,7 @@
 @import "mixins/mixins";
 @import "common/var";
 
-@include b(form-table) {
+@include b(edit-table) {
   .el-table td, .el-table th{
     padding-bottom: 0;
     .required{

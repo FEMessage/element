@@ -1,14 +1,14 @@
 import { createTest, destroyVM } from '../util';
-import FormTable from 'packages/form-table';
+import EditTable from 'packages/edit-table';
 
-describe('FormTable', () => {
+describe('EditTable', () => {
   let vm;
   afterEach(() => {
     destroyVM(vm);
   });
 
   it('create', () => {
-    vm = createTest(FormTable, true);
+    vm = createTest(EditTable, true);
     expect(vm.$el).to.exist;
   });
 });

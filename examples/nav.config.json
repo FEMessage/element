@@ -369,8 +369,8 @@
               "title": "InputPhone 手机号码输入"
             },
             {
-              "path": "/form-table",
-              "title": "FormTable 表格式表单组件"
+              "path": "/edit-table",
+              "title": "EditTable 表格式表单组件"
             },
             {
               "path": "/switch-enhance",
@@ -741,8 +741,8 @@
               "title": "InputIdCard"
             },
             {
-              "path": "/form-table",
-              "title": "FormTable"
+              "path": "/edit-table",
+              "title": "EditTable"
             },
             {
               "path": "/switch-enhance",
@@ -1113,8 +1113,8 @@
               "title": "InputIdCard"
             },
             {
-			  "path": "/form-table",
-              "title": "FormTable"
+			  "path": "/edit-table",
+              "title": "EditTable"
             },
             {
               "path": "/switch-enhance",
@@ -1484,8 +1484,8 @@
               "title": "InputIdCard"
             },
             {
-			  "path": "/form-table",
-              "title": "FormTable"
+			  "path": "/edit-table",
+              "title": "EditTable"
             },
             {
               "path": "/switch-enhance",
