@@ -19,6 +19,8 @@
             :column="column"
             :data="scope.row"
             :rules="rules[column.id]"
+            :common-options="commonOptionsData[column.id]"
+            :row-options="rowOptionsData[`${column.id}-${indexKeys[scope.$index]}`]"
           ></form-input>
         </template>
       </el-table-column>
@@ -78,7 +80,12 @@ export default {
     }
   },
   data() {
-    return {};
+    return {
+      currentKey: 0,
+      indexKeys: [],
+      commonOptionsData: {},
+      rowOptionsData: {}
+    };
   },
   computed: {
     basicData() {
@@ -105,10 +112,19 @@ export default {
   },
   beforeMount() {
     if (!this.value.length) {
+      this.addIndexKey();
       this.$emit('input', [{...this.basicData}]);
     } else {
-      this.$emit('input', this.value.map(data => Object.assign(data, this.basicData)));
+      this.$emit('input', this.value.map(data => {
+        this.addIndexKey();
+        return Object.assign(data, this.basicData);
+      }));
     }
+    this.columns.forEach(column => {
+      if (column.options) {
+        this.commonOptionsData[column.id] = column.options;
+      }
+    });
   },
   methods: {
     hasRequired(rules) {
@@ -120,12 +136,17 @@ export default {
       }
       return false;
     },
+    addIndexKey() {
+      this.indexKeys.push(this.currentKey);
+      this.currentKey++;
+    },
     deleteRow(row, index) {
       if (this.value.length < 2) {
         this.$message.error('不能删除最后一条数据');
         return ;
       }
       const deleteIndex = () => {
+        this.deleteRowOptions(index);
         this.$emit('input', this.model.data.filter((item, i) => i !== index));
       };
       if (Object.keys(row).some(key => row[key] !== this.basicData[key])) {
@@ -135,17 +156,29 @@ export default {
       }
     },
     addRow() {
+      this.addIndexKey();
       this.$emit('input', this.model.data.concat([{...this.basicData}]));
+    },
+    deleteRowOptions(index) {
+      Object.keys(this.rowOptionsData).forEach(key => {
+        if (+key.split('-')[1] === this.indexKeys[index]) {
+          delete this.rowOptionsData[key];
+        }
+      });
+      this.indexKeys = this.indexKeys.filter((indexKey, i) =>i !== index);
     },
     setOptions(id, options, index = -1) {
       if (index > -1) {
-        const formItem = this.$refs[`formItem-${id}-${index}`];
-        formItem[0] && formItem[0].setOptions(options);
+        // 单独设置一行options
+        this.$set(this.rowOptionsData, `${id}-${this.indexKeys[index]}`, options);
       } else {
-        for (let i = 0; i < this.model.data.length; i++) {
-          this.setOptions(id, options, i);
-        }
-        this.columns.find(column => column.id === id).options = options;
+        // 设置所有行的options
+        this.$set(this.commonOptionsData, id, options);
+        Object.keys(this.rowOptionsData).forEach(key=>{
+          if (key.split('-')[0] === id) {
+            delete this.rowOptionsData[key];
+          }
+        });
       }
     },
     validate(callback) {

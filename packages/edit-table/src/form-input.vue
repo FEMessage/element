@@ -2,7 +2,7 @@
   <el-form-item class="form-input" v-bind="$attrs" :prop="'data.' + index + '.' + column.id">
     <component v-if="column.type" :is="`el-${column.type}`" v-model="data[column.id]" v-bind="column.el" v-on="event(column.on, data)">
       <template v-if="column.type==='select'">
-        <el-option v-for="(option,index) in options" :key="index" v-bind="option"></el-option>
+        <el-option v-for="(option, index) in options" :key="index" v-bind="option"></el-option>
       </template>
     </component>
     <component v-if="column.component" :is="column.component" v-model="data[column.id]" v-bind="column.el" v-on="event(column.on, data)" ></component>
@@ -28,15 +28,23 @@ export default {
     index: {
       type: Number,
       default: -1
+    },
+    commonOptions: {
+      type: Array,
+      default: () => []
+    },
+    rowOptions: {
+      type: Array,
+      default: () => []
     }
   },
-  data() {
-    return {
-      options: []
-    };
-  },
-  mounted() {
-    this.options = this.column.options || this.options;
+  computed: {
+    options() {
+      if (this.rowOptions.length > 0) {
+        return this.rowOptions;
+      }
+      return this.commonOptions;
+    }
   },
   methods: {
     event(on, data) {
@@ -52,9 +60,6 @@ export default {
         };
       });
       return event;
-    },
-    setOptions(options) {
-      this.options = options;
     }
   }
 };
