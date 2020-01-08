@@ -16,15 +16,11 @@
         </template>
         <template slot-scope="scope">
           <form-input
-            :ref="`formItem-${column.id}-${scope.$index}`"
             :index="scope.$index"
             :column="column"
             :data="scope.row"
             :rules="rules[column.id]"
-            :common-options="commonOptionsData[column.id]"
-            :row-options="
-              rowOptionsData[`${column.id}-${indexKeys[scope.$index]}`]
-            "
+            :options="createOptions(column.id, scope.$index)"
           ></form-input>
         </template>
       </el-table-column>
@@ -76,6 +72,7 @@ export default {
       rowOptionsData: {}
     };
   },
+
   computed: {
     basicData() {
       const data = {};
@@ -84,6 +81,7 @@ export default {
       });
       return data;
     },
+
     rules() {
       const rules = {};
       this.columns.forEach(column => {
@@ -93,12 +91,28 @@ export default {
       });
       return rules;
     },
+
     model() {
       return {
         data: this.value
       };
+    },
+
+    createOptions() {
+      // 对于 select 这样的组件，可以统一设置 options，也可以对一行单独设置
+      return (id, index) => {
+        const rowOptions = this.rowOptionsData[`${id}-${this.indexKeys[index]}`] || [];
+
+        // 判断是否存在单独设置的 options
+        if (rowOptions.length > 0) {
+          return rowOptions;
+        } else {
+          return this.commonOptionsData[id];
+        }
+      };
     }
   },
+
   beforeMount() {
     if (!this.value.length) {
       this.addIndexKey();
@@ -118,6 +132,7 @@ export default {
       }
     });
   },
+
   methods: {
     hasRequired(rules) {
       if (rules && rules.required) {
@@ -128,18 +143,11 @@ export default {
       }
       return false;
     },
-    getRowOptions(id, index) {
-      const commonOptions = this.commonOptionsData[id];
-      const rowOptions = this.rowOptionsData[`${id}-${this.indexKeys[index]}`];
-      if (rowOptions && rowOptions.length) {
-        return rowOptions;
-      }
-      return commonOptions;
-    },
     addIndexKey() {
       this.indexKeys.push(this.currentKey);
       this.currentKey++;
     },
+
     deleteRow(row, index) {
       if (this.value.length < 2) {
         this.$message.error('不能删除最后一条数据');
@@ -158,10 +166,12 @@ export default {
         deleteIndex();
       }
     },
+
     addRow() {
       this.addIndexKey();
       this.$emit('input', this.model.data.concat([{ ...this.basicData }]));
     },
+
     deleteRowOptions(index) {
       Object.keys(this.rowOptionsData).forEach(key => {
         if (+key.split('-')[1] === this.indexKeys[index]) {
@@ -170,6 +180,7 @@ export default {
       });
       this.indexKeys = this.indexKeys.filter((indexKey, i) => i !== index);
     },
+
     setOptions(id, options, index = -1) {
       if (index > -1) {
         // 单独设置一行options
@@ -188,6 +199,7 @@ export default {
         });
       }
     },
+
     validate(callback) {
       return this.$refs.form.validate(callback);
     }

@@ -82,7 +82,7 @@ export default {
     }
   },
   mounted(){
-    this.$refs.form.setOptions('province', [{label:'广东', value: '1'}, {label: '江苏', value: '2'}])
+    this.$refs.form.setOptions('province', [{label:'广东', value: '1'}, {label: '江苏', value: '2'}], 0)
   },
   methods: {
     setCityOptions(data, value){
