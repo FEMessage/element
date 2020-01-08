@@ -117,7 +117,7 @@ export default {
     } else {
       this.$emit('input', this.value.map(data => {
         this.addIndexKey();
-        return Object.assign(data, this.basicData);
+        return Object.assign({}, this.basicData, data);
       }));
     }
     this.columns.forEach(column => {
