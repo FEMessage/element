@@ -2,15 +2,17 @@
   <el-form class="el-edit-table" ref="form" :model="model">
     <el-table ref="table" :data="model.data">
       <el-table-column
-        v-for="(column,index) in columns"
+        v-for="(column, index) in columns"
         :key="index"
         :label="column.label"
         :prop="column.id"
         v-bind="column.columnAttrs"
       >
         <template slot="header" slot-scope="scope">
-          {{scope.column.label}}
-          <span v-if="hasRequired(columns[scope.$index].rules)" class="required">*</span>
+          {{ scope.column.label }}
+          <span v-if="hasRequired(columns[scope.$index].rules)" class="required"
+            >*</span
+          >
         </template>
         <template slot-scope="scope">
           <form-input
@@ -19,22 +21,30 @@
             :column="column"
             :data="scope.row"
             :rules="rules[column.id]"
-            :options="getRowOptions(column.id, scope.$index)"
+            :common-options="commonOptionsData[column.id]"
+            :row-options="
+              rowOptionsData[`${column.id}-${indexKeys[scope.$index]}`]
+            "
           ></form-input>
         </template>
       </el-table-column>
       <el-table-column label="操作">
         <el-form-item slot-scope="scope">
-          <el-button class="danger-button" type="text" v-bind="deleteProp"
-           @click="deleteRow(scope.row,scope.$index)">{{deleteText}}</el-button>
+          <span @click="deleteRow(scope.row, scope.$index)">
+            <slot name="delete">
+              <el-button class="danger-button" type="text">删除</el-button>
+            </slot>
+          </span>
         </el-form-item>
       </el-table-column>
     </el-table>
-    <div>
-      <el-button type="text" v-bind="addProp" @click="addRow">
-        <slot name="add">{{addText}}</slot>
-      </el-button>
-    </div>
+    <span @click="addRow">
+      <slot name="add">
+        <el-button type="text">
+          添加
+        </el-button>
+      </slot>
+    </span>
   </el-form>
 </template>
 
@@ -55,26 +65,6 @@ export default {
       type: Array,
       default() {
         return [];
-      }
-    },
-    deleteText: {
-      type: String,
-      default: '删除'
-    },
-    addText: {
-      type: String,
-      default: '添加'
-    },
-    deleteProp: {
-      type: Object,
-      default() {
-        return {};
-      }
-    },
-    addProp: {
-      type: Object,
-      default() {
-        return {};
       }
     }
   },
@@ -112,12 +102,15 @@ export default {
   beforeMount() {
     if (!this.value.length) {
       this.addIndexKey();
-      this.$emit('input', [{...this.basicData}]);
+      this.$emit('input', [{ ...this.basicData }]);
     } else {
-      this.$emit('input', this.value.map(data => {
-        this.addIndexKey();
-        return Object.assign({}, this.basicData, data);
-      }));
+      this.$emit(
+        'input',
+        this.value.map(data => {
+          this.addIndexKey();
+          return Object.assign({}, this.basicData, data);
+        })
+      );
     }
     this.columns.forEach(column => {
       if (column.options) {
@@ -150,11 +143,14 @@ export default {
     deleteRow(row, index) {
       if (this.value.length < 2) {
         this.$message.error('不能删除最后一条数据');
-        return ;
+        return;
       }
       const deleteIndex = () => {
         this.deleteRowOptions(index);
-        this.$emit('input', this.model.data.filter((item, i) => i !== index));
+        this.$emit(
+          'input',
+          this.model.data.filter((item, i) => i !== index)
+        );
       };
       if (Object.keys(row).some(key => row[key] !== this.basicData[key])) {
         this.$confirm('确认删除该行数据吗？').then(deleteIndex);
@@ -164,7 +160,7 @@ export default {
     },
     addRow() {
       this.addIndexKey();
-      this.$emit('input', this.model.data.concat([{...this.basicData}]));
+      this.$emit('input', this.model.data.concat([{ ...this.basicData }]));
     },
     deleteRowOptions(index) {
       Object.keys(this.rowOptionsData).forEach(key => {
@@ -172,16 +168,20 @@ export default {
           delete this.rowOptionsData[key];
         }
       });
-      this.indexKeys = this.indexKeys.filter((indexKey, i) =>i !== index);
+      this.indexKeys = this.indexKeys.filter((indexKey, i) => i !== index);
     },
     setOptions(id, options, index = -1) {
       if (index > -1) {
         // 单独设置一行options
-        this.$set(this.rowOptionsData, `${id}-${this.indexKeys[index]}`, options);
+        this.$set(
+          this.rowOptionsData,
+          `${id}-${this.indexKeys[index]}`,
+          options
+        );
       } else {
         // 设置所有行的options
         this.$set(this.commonOptionsData, id, options);
-        Object.keys(this.rowOptionsData).forEach(key=>{
+        Object.keys(this.rowOptionsData).forEach(key => {
           if (key.split('-')[0] === id) {
             delete this.rowOptionsData[key];
           }

@@ -105,10 +105,6 @@ export default {
 |---------- | -------- |---------- |-------------  |-------- |
 | value | 表单数据 | array   |  —  |  —  |
 | columns | 表单字段,table列属性;和el-form-renderer的content基本一致 | array   |  —  |  —  |
-| deleteText | 删除按钮文案 | string   |  —  |  删除  |
-| addText | 添加按钮文案 | string   |  —  |  添加  |
-| deleteProp | 删除按钮属性，和el-button属性 | object  |  —  |  —  |
-| addProp | 添加按钮属性，和el-button属性 | object  |  —  |  —  |
 
 ### Methods
 
@@ -122,3 +118,4 @@ export default {
 | name | 说明 |
 |------|--------|
 | add | 添加按钮的slot，当添加按钮样式文案等无法满足时使用 |
+| delete | 删除按钮的slot，当删除按钮样式文案等无法满足时使用 |
