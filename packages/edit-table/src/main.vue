@@ -19,8 +19,7 @@
             :column="column"
             :data="scope.row"
             :rules="rules[column.id]"
-            :common-options="commonOptionsData[column.id]"
-            :row-options="rowOptionsData[`${column.id}-${indexKeys[scope.$index]}`]"
+            :options="getRowOptions(column.id, scope.$index)"
           ></form-input>
         </template>
       </el-table-column>
@@ -135,6 +134,14 @@ export default {
         return rules.some(rule => rule.required);
       }
       return false;
+    },
+    getRowOptions(id, index) {
+      const commonOptions = this.commonOptionsData[id];
+      const rowOptions = this.rowOptionsData[`${id}-${this.indexKeys[index]}`];
+      if (rowOptions && rowOptions.length) {
+        return rowOptions;
+      }
+      return commonOptions;
     },
     addIndexKey() {
       this.indexKeys.push(this.currentKey);
