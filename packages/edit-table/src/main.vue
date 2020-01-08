@@ -41,7 +41,7 @@
 
 <script>
 import FormInput from './form-input.vue';
-const isNotFalse = [0, '0', false];
+
 export default {
   name: 'ElEditTable',
   components: {
@@ -91,7 +91,7 @@ export default {
     basicData() {
       const data = {};
       this.columns.forEach(column => {
-        data[column.id] = isNotFalse.indexOf(column.default) > -1 ? column.default : column.default || '';
+        data[column.id] = 'default' in column ? column.default : '';
       });
       return data;
     },
