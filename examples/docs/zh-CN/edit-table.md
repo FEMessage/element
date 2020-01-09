@@ -198,7 +198,7 @@ export default {
 
 ### 使用slot
 
-设置默认slot可以在前面生成自定义列
+设置默认slot可以在前面生成自定义列, add slot自定义添加内容
 
 :::demo
 
@@ -206,6 +206,8 @@ export default {
 <el-edit-table ref="form" :columns="columns" v-model="data">
   <el-table-column label="序列" width="50px" align="center">
     <template slot-scope="scope">{{scope.$index + 1}}</template>
+    <template slot="add">点这里可以添加一行数据</template>
+    <template slot="delete">点这里可以删除本行数据</template>
   </el-table-column>
 </el-edit-table>
 
@@ -344,9 +346,9 @@ export default {
 
 :::
 
-### 设置disabled状态
+### 单独设置column的disabled状态
 
-在各个column属性下设置disabled状态。可以传函数，参数是该行数据；也可以是Boolean值。当el属性的disabled不适用时可使用该属性。
+在各个column属性下设置disabled状态。当disabled=true时，则仅显示text文本。若column.formatter为函数时，则显示格式化后的文本。
 
 :::demo
 
@@ -357,9 +359,9 @@ export default {
 export default {
   data() {
     return {
-      data: [{name: 'disabled'},{}],
+      data: [{name: 'disabled'}, {}],
       columns:[
-        {id: 'name', label: '姓名', type: 'input', el: {placeholder: '输入disabled可以禁止手机号输入'}, rules: [{required: true, trigger: 'blur', message: '请输入姓名'}]},
+        {id: 'name', label: '姓名', type: 'input', el: {placeholder: '输入姓名'}, rules: [{required: true, trigger: 'blur', message: '请输入姓名'}]},
         {
           id: 'phone',
           label: '手机号',
@@ -378,12 +380,71 @@ export default {
               trigger: 'blur',
             }
           ],
-          disabled(row) {
-            return row.name === 'disabled'
-          }
         },
-        {id: 'sex' , label: '性别', type: 'select', el: {placeholder: '选择性别'}, options: [{label: '男', value: 'male'}, {label: '女', value: 'female'}]},
-        {id: 'disabled', label: '不可输入行', type: 'input', disabled: true, el: {placeholder: '这个input禁止输入'}}
+        {id: 'sex' , label: '性别', type: 'select', el: {placeholder: '选择性别'}, default: 'man', options: [{label: '男', value: 'man'}, {label: '女', value: 'woman'}]},
+        {
+          id: 'disabled',
+          label: '组成句子',
+          type: 'input',
+          disabled: true,
+          formatter(row, column) {
+            return row.name?`${row.name} is a ${row.sex}, ${{man: 'his', woman: 'her'}[row.sex] || 'his'} phone number is ${row.phone}`:'Please Input Name'
+          }
+        }
+      ]
+    }
+  },
+}
+</script>
+```
+
+:::
+
+### EditTable的disabled状态
+
+disabled状态。当disabled=true时，则整个表格不可编辑，只是一个table。此时column内部的disabled不在生效，不建议如此使用。
+
+:::demo
+
+```html
+<el-edit-table ref="form" :columns="columns" disabled v-model="data"></el-edit-table>
+
+<script>
+export default {
+  data() {
+    return {
+      data: [{name: 'Jack', phone: '13123456789'},{name: 'Kate', phone: '13231456789', sex: 'woman'}],
+      columns:[
+        {id: 'name', label: '姓名', type: 'input', el: {placeholder: '输入姓名'}, rules: [{required: true, trigger: 'blur', message: '请输入姓名'}]},
+        {
+          id: 'phone',
+          label: '手机号',
+          type: 'input',
+          default: '13',
+          el: {placeholder: '输入手机号码'},
+          rules:[
+            {
+              validator: (rule, value, callback) => {
+                if(value && !/^1\d{10}$/.test(value)){
+                  callback(new Error('请输入正确的手机号码'))
+                  return false
+                }
+                return true
+              },
+              trigger: 'blur',
+            }
+          ],
+        },
+        {id: 'sex' , label: '性别', type: 'select', el: {placeholder: '选择性别'}, default: 'man', options: [{label: '男', value: 'man'}, {label: '女', value: 'woman'}]},
+        {
+          id: 'disabled',
+          label: '组成句子',
+          type: 'input',
+          disabled: true,
+          formatter(row, column) {
+            return row.name?`${row.name} is a ${row.sex}, ${{man: 'his', woman: 'her'}[row.sex] || 'his'} phone number is ${row.phone}`:'Please Input Name'
+          }
+        }
       ]
     }
   },
@@ -402,6 +463,8 @@ export default {
 | min | 表格最少行数 | number |  自然数  |  1  |
 | max | 表格最多行数 | number   |  自然数  |  Infinity  |
 | hasOperation | 是否有添加和删除功能 | boolean   |  —  |  true  |
+| disabled | 表格是否可编辑,当为true时，hasOperation不生效 | boolean | — | false |
+| tableAttrs | el-table原生属性 | object   |  —  |  —  |
 
 ### Methods
 

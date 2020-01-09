@@ -16,5 +16,8 @@
   }
   .danger-button{
     color: $--color-danger;
+    &.is-disabled {
+      color: $--disabled-color-base;
+    }
   }
 }

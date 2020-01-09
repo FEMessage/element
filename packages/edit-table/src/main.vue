@@ -1,6 +1,6 @@
 <template>
   <el-form class="el-edit-table" ref="form" :model="model">
-    <el-table ref="table" :data="model.data">
+    <el-table ref="table" :data="model.data" v-bind="tableAttrs">
       <slot></slot>
       <el-table-column
         v-for="(column, index) in columns"
@@ -20,10 +20,11 @@
             :data="scope.row"
             :rules="column.rules"
             :options="createOptions(column.id, scope.$index)"
+            :disabled="isDisabled(column)"
           ></form-input>
         </template>
       </el-table-column>
-      <el-table-column label="操作" fixed="right" v-if="hasOperation">
+      <el-table-column label="操作" fixed="right" v-if="!disabled && hasOperation">
         <el-form-item slot-scope="scope">
           <span @click="deleteRow(scope.row, scope.$index)">
             <slot name="delete">
@@ -33,7 +34,7 @@
         </el-form-item>
       </el-table-column>
     </el-table>
-    <span @click="addRow" v-if="hasOperation">
+    <span @click="addRow" v-if="!disabled && hasOperation">
       <slot name="add">
         <el-button type="text" :disabled="value.length >= maxCount">
           添加
@@ -62,6 +63,10 @@ export default {
         return [];
       }
     },
+    disabled: {
+      type: [Boolean, undefined],
+      default: undefined
+    },
     min: {
       type: Number,
       default: 1
@@ -73,6 +78,10 @@ export default {
     hasOperation: {
       type: Boolean,
       default: true
+    },
+    tableAttrs: {
+      type: Object,
+      default: () => ({})
     }
   },
   data() {
@@ -110,6 +119,15 @@ export default {
         } else {
           return this.commonOptionsData[id];
         }
+      };
+    },
+
+    isDisabled() {
+      return column => {
+        if (this.disabled === true || this.disabled === false) {
+          return this.disabled;
+        }
+        return 'disabled' in column ? column.disabled : false;
       };
     },
 

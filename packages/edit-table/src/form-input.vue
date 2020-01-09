@@ -4,8 +4,9 @@
     v-bind="$attrs"
     :prop="`data.${index}.${column.id}`"
   >
+    <p v-if="disabled">{{text}}</p>
     <component
-      v-if="column.type"
+      v-else-if="column.type"
       :is="`el-${column.type}`"
       :disabled="disabled"
       v-model="data[column.id]"
@@ -54,14 +55,18 @@ export default {
     options: {
       type: Array,
       default: () => []
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
-    disabled() {
-      if (typeof this.column.disabled === 'function') {
-        return this.column.disabled(this.data);
+    text() {
+      if (typeof this.column.formatter === 'function') {
+        return this.column.formatter(this.data, this.column);
       }
-      return this.column.disabled;
+      return this.data[this.column.id];
     }
   },
   methods: {
