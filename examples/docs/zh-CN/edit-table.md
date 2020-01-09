@@ -344,6 +344,55 @@ export default {
 
 :::
 
+### 设置disabled状态
+
+在各个column属性下设置disabled状态。可以传函数，参数是该行数据；也可以是Boolean值。当el属性的disabled不适用时可使用该属性。
+
+:::demo
+
+```html
+<el-edit-table ref="form" :columns="columns" v-model="data"></el-edit-table>
+
+<script>
+export default {
+  data() {
+    return {
+      data: [{name: 'disabled'},{}],
+      columns:[
+        {id: 'name', label: '姓名', type: 'input', el: {placeholder: '输入disabled可以禁止手机号输入'}, rules: [{required: true, trigger: 'blur', message: '请输入姓名'}]},
+        {
+          id: 'phone',
+          label: '手机号',
+          type: 'input',
+          default: '13',
+          el: {placeholder: '输入手机号码'},
+          rules:[
+            {
+              validator: (rule, value, callback) => {
+                if(value && !/^1\d{10}$/.test(value)){
+                  callback(new Error('请输入正确的手机号码'))
+                  return false
+                }
+                return true
+              },
+              trigger: 'blur',
+            }
+          ],
+          disabled(row) {
+            return row.name === 'disabled'
+          }
+        },
+        {id: 'sex' , label: '性别', type: 'select', el: {placeholder: '选择性别'}, options: [{label: '男', value: 'male'}, {label: '女', value: 'female'}]},
+        {id: 'disabled', label: '不可输入行', type: 'input', disabled: true, el: {placeholder: '这个input禁止输入'}}
+      ]
+    }
+  },
+}
+</script>
+```
+
+:::
+
 ### Attributes
 
 | 参数      |   说明    |  类型     | 可选值       | 默认值   |
