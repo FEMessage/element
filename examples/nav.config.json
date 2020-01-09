@@ -373,10 +373,6 @@
               "title": "Affix 固钉"
             },
             {
-              "path": "/input-phone",
-              "title": "InputPhone 手机号码输入"
-            },
-            {
               "path": "/edit-table",
               "title": "EditTable 可编辑表格组件"
             },
