@@ -1,6 +1,7 @@
 <template>
   <el-form class="el-edit-table" ref="form" :model="model">
     <el-table ref="table" :data="model.data">
+      <slot></slot>
       <el-table-column
         v-for="(column, index) in columns"
         :key="index"
@@ -9,34 +10,32 @@
         v-bind="column.columnAttrs"
       >
         <template slot="header" slot-scope="scope">
-          {{ scope.column.label }}
-          <span v-if="hasRequired(columns[scope.$index].rules)" class="required"
-            >*</span
-          >
+          <slot :name="`header:${column.id}`" :column="column">{{ scope.column.label }}</slot>
+          <span v-if="hasRequired(columns[index].rules)" class="required">*</span>
         </template>
         <template slot-scope="scope">
           <form-input
             :index="scope.$index"
             :column="column"
             :data="scope.row"
-            :rules="rules[column.id]"
+            :rules="column.rules"
             :options="createOptions(column.id, scope.$index)"
           ></form-input>
         </template>
       </el-table-column>
-      <el-table-column label="操作">
+      <el-table-column label="操作" fixed="right" v-if="hasOperation">
         <el-form-item slot-scope="scope">
           <span @click="deleteRow(scope.row, scope.$index)">
             <slot name="delete">
-              <el-button class="danger-button" type="text">删除</el-button>
+              <el-button class="danger-button" type="text" :disabled="value.length <= minCount">删除</el-button>
             </slot>
           </span>
         </el-form-item>
       </el-table-column>
     </el-table>
-    <span @click="addRow">
+    <span @click="addRow" v-if="hasOperation">
       <slot name="add">
-        <el-button type="text">
+        <el-button type="text" :disabled="value.length >= maxCount">
           添加
         </el-button>
       </slot>
@@ -62,6 +61,18 @@ export default {
       default() {
         return [];
       }
+    },
+    min: {
+      type: Number,
+      default: 1
+    },
+    max: {
+      type: Number,
+      default: Infinity
+    },
+    hasOperation: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
@@ -82,16 +93,6 @@ export default {
       return data;
     },
 
-    rules() {
-      const rules = {};
-      this.columns.forEach(column => {
-        if (column.rules) {
-          rules[column.id] = column.rules;
-        }
-      });
-      return rules;
-    },
-
     model() {
       return {
         data: this.value
@@ -110,22 +111,31 @@ export default {
           return this.commonOptionsData[id];
         }
       };
+    },
+
+    minCount() {
+      return this.min < 1 ? 1 : this.min;
+    },
+
+    maxCount() {
+      return this.max < this.minCount ? this.minCount : this.max;
     }
   },
 
   beforeMount() {
-    if (!this.value.length) {
-      this.addIndexKey();
-      this.$emit('input', [{ ...this.basicData }]);
-    } else {
-      this.$emit(
-        'input',
-        this.value.map(data => {
-          this.addIndexKey();
-          return Object.assign({}, this.basicData, data);
-        })
-      );
+    let initLen = this.value.length;
+    if (initLen < this.minCount) {
+      initLen = this.minCount;
+    } else if (initLen > this.maxCount) {
+      initLen = this.maxCount;
     }
+    const values = [];
+    for (let i = 0; i < initLen; i++) {
+      const value = this.value[i] || {};
+      this.addIndexKey();
+      values.push(Object.assign({}, this.basicData, value));
+    }
+    this.$emit('input', values);
     this.columns.forEach(column => {
       if (column.options) {
         this.commonOptionsData[column.id] = column.options;
@@ -149,8 +159,8 @@ export default {
     },
 
     deleteRow(row, index) {
-      if (this.value.length < 2) {
-        this.$message.error('不能删除最后一条数据');
+      if (this.value.length <= this.minCount) {
+        this.$message.error(`不能删除最后${this.minCount}条数据`);
         return;
       }
       const deleteIndex = () => {
@@ -159,6 +169,7 @@ export default {
           'input',
           this.model.data.filter((item, i) => i !== index)
         );
+        this.$emit('delete', row, index);
       };
       if (Object.keys(row).some(key => row[key] !== this.basicData[key])) {
         this.$confirm('确认删除该行数据吗？').then(deleteIndex);
@@ -168,6 +179,10 @@ export default {
     },
 
     addRow() {
+      if (this.value.length >= this.maxCount) {
+        this.$message.error(`最多只能添加${this.maxCount}条数据`);
+        return ;
+      }
       this.addIndexKey();
       this.$emit('input', this.model.data.concat([{ ...this.basicData }]));
     },
@@ -202,6 +217,9 @@ export default {
 
     validate(callback) {
       return this.$refs.form.validate(callback);
+    },
+    clearValidate(props) {
+      return this.$refs.form.clearValidate(props);
     }
   }
 };

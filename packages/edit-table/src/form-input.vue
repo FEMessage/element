@@ -7,6 +7,7 @@
     <component
       v-if="column.type"
       :is="`el-${column.type}`"
+      :disabled="disabled"
       v-model="data[column.id]"
       v-bind="column.el"
       v-on="event(column.on, data)"
@@ -20,8 +21,9 @@
       </template>
     </component>
     <component
-      v-if="column.component"
+      v-else-if="column.component"
       :is="column.component"
+      :disabled="disabled"
       v-model="data[column.id]"
       v-bind="column.el"
       v-on="event(column.on, data)"
@@ -52,6 +54,14 @@ export default {
     options: {
       type: Array,
       default: () => []
+    }
+  },
+  computed: {
+    disabled() {
+      if (typeof this.column.disabled === 'function') {
+        return this.column.disabled(this.data);
+      }
+      return this.column.disabled;
     }
   },
   methods: {

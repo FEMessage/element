@@ -378,7 +378,7 @@
             },
             {
               "path": "/edit-table",
-              "title": "EditTable 表格式表单组件"
+              "title": "EditTable 可编辑表格组件"
             },
             {
               "path": "/switch-enhance",
