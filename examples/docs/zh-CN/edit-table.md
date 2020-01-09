@@ -420,7 +420,7 @@ export default {
           id: 'phone',
           label: '手机号',
           type: 'input',
-          default: '13',
+          disabled: false,
           el: {placeholder: '输入手机号码'},
           rules:[
             {
@@ -440,7 +440,6 @@ export default {
           id: 'disabled',
           label: '组成句子',
           type: 'input',
-          disabled: true,
           formatter(row, column) {
             return row.name?`${row.name} is a ${row.sex}, ${{man: 'his', woman: 'her'}[row.sex] || 'his'} phone number is ${row.phone}`:'Please Input Name'
           }
