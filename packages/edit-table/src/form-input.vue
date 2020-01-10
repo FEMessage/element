@@ -10,7 +10,7 @@
       :is="`el-${column.type}`"
       :disabled="disabled"
       v-model="data[column.id]"
-      v-bind="column.el"
+      v-bind="inputAttrs"
       v-on="event(column.on)"
     >
       <template v-if="column.type === 'select'">
@@ -26,7 +26,7 @@
       :is="column.component"
       :disabled="disabled"
       v-model="data[column.id]"
-      v-bind="column.el"
+      v-bind="inputAttrs"
       v-on="event(column.on)"
     ></component>
   </el-form-item>
@@ -65,9 +65,15 @@ export default {
   computed: {
     text() {
       if (isFunction(this.column.formatter)) {
-        return this.column.formatter(this.data, this.column);
+        return this.column.formatter(this.data, this.index);
       }
       return this.data[this.column.id];
+    },
+    inputAttrs() {
+      if (isFunction(this.column.el)) {
+        return this.column.el(this.data, this.index);
+      }
+      return this.column.el;
     }
   },
   methods: {
