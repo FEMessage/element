@@ -198,7 +198,7 @@ export default {
 
 ### 使用slot
 
-设置默认slot可以在前面生成自定义列, add slot自定义添加内容
+设置默认slot可以在前面生成自定义列; add slot自定义添加内容; delete slot自定义删除内容。scope内置disabled状态。
 
 :::demo
 
@@ -206,9 +206,13 @@ export default {
 <el-edit-table ref="form" :columns="columns" v-model="data">
   <el-table-column label="序列" width="50px" align="center">
     <template slot-scope="scope">{{scope.$index + 1}}</template>
-    <template slot="add">点这里可以添加一行数据</template>
-    <template slot="delete">点这里可以删除本行数据</template>
   </el-table-column>
+  <template slot="add" slot-scope="scope">
+    <el-button :disabled="scope.disabled" type="primary">点这里添加一行</el-button>
+  </template>
+  <template slot="delete" slot-scope="scope">
+    <el-button :disabled="scope.disabled" type="danger">点这里删除本行</el-button>
+  </template>
 </el-edit-table>
 
 <script>
