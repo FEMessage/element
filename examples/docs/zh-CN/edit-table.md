@@ -468,6 +468,7 @@ export default {
 | hasOperation | 是否有添加和删除功能 | boolean   |  —  |  true  |
 | disabled | 表格是否可编辑,当为true时，hasOperation不生效 | boolean | — | false |
 | tableAttrs | el-table原生属性 | object   |  —  |  —  |
+| operationAttrs | 操作列的el-table-column原生属性 | object   |  —  |  —  |
 
 ### Methods
 
