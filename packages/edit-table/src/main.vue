@@ -27,7 +27,7 @@
       <el-table-column label="操作" fixed="right" v-if="!disabled && hasOperation">
         <el-form-item slot-scope="scope">
           <span @click="deleteRow(scope.row, scope.$index)">
-            <slot name="delete">
+            <slot name="delete" :disabled="value.length >= maxCount">
               <el-button class="danger-button" type="text" :disabled="value.length <= minCount">删除</el-button>
             </slot>
           </span>
@@ -35,7 +35,7 @@
       </el-table-column>
     </el-table>
     <span @click="addRow" v-if="!disabled && hasOperation">
-      <slot name="add">
+      <slot name="add" :disabled="value.length >= maxCount">
         <el-button type="text" :disabled="value.length >= maxCount">
           添加
         </el-button>
@@ -45,6 +45,8 @@
 </template>
 
 <script>
+import { isUndefined } from 'element-ui/src/utils/types';
+
 import FormInput from './form-input.vue';
 
 export default {
@@ -123,12 +125,7 @@ export default {
     },
 
     isDisabled() {
-      return column => {
-        if (this.disabled === true || this.disabled === false) {
-          return this.disabled;
-        }
-        return 'disabled' in column ? column.disabled : false;
-      };
+      return column => isUndefined(this.disabled) ? !!column.disabled : this.disabled;
     },
 
     minCount() {
@@ -163,9 +160,6 @@ export default {
 
   methods: {
     hasRequired(rules) {
-      if (rules && rules.required) {
-        return true;
-      }
       if (Array.isArray(rules)) {
         return rules.some(rule => rule.required);
       }

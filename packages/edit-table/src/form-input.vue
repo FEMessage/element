@@ -11,7 +11,7 @@
       :disabled="disabled"
       v-model="data[column.id]"
       v-bind="column.el"
-      v-on="event(column.on, data)"
+      v-on="event(column.on)"
     >
       <template v-if="column.type === 'select'">
         <el-option
@@ -27,12 +27,13 @@
       :disabled="disabled"
       v-model="data[column.id]"
       v-bind="column.el"
-      v-on="event(column.on, data)"
+      v-on="event(column.on)"
     ></component>
   </el-form-item>
 </template>
 
 <script>
+import { isFunction } from 'element-ui/src/utils/types';
 export default {
   name: 'FormInput',
   props: {
@@ -63,24 +64,24 @@ export default {
   },
   computed: {
     text() {
-      if (typeof this.column.formatter === 'function') {
+      if (isFunction(this.column.formatter)) {
         return this.column.formatter(this.data, this.column);
       }
       return this.data[this.column.id];
     }
   },
   methods: {
-    event(on, data) {
+    event(on) {
       const event = {};
       on &&
         Object.keys(on).forEach(key => {
           event[key] = (...args) => {
             return on[key](
               {
-                data,
+                data: this.data,
                 index: this.index,
                 value: this.value,
-                prop: this.column.id
+                id: this.column.id
               },
               ...args
             );
