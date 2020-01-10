@@ -86,7 +86,7 @@ export default {
               {
                 data: this.data,
                 index: this.index,
-                value: this.value,
+                value: this.data[this.column.id],
                 id: this.column.id
               },
               ...args
