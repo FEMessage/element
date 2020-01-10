@@ -100,6 +100,7 @@ import InputPhone from '../packages/input-phone/index.js';
 import InputEmail from '../packages/input-email/index.js';
 import SwitchEnhance from '../packages/switch-enhance/index.js';
 import InputUrl from '../packages/input-url/index.js';
+import ButtonGroupEnhance from '../packages/button-group-enhance/index.js';
 import locale from 'element-ui/src/locale';
 import CollapseTransition from 'element-ui/src/transitions/collapse-transition';
 
@@ -198,6 +199,7 @@ const components = [
   InputEmail,
   SwitchEnhance,
   InputUrl,
+  ButtonGroupEnhance,
   CollapseTransition
 ];
 
@@ -339,5 +341,6 @@ export default {
   InputPhone,
   InputEmail,
   SwitchEnhance,
-  InputUrl
+  InputUrl,
+  ButtonGroupEnhance
 };

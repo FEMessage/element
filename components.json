@@ -98,5 +98,6 @@
   "input-phone": "./packages/input-phone/index.js",
   "input-email": "./packages/input-email/index.js",
   "switch-enhance": "./packages/switch-enhance/index.js",
-  "input-url": "./packages/input-url/index.js"
+  "input-url": "./packages/input-url/index.js",
+  "button-group-enhance": "./packages/button-group-enhance/index.js"
 }

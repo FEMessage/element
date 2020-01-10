@@ -1,0 +1,40 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(button-group-enhance) {
+  display: flex;
+
+  .el-dropdown,
+  .el-button {
+    flex: 1 0 0;
+  }
+
+  .el-dropdown {
+    .el-dropdown__caret-button {
+      width: 100%;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  .el-button:not(:first-child) {
+    border-left: none;
+
+    &::before {
+      $gap: 5px;
+
+      content: "";
+      position: absolute;
+      display: block;
+      width: 1px;
+      top: $gap;
+      bottom: $gap;
+      left: 0;
+      background: mix(white, transparent, 50%);
+    }
+
+    &.el-button--default::before {
+      background: mix(#cad1e8, transparent, 50%);
+    }
+  }
+}

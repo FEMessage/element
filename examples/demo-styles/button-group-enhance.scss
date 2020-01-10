@@ -1,0 +1,17 @@
+
+.el-card .el-card__body {
+  padding: 0;
+
+  .content {
+    padding: 20px;
+  }
+  .el-button-group-enhance {
+    .el-button {
+      border-top: 1px solid #EBEEF5;
+      border-left: none;
+      border-right: none;
+      border-bottom: none;
+      border-radius: 0;
+    }
+  }
+}
