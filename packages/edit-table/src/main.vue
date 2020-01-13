@@ -176,7 +176,6 @@ export default {
 
     deleteRow(row, index) {
       if (this.value.length <= this.minCount) {
-        this.$message.error(`不能删除最后${this.minCount}条数据`);
         return;
       }
       const deleteIndex = () => {
