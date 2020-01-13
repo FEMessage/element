@@ -8,11 +8,16 @@
 
 ```html
 <template>
-  <el-row :gutter="12">
+  <el-row :gutter="15">
     <el-col :span="10">
       <el-button-group-enhance
         :buttons="buttons()"
         type="primary"
+        :collapse-at="3"
+      />
+      <el-button-group-enhance
+        style="margin-top: 15px"
+        :buttons="buttons()"
         :collapse-at="3"
       />
     </el-col>
@@ -23,6 +28,16 @@
         </div>
         <el-button-group-enhance
           :buttons="buttons()"
+          :collapse-at="3"
+        />
+      </el-card>
+      <el-card shadow="hover" style="margin-top: 15px">
+        <div class="content">
+          activate: {{activate}}
+        </div>
+        <el-button-group-enhance
+          :buttons="buttons()"
+          type="primary"
           :collapse-at="3"
         />
       </el-card>
@@ -69,11 +84,14 @@ export default {
   }
   .el-button-group-enhance {
     .el-button {
-      border-top: 1px solid #EBEEF5;
-      border-left: none;
-      border-right: none;
       border-bottom: none;
       border-radius: 0;
+      &:first-child {
+        border-left: none;
+      }
+      &.el-dropdown__caret-button {
+        border-right: none;
+      }
     }
   }
 }
