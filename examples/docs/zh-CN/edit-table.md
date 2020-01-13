@@ -475,7 +475,7 @@ export default {
 | 方法名      | 说明          | 参数 |
 |---------- |-------------- | -------------- |
 | validate | 返回el-form的validate方法 | Function(callback: Function(boolean, object))|
-| clearValidate | 返回el-form的clearValidate方法 | Function(props: string|array) |
+| clearValidate | 返回el-form的clearValidate方法, 接收第二个参数行号数组，不传则清除整行 | Function(props: string/array, rowIndexes: array[number]) |
 |setOptions|同el-form-renderer的setOptions方法,前2个参数为列id,选项数组;第3个参数为所在行，起始行为0，不传则修改所有行的options|Function(id:string,options: array,index: number)|
 
 ### Slot

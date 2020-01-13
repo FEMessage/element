@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import { isUndefined } from 'element-ui/src/utils/types';
+import { isString, isUndefined } from 'element-ui/src/utils/types';
 
 import FormInput from './form-input.vue';
 
@@ -234,8 +234,26 @@ export default {
     validate(callback) {
       return this.$refs.form.validate(callback);
     },
-    clearValidate(props) {
-      return this.$refs.form.clearValidate(props);
+    clearValidate(props, rowIndexes) {
+      const clearValidate = this.$refs.form.clearValidate;
+      const getAllProps = (prop) => {
+        const allProps = [];
+        const len = rowIndexes ? rowIndexes.length : this.value.length;
+        for (let i = 0; i < len; i++) {
+          const index = rowIndexes ? rowIndexes[i] : i;
+          allProps.push(`data.${index}.${prop}`);
+        }
+        return allProps;
+      };
+      if (props && Array.isArray(props)) {
+        return clearValidate(props.reduce((prev, prop) => {
+          return prev.concat(getAllProps(prop, rowIndexes));
+        }, []));
+      }
+      if (isString(props)) {
+        return clearValidate(getAllProps(props, rowIndexes));
+      }
+      return clearValidate(props);
     }
   }
 };
