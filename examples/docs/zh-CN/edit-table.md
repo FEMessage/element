@@ -32,6 +32,7 @@ export default {
                   callback(new Error('请输入正确的手机号码'))
                   return false
                 }
+                callback()
                 return true
               },
               trigger: 'blur',
