@@ -4,9 +4,10 @@
 @include b(button-group-enhance) {
   display: flex;
 
-  .el-dropdown,
-  .el-button {
+  & > .el-dropdown,
+  & > .el-button {
     flex: 1 0 0;
+    padding: 0;
   }
 
   .el-dropdown {
