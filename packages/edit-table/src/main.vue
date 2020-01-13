@@ -24,7 +24,7 @@
           ></form-input>
         </template>
       </el-table-column>
-      <el-table-column label="操作" fixed="right" v-bind="operationAttrs" v-if="!disabled && hasOperation">
+      <el-table-column label="操作" v-bind="operationAttrs" v-if="!disabled && hasOperation">
         <el-form-item slot-scope="scope">
           <span @click="deleteRow(scope.row, scope.$index)">
             <slot name="delete" :disabled="value.length >= maxCount">
