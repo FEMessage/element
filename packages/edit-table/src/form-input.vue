@@ -1,6 +1,7 @@
 <template>
   <el-form-item
     class="form-input"
+    :class="`form-input-${column.id}`"
     v-bind="$attrs"
     :prop="`data.${index}.${column.id}`"
   >
