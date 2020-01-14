@@ -99,6 +99,7 @@ import { ElInputIdCard } from './input-id-card'
 import { ElInputPhone } from './input-phone'
 import { ElInputEmail } from './input-email'
 import { ElInputUrl } from './input-url'
+import { ElButtonGroupEnhance } from './button-group-enhance'
 
 export interface InstallationOptions {
   locale: any,
@@ -420,3 +421,6 @@ export class EditTable extends ElEditTable {}
 
 /** InputUrl Component */
 export class InputUrl extends ElInputUrl {}
+
+/** ButtonGroupEnhance Component */
+export class ButtonGroupEnhance extends ElButtonGroupEnhance {}

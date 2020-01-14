@@ -1895,11 +1895,11 @@
 | size | 尺寸 | string | medium / small / mini | — |
 | placeholder | 输入框占位文本 | string | — | 请选择 |
 | disabled | 是否禁用 | boolean | — | false |
-| clearable | 是否支持清空选项 | boolean | — | false |
+| clearable | 是否支持清空选项 | boolean | — | true |
 | show-all-levels | 输入框中是否显示选中值的完整路径 | boolean | — | true |
 | collapse-tags | 多选模式下是否折叠Tag | boolean | - | false |
 | separator | 选项分隔符 | string | — | 斜杠' / ' |
-| filterable | 是否可搜索选项 | boolean | — | — |
+| filterable | 是否可搜索选项 | boolean | — | true |
 | filter-method | 自定义搜索逻辑，第一个参数是节点`node`，第二个参数是搜索关键词`keyword`，通过返回布尔值表示是否命中 | function(node, keyword) | - | - |
 | debounce | 搜索关键词输入的去抖延迟，毫秒 | number | — | 300 |
 | before-filter | 筛选之前的钩子，参数为输入的值，若返回 false 或者返回 Promise 且被 reject，则停止筛选 | function(value) | — | — |

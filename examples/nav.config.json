@@ -379,6 +379,10 @@
             {
               "path": "/switch-enhance",
               "title": "SwitchEnhance 开关增强"
+            },
+            {
+              "path": "/button-group-enhance",
+              "title": "ButtonGroupEnhance 可折叠按钮组"
             }
           ]
         }
@@ -759,6 +763,10 @@
             {
               "path": "/input-url",
               "title": "InputUrl"
+            },
+            {
+              "path": "/button-group-enhance",
+              "title": "ButtonGroupEnhance"
             }
           ]
         }
@@ -1139,6 +1147,10 @@
             {
               "path": "/input-url",
               "title": "InputUrl"
+            },
+            {
+              "path": "/button-group-enhance",
+              "title": "ButtonGroupEnhance"
             }
           ]
         }
@@ -1518,6 +1530,10 @@
             {
               "path": "/input-url",
               "title": "InputUrl"
+            },
+            {
+              "path": "/button-group-enhance",
+              "title": "ButtonGroupEnhance"
             }
           ]
         }

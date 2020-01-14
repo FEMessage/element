@@ -532,14 +532,14 @@ If the binding value of Select is an object, make sure to assign `value-key` as 
 | disabled | whether Select is disabled | boolean | — | false |
 | value-key | unique identity key name for value, required when value is an object | string | — | value |
 | size | size of Input | string | large/small/mini | — |
-| clearable | whether select can be cleared | boolean | — | false |
+| clearable | whether select can be cleared | boolean | — | true |
 | collapse-tags | whether to collapse tags to a text when multiple selecting | boolean | — | false |
 | multiple-limit | maximum number of options user can select when `multiple` is `true`. No limit when set to 0 | number | — | 0 |
 | name | the name attribute of select input | string | — | — |
 | autocomplete | the autocomplete attribute of select input | string | — | off |
 | auto-complete | @DEPRECATED in next major version | string | — | off |
 | placeholder | placeholder | string | — | Select |
-| filterable | whether Select is filterable | boolean | — | false |
+| filterable | whether Select is filterable | boolean | — | true |
 | allow-create | whether creating new items is allowed. To use this, `filterable` must be true | boolean | — | false |
 | filter-method | custom filter method | function | — | — |
 | remote | whether options are loaded from server | boolean | — | false |

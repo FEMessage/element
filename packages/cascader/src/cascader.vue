@@ -205,8 +205,14 @@ export default {
       default: () => t('el.cascader.placeholder')
     },
     disabled: Boolean,
-    clearable: Boolean,
-    filterable: Boolean,
+    clearable: {
+      type: Boolean,
+      default: true
+    },
+    filterable: {
+      type: Boolean,
+      default: true
+    },
     filterMethod: Function,
     separator: {
       type: String,

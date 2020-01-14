@@ -65,11 +65,12 @@ describe('Cascader', () => {
 
   it('toggle dropdown visible', async() => {
     vm = createTest(Cascader, true);
+    const closeBtn = vm.$el.querySelector('i.el-input__icon');
     expect(vm.$refs.popper.style.display).to.equal('none');
-    vm.$el.click();
+    closeBtn.click();
     await waitImmediate();
     expect(vm.$refs.popper.style.display).to.includes('');
-    vm.$el.click();
+    closeBtn.click();
     await wait(500);
     expect(vm.$refs.popper.style.display).to.includes('none');
   });

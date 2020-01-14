@@ -101,6 +101,7 @@ import InputEmail from '../packages/input-email/index.js';
 import SwitchEnhance from '../packages/switch-enhance/index.js';
 import InputUrl from '../packages/input-url/index.js';
 import EditTable from '../packages/edit-table/index.js';
+import ButtonGroupEnhance from '../packages/button-group-enhance/index.js';
 import locale from 'element-ui/src/locale';
 import CollapseTransition from 'element-ui/src/transitions/collapse-transition';
 
@@ -200,6 +201,7 @@ const components = [
   SwitchEnhance,
   InputUrl,
   EditTable,
+  ButtonGroupEnhance,
   CollapseTransition
 ];
 
@@ -342,5 +344,6 @@ export default {
   InputEmail,
   SwitchEnhance,
   InputUrl,
-  EditTable
+  EditTable,
+  ButtonGroupEnhance
 };

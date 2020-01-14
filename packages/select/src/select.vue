@@ -270,8 +270,14 @@
       automaticDropdown: Boolean,
       size: String,
       disabled: Boolean,
-      clearable: Boolean,
-      filterable: Boolean,
+      clearable: {
+        type: Boolean,
+        default: true
+      },
+      filterable: {
+        type: Boolean,
+        default: true
+      },
       allowCreate: Boolean,
       loading: Boolean,
       popperClass: String,

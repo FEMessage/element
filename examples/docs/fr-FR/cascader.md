@@ -1916,11 +1916,11 @@ Vous pouvez personnaliser le contenu du noeud cascader.
 | size | Taille de l'entrée | string | medium / small / mini | — |
 | placeholder | Placeholder de l'input | string | — | Select |
 | disabled | Si Cascader est désactivé | boolean | — | false |
-| clearable | Si la valeur sélectionnée peut être effacée | boolean | — | false |
+| clearable | Si la valeur sélectionnée peut être effacée | boolean | — | true |
 | show-all-levels | Afficher ou non tous les niveaux de la valeur sélectionnée dans l'entrée | boolean | — | true |
 | collapse-tags | Réduire ou non les balises en mode de sélection multiple | boolean | - | false |
 | separator | Option label separator | string | — | ' / ' |
-| filterable | Si les options peuvent être recherchées | boolean | — | — |
+| filterable | Si les options peuvent être recherchées | boolean | — | true |
 | filter-method | Personnaliser la logique de recherche, le premier paramètre est `node`, le second est `keyword`, et doit renvoyer une valeur booléenne indiquant si le résultat est positif. | function(node, keyword) | - | - |
 | debounce | Délai de réponse lors de la saisie du mot clé de filtre, en millisecondes | number | — | 300 |
 | before-filter | Hook fonction avant de filtrer avec la valeur à filtrer en tant que paramètre. Si `false` est renvoyé ou si une `Promise` est renvoyée puis rejetée, le filtrage sera annulé | function(value) | — | — |

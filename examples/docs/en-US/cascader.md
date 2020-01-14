@@ -1916,11 +1916,11 @@ You can customize the content of cascader node.
 | size | size of input | string | medium / small / mini | — |
 | placeholder | placeholder of input | string | — | Select |
 | disabled | whether Cascader is disabled | boolean | — | false |
-| clearable | whether selected value can be cleared | boolean | — | false |
+| clearable | whether selected value can be cleared | boolean | — | true |
 | show-all-levels | whether to display all levels of the selected value in the input | boolean | — | true |
 | collapse-tags | whether to collapse tags in multiple selection mode | boolean | - | false |
 | separator | option label separator | string | — | ' / ' |
-| filterable | whether the options can be searched | boolean | — | — |
+| filterable | whether the options can be searched | boolean | — | true |
 | filter-method | customize search logic, the first parameter is `node`, the second is `keyword`, and need return a boolean value indicating whether it hits. | function(node, keyword) | - | - |
 | debounce | debounce delay when typing filter keyword, in milliseconds | number | — | 300 |
 | before-filter | hook function before filtering with the value to be filtered as its parameter. If `false` is returned or a `Promise` is returned and then is rejected, filtering will be aborted | function(value) | — | — |

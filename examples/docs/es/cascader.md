@@ -1919,11 +1919,11 @@ Puede personalizar el contenido del nodo de cascada.
 | size | tamaño del input | string | medium / small / mini | — |
 | placeholder | placeholder del input | string | — | Select |
 | disabled | si Cascader esta deshabilitada | boolean | — | false |
-| clearable | si el valor seleccionado puede ser borrado | boolean | — | false |
+| clearable | si el valor seleccionado puede ser borrado | boolean | — | true |
 | show-all-levels | si muestra todos los niveles del valor seleccionado en el input | boolean | — | true |
 | collapse-tags | si se colapsan los tags en la selección múltiple | boolean | - | false |
 | separator | separador de las etiquetas de las opciones | string | — | ' / ' |
-| filterable | si las opciones pueden ser usadas para la busqueda | boolean | — | — |
+| filterable | si las opciones pueden ser usadas para la busqueda | boolean | — | true |
 | filter-method | lógica de búsqueda personalizable. El primer parámetro es `node`, el segundo es `keyword`, y es necesario devolver un valor boolean que indique si se ha tenido éxito. | function(node, keyword) | - | - |
 | debounce | retraso en milisegundos para el tipeo de los datos de filtro | number | — | 300 |
 | before-filter | hook antes de filtrar con el valor a filtrar como parámetro. Si se devuelve `false` o se devuelve una `Promise` y luego se rechaza, se abortará el filtrado. | function(value) | — | — |

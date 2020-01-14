@@ -535,14 +535,14 @@ Si la valeur de Select est un objet, assurez-vous d'utiliser `value-key` comme i
 | disabled | Si le sélecteur est désactivé. | boolean | — | false |
 | value-key | Identifiant unique pour la valeur, requis quand la valeur est un objet. | string | — | value |
 | size | Taille de l'Input. | string | large/small/mini | — |
-| clearable | Si la sélection est effaçable. | boolean | — | false |
+| clearable | Si la sélection est effaçable. | boolean | — | true |
 | collapse-tags | Si les tags peuvent être réduits, dans le cas d'une sélection multiple. | boolean | — | false |
 | multiple-limit | Nombre maximum d'options multiples sélectionnable. Pas de limites quand est à 0. | number | — | 0 |
 | name | L'attribut name natif du sélecteur. | string | — | — |
 | autocomplete | L'attribut autocomplete natif du sélecteur. | string | — | off |
 | auto-complete | @DEPRECATED dans la prochaine version majeure. | string | — | off |
 | placeholder | Le placeholder du champ. | string | — | Select |
-| filterable | Si les options sont filtrables. | boolean | — | false |
+| filterable | Si les options sont filtrables. | boolean | — | true |
 | allow-create | Si l'utilisateur peut créer des options. Dans ce cas `filterable` doit être activé. | boolean | — | false |
 | filter-method | Méthode de filtrage personnalisée. | function | — | — |
 | remote | Si les options sont chargées dynamiquement depuis le serveur. | boolean | — | false |
