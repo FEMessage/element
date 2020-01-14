@@ -1,5 +1,5 @@
 <template>
-  <el-form class="el-edit-table" ref="form" :model="model">
+  <el-form class="el-edit-table" :class="{'el-edit-table-disabled': disabled}" ref="form" :model="model">
     <el-table ref="table" :data="model.data" v-bind="tableAttrs">
       <slot></slot>
       <el-table-column

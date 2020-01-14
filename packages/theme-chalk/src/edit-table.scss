@@ -3,9 +3,13 @@
 
 @include b(edit-table) {
   .el-table td, .el-table th{
-    padding-bottom: 0;
     .required{
       color: $--color-danger;
+    }
+  }
+  &.el-edit-table-disabled{
+    .form-input.form-input-disabled{
+      margin-bottom: 0px;
     }
   }
   .el-form-item__error{
