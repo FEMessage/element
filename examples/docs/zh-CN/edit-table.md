@@ -440,6 +440,51 @@ export default {
             }
           ],
         },
+        {id: 'sex' , label: '性别', type: 'select', el: {placeholder: '选择性别'}, default: 'man', options: [{label: '男', value: 'man'}, {label: '女', value: 'woman'}]}
+      ]
+    }
+  },
+}
+</script>
+```
+
+:::
+
+### 使用formatter函数
+
+当edit-table使用了readonly状态时，可在字段属性自定义column.formatter。该函数接收row和index参数，需要返回字符串，暂不支持jsx。不定义则默认返回原数据对应的字段。
+
+:::demo
+
+```html
+<el-edit-table ref="form" :columns="columns" readonly v-model="data"></el-edit-table>
+
+<script>
+export default {
+  data() {
+    return {
+      data: [{name: 'Jack', phone: '13123456789'},{name: 'Kate', phone: '13231456789', sex: 'woman'}],
+      columns:[
+        {id: 'name', label: '姓名', type: 'input', el: {placeholder: '输入姓名'}, rules: [{required: true, trigger: 'blur', message: '请输入姓名'}]},
+        {
+          id: 'phone',
+          label: '手机号',
+          type: 'input',
+          readonly: false,
+          el: {placeholder: '输入手机号码'},
+          rules:[
+            {
+              validator: (rule, value, callback) => {
+                if(value && !/^1\d{10}$/.test(value)){
+                  callback(new Error('请输入正确的手机号码'))
+                  return false
+                }
+                return true
+              },
+              trigger: 'blur',
+            }
+          ],
+        },
         {id: 'sex' , label: '性别', type: 'select', el: {placeholder: '选择性别'}, default: 'man', options: [{label: '男', value: 'man'}, {label: '女', value: 'woman'}]},
         {
           id: 'readonly',
