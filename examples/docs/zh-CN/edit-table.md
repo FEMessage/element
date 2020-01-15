@@ -351,9 +351,9 @@ export default {
 
 :::
 
-### 单独设置column的disabled状态
+### 单独设置column的readonly状态
 
-在各个column属性下设置disabled状态。当disabled=true时，则仅显示text文本。若column.formatter为函数时，则显示格式化后的文本。
+在各个column属性下设置readonly状态。当readonly=true时，则仅显示text文本。若column.formatter为函数时，则显示格式化后的文本。
 
 :::demo
 
@@ -364,7 +364,7 @@ export default {
 export default {
   data() {
     return {
-      data: [{name: 'disabled'}, {}],
+      data: [{name: 'readonly'}, {}],
       columns:[
         {id: 'name', label: '姓名', type: 'input', el: {placeholder: '输入姓名'}, rules: [{required: true, trigger: 'blur', message: '请输入姓名'}]},
         {
@@ -388,10 +388,10 @@ export default {
         },
         {id: 'sex' , label: '性别', type: 'select', el: {placeholder: '选择性别'}, default: 'man', options: [{label: '男', value: 'man'}, {label: '女', value: 'woman'}]},
         {
-          id: 'disabled',
+          id: 'readonly',
           label: '组成句子',
           type: 'input',
-          disabled: true,
+          readonly: true,
           formatter(row, column) {
             return row.name?`${row.name} is a ${row.sex}, ${{man: 'his', woman: 'her'}[row.sex] || 'his'} phone number is ${row.phone}`:'Please Input Name'
           }
@@ -405,14 +405,14 @@ export default {
 
 :::
 
-### EditTable的disabled状态
+### EditTable的readonly状态
 
-disabled状态。当disabled=true时，则整个表格不可编辑，只是一个table。此时column内部的disabled不在生效，不建议如此使用。
+readonly状态。当readonly=true时，则整个表格不可编辑，只是一个table。此时column内部的readonly不在生效，不建议如此使用。
 
 :::demo
 
 ```html
-<el-edit-table ref="form" :columns="columns" disabled v-model="data"></el-edit-table>
+<el-edit-table ref="form" :columns="columns" readonly v-model="data"></el-edit-table>
 
 <script>
 export default {
@@ -425,7 +425,7 @@ export default {
           id: 'phone',
           label: '手机号',
           type: 'input',
-          disabled: false,
+          readonly: false,
           el: {placeholder: '输入手机号码'},
           rules:[
             {
@@ -442,7 +442,7 @@ export default {
         },
         {id: 'sex' , label: '性别', type: 'select', el: {placeholder: '选择性别'}, default: 'man', options: [{label: '男', value: 'man'}, {label: '女', value: 'woman'}]},
         {
-          id: 'disabled',
+          id: 'readonly',
           label: '组成句子',
           type: 'input',
           formatter(row, column) {
@@ -467,7 +467,7 @@ export default {
 | min | 表格最少行数 | number |  自然数  |  1  |
 | max | 表格最多行数 | number   |  自然数  |  Infinity  |
 | hasOperation | 是否有添加和删除功能 | boolean   |  —  |  true  |
-| disabled | 表格是否可编辑,当为true时，hasOperation不生效 | boolean | — | false |
+| readonly | 表格是否可编辑,当为true时，hasOperation不生效 | boolean | — | false |
 | tableAttrs | el-table原生属性 | object   |  —  |  —  |
 | operationAttrs | 操作列的el-table-column原生属性 | object   |  —  |  —  |
 

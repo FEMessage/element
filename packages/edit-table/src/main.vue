@@ -1,5 +1,5 @@
 <template>
-  <el-form class="el-edit-table" :class="{'el-edit-table-disabled': disabled}" ref="form" :model="model">
+  <el-form class="el-edit-table" :class="{'el-edit-table-readonly': readonly}" ref="form" :model="model">
     <el-table ref="table" :data="model.data" v-bind="tableAttrs">
       <slot></slot>
       <el-table-column
@@ -20,11 +20,11 @@
             :data="scope.row"
             :rules="column.rules"
             :options="createOptions(column.id, scope.$index)"
-            :disabled="isDisabled(column)"
+            :readonly="isReadOnly(column)"
           ></form-input>
         </template>
       </el-table-column>
-      <el-table-column label="操作" v-bind="operationAttrs" v-if="!disabled && hasOperation">
+      <el-table-column label="操作" v-bind="operationAttrs" v-if="!readonly && hasOperation">
         <el-form-item slot-scope="scope">
           <span @click="deleteRow(scope.row, scope.$index)">
             <slot name="delete" :disabled="value.length >= maxCount">
@@ -34,7 +34,7 @@
         </el-form-item>
       </el-table-column>
     </el-table>
-    <span @click="addRow" v-if="!disabled && hasOperation">
+    <span @click="addRow" v-if="!readonly && hasOperation">
       <slot name="add" :disabled="value.length >= maxCount">
         <el-button type="text" :disabled="value.length >= maxCount">
           添加
@@ -65,7 +65,7 @@ export default {
         return [];
       }
     },
-    disabled: {
+    readonly: {
       type: [Boolean, undefined],
       default: undefined
     },
@@ -128,8 +128,8 @@ export default {
       };
     },
 
-    isDisabled() {
-      return column => isUndefined(this.disabled) ? !!column.disabled : this.disabled;
+    isReadOnly() {
+      return column => isUndefined(this.readonly) ? !!column.readonly : this.readonly;
     },
 
     minCount() {
@@ -195,7 +195,6 @@ export default {
 
     addRow() {
       if (this.value.length >= this.maxCount) {
-        this.$message.error(`最多只能添加${this.maxCount}条数据`);
         return ;
       }
       this.addIndexKey();

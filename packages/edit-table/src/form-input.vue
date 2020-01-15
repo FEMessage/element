@@ -1,15 +1,14 @@
 <template>
   <el-form-item
     class="form-input"
-    :class="`form-input-${column.id}`"
+    :class="[`form-input-${column.id}`, {'form-input--readonly': readonly}]"
     v-bind="$attrs"
     :prop="`data.${index}.${column.id}`"
   >
-    <p v-if="disabled">{{text}}</p>
+    <p v-if="readonly">{{text}}</p>
     <component
       v-else-if="column.type"
       :is="`el-${column.type}`"
-      :disabled="disabled"
       v-model="data[column.id]"
       v-bind="inputAttrs"
       v-on="event(column.on)"
@@ -25,7 +24,6 @@
     <component
       v-else-if="column.component"
       :is="column.component"
-      :disabled="disabled"
       v-model="data[column.id]"
       v-bind="inputAttrs"
       v-on="event(column.on)"
@@ -58,7 +56,7 @@ export default {
       type: Array,
       default: () => []
     },
-    disabled: {
+    readonly: {
       type: Boolean,
       default: false
     }

@@ -7,8 +7,18 @@
       color: $--color-danger;
     }
   }
-  &.el-edit-table-disabled{
-    .form-input.form-input-disabled{
+  .el-table__body {
+    td, th{
+      padding-bottom: 0;
+    }
+  }
+  &.el-edit-table-readonly{
+    .el-table__body {
+      td, th{
+        padding-top: 0;
+      }
+    }
+    .form-input.form-input--readonly{
       margin-bottom: 0px;
     }
   }
