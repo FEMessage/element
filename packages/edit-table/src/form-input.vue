@@ -71,7 +71,7 @@ export default {
       };
 
       if (isFunction(this.column.formatter)) {
-        const formatted = this.column.formatter(this.data, this.index);
+        const formatted = this.column.formatter(this.data, this.index, Content);
 
         if (isVNode(formatted)) {
           Component = { render: h => formatted };
