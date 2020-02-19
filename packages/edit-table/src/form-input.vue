@@ -65,24 +65,24 @@ export default {
   },
   computed: {
     text() {
-      let Content = this.data[this.column.id]
+      let Content = this.data[this.column.id];
       let Component = {
         render: h => h('p', null, Content)
-      }
-      
+      };
+
       if (isFunction(this.column.formatter)) {
         const formatted = this.column.formatter(this.data, this.index);
 
         if (isVNode(formatted)) {
-          Component = { render: h => formatted }
+          Component = { render: h => formatted };
         } else if (isObject(formatted)) {
-          Component = formatted
+          Component = formatted;
         } else {
-          Content = formatted
+          Content = formatted;
         }
       }
 
-      return Component
+      return Component;
     },
     inputAttrs() {
       if (isFunction(this.column.el)) {
