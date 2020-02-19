@@ -5,7 +5,7 @@
     v-bind="$attrs"
     :prop="`data.${index}.${column.id}`"
   >
-    <component v-if="readonly" :is="text" />
+    <component v-if="readonly" :is="readonlyComponent" />
     <component
       v-else-if="column.type"
       :is="`el-${column.type}`"
@@ -64,7 +64,7 @@ export default {
     }
   },
   computed: {
-    text() {
+    readonlyComponent() {
       let Content = this.data[this.column.id];
       let Component = {
         render: h => h('p', null, Content)
