@@ -452,7 +452,7 @@ export default {
 
 ### 使用formatter函数
 
-当edit-table使用了 `readonly` 状态时，可在字段属性自定义 `column.formatter`。该函数接收 `row`, `index` 和 `cellValue` 参数，可返回 JSX(需要项目配置支持), 自定义组件和字符串。不定义则默认返回原数据对应的字段。
+当edit-table使用了 `readonly` 状态时，可在字段属性自定义 `column.formatter`。该函数接收 `row`, `cellValue` 和 `index` 参数，可返回 JSX(需要项目配置支持), 自定义组件和字符串。不定义则默认返回原数据对应的字段。
 
 :::demo
 
@@ -498,7 +498,7 @@ export default {
           id: 'readonly',
           label: '组成句子',
           type: 'input',
-          formatter(row, column) {
+          formatter(row) {
             return row.name?`${row.name} is a ${row.sex}, ${{man: 'his', woman: 'her'}[row.sex] || 'his'} phone number is ${row.phone}`:'Please Input Name'
           }
         }
