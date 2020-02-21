@@ -65,20 +65,21 @@ export default {
   },
   computed: {
     readonlyComponent() {
-      let Content = this.data[this.column.id];
+      let cellValue = this.data[this.column.id];
+
       let Component = {
-        render: h => h('p', null, Content)
+        render: h => h('p', null, cellValue)
       };
 
       if (isFunction(this.column.formatter)) {
-        const formatted = this.column.formatter(this.data, this.index, Content);
+        const formatted = this.column.formatter(this.data, cellValue, this.index);
 
         if (isVNode(formatted)) {
           Component = { render: h => formatted };
         } else if (isObject(formatted)) {
           Component = formatted;
         } else {
-          Content = formatted;
+          cellValue = formatted;
         }
       }
 
