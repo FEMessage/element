@@ -176,6 +176,7 @@ export default {
               popperClass={ this.$parent.popperClass || '' }
               size="mini"
               on-input={ this.handleChange }
+              clearable={false}
               disabled={ this.$parent.disabled }>
               {
                 this.pageSizes.map(item =>
