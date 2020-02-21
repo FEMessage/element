@@ -492,7 +492,7 @@ export default {
           el: {placeholder: '选择性别'},
           default: 'man',
           options: [{label: '男', value: 'man'}, {label: '女', value: 'woman'}],
-          formatter: row => <span style="color: #2a7">{row.sex}</span>
+          formatter: (row, cellValue) => <span style="color: #2a7">{cellValue}</span>
         },
         {
           id: 'readonly',
