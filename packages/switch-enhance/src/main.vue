@@ -1,9 +1,10 @@
 <template>
   <div class="el-switch-enhance">
     <el-switch
-      :class="[{'square': square}, {'inline-text': inlineText}]"
+      :class="{'square': square, 'inline-text': inlineText}"
       v-bind="$attrs"
-      v-model="value"
+      :value="value"
+      @input="onInput"
       v-on="$listeners"
     />
   </div>
@@ -20,12 +21,16 @@ export default {
     inlineText: {
       type: Boolean,
       default: false
+    },
+    value: {
+      type: Boolean,
+      default: false
     }
   },
-  data() {
-    return {
-      value: this.$attrs.value
-    };
+  methods: {
+    onInput(v) {
+      this.$emit('input', v);
+    }
   }
 };
 </script>
