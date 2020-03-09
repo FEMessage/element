@@ -16,7 +16,7 @@ export interface SkeletonParagraphProps {
   rows?: number;
 }
 
-export declare class Skeleton extends ElementUIComponent {
+export declare class ElSkeleton extends ElementUIComponent {
   /**
    * Show animation effect
    * @default false

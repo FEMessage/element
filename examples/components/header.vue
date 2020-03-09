@@ -464,7 +464,6 @@
           ga('send', 'event', 'DocView', 'Ele', 'Outer');
           console.error(err);
         });
-
       const testInnerImg = new Image();
       testInnerImg.onload = () => {
         this.$isEle = true;

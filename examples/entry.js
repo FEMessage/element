@@ -43,6 +43,21 @@ Vue.mixin({
 
 Vue.prototype.$icon = icon; // Icon 列表页用
 
+const globalEle = new Vue({
+  data: { $isEle: false } // 是否 ele 用户
+});
+
+Vue.mixin({
+  computed: {
+    $isEle: {
+      get: () => (globalEle.$data.$isEle),
+      set: (data) => {globalEle.$data.$isEle = data;}
+    }
+  }
+});
+
+Vue.prototype.$icon = icon; // Icon 列表页用
+
 const router = new VueRouter({
   mode: 'hash',
   base: __dirname,
