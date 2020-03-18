@@ -1,7 +1,12 @@
 <style scoped>
+  @import "~examples/assets/styles/index_canvas.scss";
   .banner {
     background-color: #1E1F22;
     text-align: center;
+
+    .container {
+      position: relative;
+    }
   }
   .banner-desc {
     padding-top: 150px;
@@ -95,7 +100,6 @@
     display: flex;
     justify-content: space-between;
     height: 67px;
-
   }
 
   .header-left {
@@ -143,6 +147,7 @@
     .banner .container {
       width: 100%;
       box-sizing: border-box;
+      position: relative;
     }
     .banner img {
       right: 0;
@@ -219,6 +224,8 @@
 <template>
   <div>
     <div class="banner">
+      <canvas id="canvas-1"></canvas>
+      <canvas id="canvas-2"></canvas>
       <div class="container">
       <header class="header">
         <div class="header-left">
@@ -313,12 +320,17 @@
         </div>
       </div>
     </div>
+
   </div>
 </template>
 <script>
   import compoLang from '../../i18n/component.json';
+  import { animation } from '../../index_canvas.js';
 
   export default {
+    mounted() {
+      animation();
+    },
     computed: {
       lang() {
         return this.$route.path.split('/')[1] || 'zh-CN';

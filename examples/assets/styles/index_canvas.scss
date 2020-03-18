@@ -1,0 +1,21 @@
+#canvas-1, #canvas-2 {
+  width: 500px;
+  height: 400px;
+  position: absolute;
+}
+
+#canvas-1 {
+  left: 0px;
+  top: 0px;
+}
+
+#canvas-2 {
+  right: 0px;
+  top: 0px;
+}
+
+@media (max-width: 1140px) {
+  #canvas-1, #canvas-2 {
+    width: 100%;
+  }
+}
