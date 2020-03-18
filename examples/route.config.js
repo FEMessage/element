@@ -1,4 +1,5 @@
 import navConfig from './nav.config';
+import designConfig from './design.config';
 import langs from './i18n/route';
 
 const LOAD_MAP = {
@@ -55,14 +56,14 @@ const loadDocs = function(lang, path) {
   return LOAD_DOCS_MAP[lang](path);
 };
 
-const registerRoute = (navConfig) => {
+const registerRoute = (navConfig, parentRoute, childRoute) => {
   let route = [];
   Object.keys(navConfig).forEach((lang, index) => {
     let navs = navConfig[lang];
     route.push({
-      path: `/${ lang }/component`,
-      redirect: `/${ lang }/component/installation`,
-      component: load(lang, 'component'),
+      path: `/${ lang }/${parentRoute}`,
+      redirect: `/${ lang }/${parentRoute}/${childRoute}`,
+      component: load(lang, `${parentRoute}`),
       children: []
     });
     navs.forEach(nav => {
@@ -70,22 +71,23 @@ const registerRoute = (navConfig) => {
       if (nav.groups) {
         nav.groups.forEach(group => {
           group.list.forEach(nav => {
-            addRoute(nav, lang, index);
+            addRoute(parentRoute, nav, lang, index);
           });
         });
       } else if (nav.children) {
         nav.children.forEach(nav => {
-          addRoute(nav, lang, index);
+          if (!nav.path.slice(1)) {
+            return;
+          }
+          addRoute(parentRoute, nav, lang, index);
         });
       } else {
-        addRoute(nav, lang, index);
+        addRoute(parentRoute, nav, lang, index);
       }
     });
   });
-  function addRoute(page, lang, index) {
-    const component = page.path === '/changelog'
-      ? load(lang, 'changelog')
-      : loadDocs(lang, page.path);
+  function addRoute(parentRoute, page, lang, index) {
+    const component = parentRoute === 'guide' ? load(lang, page.path.slice(1)) : loadDocs(lang, page.path);
     let child = {
       path: page.path.slice(1),
       meta: {
@@ -93,36 +95,19 @@ const registerRoute = (navConfig) => {
         description: page.description,
         lang
       },
-      name: 'component-' + lang + (page.title || page.name),
+      name: `${parentRoute}-` + lang + (page.title || page.name),
       component: component.default || component
     };
 
     route[index].children.push(child);
   }
-
   return route;
 };
 
-let route = registerRoute(navConfig);
+let route = registerRoute(navConfig, 'component', 'installation');
+let designRoute = registerRoute(designConfig, 'guide', 'design');
 
 const generateMiscRoutes = function(lang) {
-  let guideRoute = {
-    path: `/${ lang }/guide`, // 指南
-    redirect: `/${ lang }/guide/design`,
-    component: load(lang, 'guide'),
-    children: [{
-      path: 'design', // 设计原则
-      name: 'guide-design' + lang,
-      meta: { lang },
-      component: load(lang, 'design')
-    }, {
-      path: 'nav', // 导航
-      name: 'guide-nav' + lang,
-      meta: { lang },
-      component: load(lang, 'nav')
-    }]
-  };
-
   let themeRoute = {
     path: `/${ lang }/theme`,
     component: load(lang, 'theme-nav'),
@@ -155,9 +140,10 @@ const generateMiscRoutes = function(lang) {
     component: load(lang, 'index')
   };
 
-  return [guideRoute, resourceRoute, themeRoute, indexRoute];
+  return [resourceRoute, themeRoute, indexRoute];
 };
 
+route = route.concat(designRoute);
 langs.forEach(lang => {
   route = route.concat(generateMiscRoutes(lang.lang));
 });

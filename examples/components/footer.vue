@@ -53,9 +53,9 @@
   .footer {
     background-color: #F5F6F9;
     width: 100%;
-    margin-top: -340px;
+    margin-top: -361px;
     box-sizing: border-box;
-    /*height: 340px;*/
+    height: 361px;
 
     .container {
       box-sizing: border-box;

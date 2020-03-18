@@ -19,9 +19,11 @@
 
 <style lang="scss">
   .footer-nav {
-    padding: 40px 0;
-    color: #333;
+    padding: 24px 5px 30px;
+    margin-top: 48px;
+    color: #333643;
     font-size: 14px;
+    border-top: 1px solid #F5F6F9;
 
     &::after {
       content: '';
@@ -31,7 +33,7 @@
 
     & i {
       transition: .3s;
-      color: #999;
+      color: #C6C7CA;
       vertical-align: baseline;
     }
   }

@@ -71,8 +71,7 @@ button, input, select, textarea {
 }
 
 .main-cnt {
-  margin-top: -80px;
-  padding: 80px 0 340px;
+  padding: 0 0 361px;
   box-sizing: border-box;
   min-height: 100%;
 }

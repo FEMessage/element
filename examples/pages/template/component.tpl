@@ -107,21 +107,22 @@
         }
       }
     }
-    .main-footer {
-      .footer {
-        margin-top: 0;
-        .container {
-          width: 900px;
-          margin: 0;
-        }
+    .footer {
+      margin-top: 0;
+      width: calc(100vw - 240px - (100vw - 1140px) / 2);
+      .container {
+        width: 900px;
+        margin: 0;
       }
     }
-
   }
 
 
   @media (max-width: 768px) {
     .page-component {
+      .page-component__main {
+        padding-left: 0;
+      }
       .page-component__nav {
         width: 100%;
         position: static;
@@ -142,6 +143,14 @@
         overflow: auto;
         display: block;
       }
+      .footer {
+        margin-top: 0;
+        width: 100%;
+        .container {
+          width: 100%;
+          margin: 0;
+        }
+      }
     }
   }
 </style>
@@ -156,9 +165,7 @@
         <router-view class="content"></router-view>
         <footer-nav></footer-nav>
       </div>
-      <div class="main-footer">
-        <main-footer></main-footer>
-      </div>
+      <main-footer></main-footer>
     </div>
 
     <el-backtop
