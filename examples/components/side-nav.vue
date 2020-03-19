@@ -71,6 +71,17 @@
             color: #5D81F9;
           }
         }
+        &:first-child a{
+          height: 30px;
+          line-height: 30px;
+          margin-bottom: 5px;
+        }
+
+        &:last-child a{
+          height: 30px;
+          line-height: 30px;
+          margin-top: 5px;
+        }
       }
   
       &.sponsors {
@@ -88,7 +99,6 @@
           display: inline-block;
         
           a {
-            height: auto;
             display: inline-block;
             vertical-align: middle;
             margin: 8px 12px 12px 0;
@@ -110,10 +120,9 @@
     }
 
     .side-child-menu {
-      margin-left: 15px;
+      margin: 10px 0 16px 15px;
       border-left: 1px solid #F0F2F5;
       padding-left: 15px;
-      margin-bottom: 16px;
     }
 
     .item-expand-title {
@@ -287,17 +296,17 @@
           while (ul.tagName !== 'UL') {
             ul = ul.parentNode;
           }
-          ul.style.height = 'auto';
+          ul.style.display = 'block';
         });
       },
       hideAllMenu() {
         [].forEach.call(this.$el.querySelectorAll('.pure-menu-list'), ul => {
-          ul.style.height = '0';
+          ul.style.display = 'none';
         });
       },
       expandAllMenu() {
         [].forEach.call(this.$el.querySelectorAll('.pure-menu-list'), ul => {
-          ul.style.height = 'auto';
+          ul.style.display = 'block';
         });
       },
       expandMenu(event) {
@@ -305,12 +314,13 @@
         let target = event.currentTarget;
         if (!target.nextElementSibling || target.nextElementSibling.tagName !== 'UL') return;
         // this.hideAllMenu();
-        if (target.nextElementSibling.style.height === 'auto') {
-          event.currentTarget.nextElementSibling.style.height = '0';
-          event.currentTarget.firstChild.style.transform = 'rotate(0deg)';
+        let targetDisplay = target.nextElementSibling.style.display;
+        if (targetDisplay === 'block') {
+          target.nextElementSibling.style.display = 'none';
+          target.firstChild.style.transform = 'rotate(0deg)';
         } else {
-          event.currentTarget.nextElementSibling.style.height = 'auto';
-          event.currentTarget.firstChild.style.transform = 'rotate(180deg)';
+          target.nextElementSibling.style.display = 'block';
+          target.firstChild.style.transform = 'rotate(180deg)';
         }
       },
 

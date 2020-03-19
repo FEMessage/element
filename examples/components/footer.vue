@@ -6,9 +6,9 @@
         <div class="footer-main">
           <h4>{{ langConfig.links }}</h4>
           <a href="" class="footer-main-link" target="_blank">{{ langConfig.dida }}</a>
-          <a href="" class="footer-main-link" target="_blank">create-nuxt-app</a>
-          <a href="" class="footer-main-link" target="_blank">Flutter</a>
-          <a href="" class="footer-main-link" target="_blank">vue-sfc-cli</a>
+          <a href="https://github.com/FEMessage/create-nuxt-app" class="footer-main-link" target="_blank">create-nuxt-app</a>
+          <a href="https://www.yuque.com/sc0cqi/ys9h7c/ywfbln" class="footer-main-link" target="_blank">Flutter</a>
+          <a href="https://github.com/FEMessage/vue-sfc-cli" class="footer-main-link" target="_blank">vue-sfc-cli</a>
         </div>
 
         <!--社区-->
@@ -16,8 +16,8 @@
           <h4>{{ langConfig.community }}</h4>
           <a href="" class="footer-main-link" target="_blank">{{ langConfig.gitter }}</a>
           <a href="https://github.com/FEMessage/element/issues" class="footer-main-link" target="_blank">{{ langConfig.feedback }}</a>
-          <a href="" class="footer-main-link" target="_blank">{{ langConfig.medium }}</a>
-          <a href="" class="footer-main-link" target="_blank">{{ langConfig.frontend }}</a>
+          <a href="https://medium.com/deepexi" class="footer-main-link" target="_blank">{{ langConfig.medium }}</a>
+          <a href="https://zhuanlan.zhihu.com/deepexi-frontend" class="footer-main-link" target="_blank">{{ langConfig.frontend }}</a>
         </div>
 
         <!--帮助-->
@@ -25,19 +25,19 @@
           <h4>{{ langConfig.help }}</h4>
           <a href="https://github.com/FEMessage/element" class="footer-main-link" target="_blank">GitHub</a>
           <a href="https://github.com/FEMessage/element/releases" class="footer-main-link" target="_blank">{{ langConfig.update }}</a>
-          <a :href="`https://github.com/ElemeFE/element/blob/master/.github/CONTRIBUTING.${ lang }.md`" class="footer-main-link" target="_blank">{{ langConfig.faq }}</a>
+          <a href="https://github.com/FEMessage/element/issues" class="footer-main-link" target="_blank">{{ langConfig.faq }}</a>
       </div>
 
         <!--更多产品-->
         <div class="footer-main">
           <h4>{{ langConfig.more }}</h4>
-          <a href="" class="footer-main-link" target="_blank">
+          <a href="https://cloud.deepexi.com/#/product/Serverless" class="footer-main-link" target="_blank">
             <img src="https://deepexi.oss-cn-shenzhen.aliyuncs.com/deepexi-design/logo_serverless.png" alt="">DEEPEXI Serverless</a>
-          <a href="" class="footer-main-link" target="_blank">
+          <a href="https://cloud.deepexi.com/#/product/devops" class="footer-main-link" target="_blank">
             <img src="https://deepexi.oss-cn-shenzhen.aliyuncs.com/deepexi-design/logo_devops.png" alt="">DEEPEXI DevOps</a>
-          <a href="" class="footer-main-link" target="_blank">
+          <a href="https://cloud.deepexi.com/#/product/daas" class="footer-main-link" target="_blank">
             <img src="https://deepexi.oss-cn-shenzhen.aliyuncs.com/deepexi-design/logo_daas.png" alt="">DEEPEXI DaaS</a>
-          <a href="" class="footer-main-link" target="_blank">
+          <a href="https://cloud.deepexi.com/#/product/spaas" class="footer-main-link" target="_blank">
             <img src="https://deepexi.oss-cn-shenzhen.aliyuncs.com/deepexi-design/logo_spaas.png" alt="">DEEPEXI SPaaS</a>
         </div>
       </div>
@@ -86,9 +86,10 @@
       }
 
       img {
-        width: 12px;
-        height: 12px;
-        margin-right: 2px;
+        width: 16px;
+        height: 16px;
+        margin-right: 3px;
+        vertical-align: sub;
       }
 
       .footer-main-link {

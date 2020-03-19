@@ -86,11 +86,6 @@ button, input, select, textarea {
 .page-container {
   padding-top: 55px;
 
-  h2 {
-    font-size: 28px;
-    color: #1f2d3d;
-    margin: 0;
-  }
   h3 {
     font-size: 22px;
   }
@@ -112,6 +107,12 @@ button, input, select, textarea {
         opacity: .4;
       }
     }
+  }
+
+  h2 {
+    font-size: 40px;
+    color: #2D303B;
+    margin: 0;
   }
 
   p {

@@ -23,7 +23,7 @@
     bottom: 0;
     margin-top: 80px;
     transition: padding-top .3s;
-    box-shadow: 1px 0 2px 0 rgba(220,222,230,1);
+    box-shadow: 1px 0 0 0 rgba(220,222,230,1);
 
   > .el-scrollbar__wrap {
     height: 100%;
@@ -51,8 +51,8 @@
   }
 
   .page-guide__content {
-    padding-left: 30px;
-    /*padding-bottom: 32px;*/
+    padding-left: 100px;
+    padding-right: 50px;
     box-sizing: border-box;
   }
 
@@ -113,6 +113,7 @@
   .container {
     width: 900px;
     margin: 0;
+    padding: 56px 30px 30px 50px;
   }
   }
 

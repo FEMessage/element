@@ -50,13 +50,6 @@
       }
     }
 
-    .logo-text {
-      font-size: 24px;
-      display: inline;
-      font-weight:bold;
-      line-height: 28px;
-    }
-
     .nav {
       float: right;
       height: 100%;
@@ -77,7 +70,6 @@
       position: relative;
       width: 1px;
       height: 80px;
-      padding: 0 20px;
 
       &::before {
         content: '';
@@ -89,17 +81,12 @@
       }
     }
 
-    .nav-logo,.logo-text{
-      vertical-align: middle;
-    }
-
     .nav-logo {
-      width: 28px;
-      height: 28px;
+     vertical-align: middle;
     }
 
     .nav-item {
-      margin: 0;
+      margin: 0 22px;
       float: left;
       list-style: none;
       position: relative;
@@ -136,14 +123,13 @@
 
       a {
         text-decoration: none;
-        color: #1989FA;
-        opacity: 0.5;
+        color: #2D303B;
         display: block;
-        padding: 0 22px;
+        padding: 0;
 
         &.active,
         &:hover {
-          opacity: 1;
+          color: #1989FA;
         }
 
         &.active::after {
@@ -151,13 +137,17 @@
           display: inline-block;
           position: absolute;
           bottom: 0;
-          left: calc(50% - 15px);
-          width: 30px;
+          left: 0;
+          width: 100%;
           height: 2px;
           background: #5D81F9;
         }
       }
     }
+
+   .nav-versions {
+     margin: 0;
+   }
   }
 
   .nav-dropdown {
@@ -209,20 +199,11 @@
 
 
   @media (max-width: 1140px) {
-    .header {
-      .logo-text {
-        display: none;
-      }
-
-    }
   }
 
 
   @media (max-width: 850px) {
     .header {
-      .logo-text {
-        display: none;
-      }
       .nav-item {
         margin-left: 6px;
 
@@ -288,12 +269,10 @@
           <!-- logo -->
           <slot>
             <img
-              src="https://deepexi.oss-cn-shenzhen.aliyuncs.com/deepexi-design/logo_deepexi.png"
+              src="https://deepexi.oss-cn-shenzhen.aliyuncs.com/deepexi-design/logo.svg"
               alt=""
               class="nav-logo">
-            <span class="logo-text">DEEPEXI Design</span>
           </slot>
-
         </router-link></h1>
 
         <!-- nav -->
@@ -313,14 +292,14 @@
               :to="`/${ lang }/component`">{{ langConfig.components }}
             </router-link>
           </li>
-          <li
-            class="nav-item nav-item-theme"
-          >
-            <router-link
-              active-class="active"
-              :to="`/${ lang }/theme`">{{ langConfig.theme }}
-            </router-link>
-          </li>
+          <!--<li-->
+            <!--class="nav-item nav-item-theme"-->
+          <!--&gt;-->
+            <!--<router-link-->
+              <!--active-class="active"-->
+              <!--:to="`/${ lang }/theme`">{{ langConfig.theme }}-->
+            <!--</router-link>-->
+          <!--</li>-->
           <li class="nav-item">
             <router-link
               active-class="active"

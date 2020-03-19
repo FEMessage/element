@@ -22,7 +22,8 @@
     p {
       font-size: 20px;
       line-height: 28px;
-      color: #888;
+      color: #FFF;
+      opacity: .7;
       margin: 10px auto 5px;
       width: 69%;
     }
@@ -32,8 +33,12 @@
 
     .el-button {
       width: 160px;
+      font-size: 16px;
+      vertical-align: bottom;
     }
-
+    .el-button+.el-button {
+      margin-left: 24px;
+    }
   }
   .content {
     margin: 95px auto 110px;
@@ -57,7 +62,9 @@
     p {
       font-size: 20px;
       line-height: 28px;
-      color: #aaa;
+      color: #333643;
+      opacity: .7;
+      margin: 12px 0 0 0;
     }
 
   }
@@ -84,11 +91,14 @@
       font-size: 20px;
       line-height:28px;
       color: #333643;
+      margin: 20px 0 0 0;
     }
 
     p {
       font-size: 16px;
-      color: #888;
+      color: #333643;
+      opacity: .7;
+      margin: 8px 0 0 0;
     }
   }
   .card {
@@ -105,12 +115,6 @@
   .header-left {
     display: flex;
     align-items: center;
-
-    img {
-      width: 28px;
-      height: 28px;
-      margin-right: 5px;
-    }
 
     h3 {
       margin: 0;
@@ -229,8 +233,7 @@
       <div class="container">
       <header class="header">
         <div class="header-left">
-          <img src="https://deepexi.oss-cn-shenzhen.aliyuncs.com/deepexi-design/logo_deepexi.png" alt="" class="logo">
-          <h3>DEEPEXI Design</h3>
+          <img src="https://deepexi.oss-cn-shenzhen.aliyuncs.com/deepexi-design/logo_white.svg" alt="" class="logo">
         </div>
 
           <!-- nav -->
@@ -299,8 +302,8 @@
           <li>
             <div class="card">
               <img src="https://deepexi.oss-cn-shenzhen.aliyuncs.com/deepexi-design/index_schema.png" alt="">
-              <h3>设计原则</h3>
-              <p>提供普适、抽象的评判标准和方向，为设计问题提供行之有效的向导或提示。</p>
+              <h3>设计模式</h3>
+              <p>可直接使用设计模式完成界面设计；也可以设计模式为起点，衍生出更具业务特性的解决方案。</p>
             </div>
           </li>
           <li>
