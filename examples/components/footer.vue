@@ -115,7 +115,6 @@
   @media (max-width: 1140px) {
     .footer {
       width: 100%;
-      height: auto;
 
       .container {
         padding: 30px;
@@ -126,6 +125,9 @@
 
   @media (max-width: 768px) {
     .footer {
+      width: 100%;
+      height: auto;
+
       .footer-main {
         margin-bottom: 30px;
       }

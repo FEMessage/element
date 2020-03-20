@@ -117,11 +117,11 @@
     display: flex;
     align-items: center;
 
-    h3 {
-      margin: 0;
-      color: #fff;
-      font-size: 24px;
-      line-height: 29px;
+    .logo {
+      display: block;
+    }
+    .small-logo {
+      display: none;
     }
   }
 
@@ -153,16 +153,19 @@
       width: 100%;
       box-sizing: border-box;
       position: relative;
-    }
-    .banner img {
-      right: 0;
+      padding: 0 20px;
     }
   }
 
   @media (max-width: 768px) {
     .header-left {
-      h3 {
+      .logo {
         display: none;
+      }
+      .small-logo {
+        display: block;
+        width: 22px;
+        height: 22px;
       }
     }
     .banner-desc {
@@ -173,8 +176,8 @@
       }
 
       p {
-        font-size: 13px;
-        width: 100%;
+        font-size: 14px;
+        width: 85%;
       }
     }
 
@@ -225,6 +228,20 @@
     }
 
   }
+
+  @media (max-width: 375px) {
+    .banner-desc {
+      padding-top: 50px;
+      h1 {
+        font-size: 30px;
+      }
+
+      p {
+        font-size: 13px;
+        width: 90%;
+      }
+   }
+  }
 </style>
 <template>
   <div>
@@ -234,7 +251,8 @@
       <div class="container">
       <header class="header">
         <div class="header-left">
-          <img src="https://deepexi.oss-cn-shenzhen.aliyuncs.com/deepexi-design/logo_white.svg" alt="" class="logo">
+          <img class="logo" src="https://deepexi.oss-cn-shenzhen.aliyuncs.com/deepexi-design/logo_white.svg" alt="">
+          <img class="small-logo" src="https://deepexi.oss-cn-shenzhen.aliyuncs.com/deepexi-design/logo_small.svg" alt="">
         </div>
 
           <!-- nav -->
