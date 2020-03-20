@@ -285,7 +285,7 @@
           <p>DEEPEXI Design是一个基于Element，由开源代码支持的设计系统，帮助团队快速开发SaaS应用，让设计者和开发者专注于更好的用户体验。</p>
         </div>
         <div class="banner-btn">
-          <el-button type="primary">开始使用 <i class="el-icon-right"></i></el-button>
+          <el-button type="primary" @click="$router.push(`/${ lang }/component`)">开始使用 <i class="el-icon-right"></i></el-button>
           <el-button @click="$router.push(`/${ lang }/guide`)">设计语言</el-button>
         </div>
       </div>
