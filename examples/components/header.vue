@@ -99,7 +99,7 @@
       &.lang-item,
       &:last-child {
         cursor: default;
-        margin-left: 34px;
+        /*margin-left: 34px;*/
 
         span {
           opacity: .8;
@@ -314,28 +314,28 @@
           </li>
 
           <!-- 版本选择器 -->
-          <li class="nav-item nav-versions" v-show="isComponentPage">
-            <el-dropdown
-              trigger="click"
-              class="nav-dropdown"
-              :class="{ 'is-active': verDropdownVisible }">
-              <span>
-                element: {{ elementVersion }}
-                <!-- <i class="el-icon-arrow-down el-icon--right"></i> -->
-              </span>
-              <el-dropdown-menu
-                slot="dropdown"
-                class="nav-dropdown-list"
-                @input="handleVerDropdownToggle">
-                <el-dropdown-item
-                  v-for="item in Object.keys(versions)"
-                  :key="item"
-                  @click.native="switchVersion(item)">
-                  {{ item }}
-                </el-dropdown-item>
-              </el-dropdown-menu>
-            </el-dropdown>
-          </li>
+          <!--<li class="nav-item nav-versions" v-show="isComponentPage">-->
+            <!--<el-dropdown-->
+              <!--trigger="click"-->
+              <!--class="nav-dropdown"-->
+              <!--:class="{ 'is-active': verDropdownVisible }">-->
+              <!--<span>-->
+                <!--element: {{ elementVersion }}-->
+                <!--&lt;!&ndash; <i class="el-icon-arrow-down el-icon&#45;&#45;right"></i> &ndash;&gt;-->
+              <!--</span>-->
+              <!--<el-dropdown-menu-->
+                <!--slot="dropdown"-->
+                <!--class="nav-dropdown-list"-->
+                <!--@input="handleVerDropdownToggle">-->
+                <!--<el-dropdown-item-->
+                  <!--v-for="item in Object.keys(versions)"-->
+                  <!--:key="item"-->
+                  <!--@click.native="switchVersion(item)">-->
+                  <!--{{ item }}-->
+                <!--</el-dropdown-item>-->
+              <!--</el-dropdown-menu>-->
+            <!--</el-dropdown>-->
+          <!--</li>-->
 
           <li class="nav-item nav-versions" v-show="isComponentPage">
             <div class="nav-dropdown el-dropdown">
