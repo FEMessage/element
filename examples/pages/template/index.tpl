@@ -77,6 +77,7 @@
     li {
       width: 33.33%;
       list-style: none;
+      transition: background .4s;
 
       &:hover {
          background: #F5F6F9;
