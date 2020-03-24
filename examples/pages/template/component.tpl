@@ -120,6 +120,10 @@
 
 
   @media (max-width: 768px) {
+    .page-container h2 {
+      font-size: 28px;
+    }
+
     .page-component {
       .page-component__main {
         padding-left: 0;
@@ -128,6 +132,7 @@
         width: 100%;
         position: static;
         margin-top: 0;
+        display: none;
       }
       .side-nav {
         padding-top: 0;
@@ -150,6 +155,7 @@
         .container {
           width: 100%;
           margin: 0;
+          padding: 30px;
         }
       }
     }
