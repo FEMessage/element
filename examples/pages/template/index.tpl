@@ -111,6 +111,7 @@
     display: flex;
     justify-content: space-between;
     height: 67px;
+    align-items: center;
   }
 
   .header-left {
@@ -118,11 +119,12 @@
     align-items: center;
 
     .logo {
-      display: block;
+      width: 90%;
     }
-    .small-logo {
-      display: none;
-    }
+  }
+
+  .el-icon-menu {
+    display: none;
   }
 
   .nav {
@@ -158,15 +160,13 @@
   }
 
   @media (max-width: 768px) {
-    .header-left {
-      .logo {
-        display: none;
-      }
-      .small-logo {
-        display: block;
-        width: 22px;
-        height: 22px;
-      }
+    .nav {
+      display: none;
+    }
+    .el-icon-menu {
+      display: block;
+      font-size: 22px;
+      color: white;
     }
     .banner-desc {
       padding-top: 50px;
@@ -245,6 +245,7 @@
 </style>
 <template>
   <div>
+    <popover-menu v-show="showNav" @handleClose="handleClose"></popover-menu>
     <div class="banner">
       <canvas id="canvas-1"></canvas>
       <canvas id="canvas-2"></canvas>
@@ -252,10 +253,11 @@
       <header class="header">
         <div class="header-left">
           <img class="logo" src="https://deepexi.oss-cn-shenzhen.aliyuncs.com/deepexi-design/logo_white.svg" alt="">
-          <img class="small-logo" src="https://deepexi.oss-cn-shenzhen.aliyuncs.com/deepexi-design/logo_small.svg" alt="">
         </div>
 
-          <!-- nav -->
+        <i class="el-icon-menu" @click="handleOpen"></i>
+
+        <!-- nav -->
           <ul class="nav">
             <li class="nav-item">
               <router-link
@@ -350,6 +352,11 @@
   import { animation } from '../../index_canvas.js';
 
   export default {
+    data() {
+      return {
+        showNav: false
+      };
+    },
     mounted() {
       animation();
     },
@@ -360,6 +367,19 @@
       langConfig() {
         return compoLang.filter(config => config.lang === this.lang)[0]['header'];
       }
+    },
+    methods: {
+      handleOpen() {
+        this.showNav = true;
+        document.body.setAttribute('overflow', 'hidden');
+      },
+      handleClose() {
+        this.showNav = false;
+        document.body.removeAttribute('overflow');
+      }
+    },
+    beforeDestroy() {
+      document.body.removeAttribute('overflow');
     }
   };
 </script>

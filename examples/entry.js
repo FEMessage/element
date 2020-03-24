@@ -8,6 +8,8 @@ import demoBlock from './components/demo-block';
 import MainFooter from './components/footer';
 import MainHeader from './components/header';
 import SideNav from './components/side-nav';
+import PopoverMenu from './components/popover-menu';
+import DrawerWrapper from './components/drawer-wrapper';
 import FooterNav from './components/footer-nav';
 import title from './i18n/title';
 
@@ -25,6 +27,8 @@ Vue.component('demo-block', demoBlock);
 Vue.component('main-footer', MainFooter);
 Vue.component('main-header', MainHeader);
 Vue.component('side-nav', SideNav);
+Vue.component('popover-menu', PopoverMenu);
+Vue.component('drawer-wrapper', DrawerWrapper);
 Vue.component('footer-nav', FooterNav);
 Vue.component('el-form-renderer', ElFormRenderer);
 
