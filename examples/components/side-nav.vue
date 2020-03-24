@@ -27,7 +27,7 @@
       font-weight: bold;
       font-size: 13px;
       transform: rotate(180deg);
-      transition: transform 0.5s;
+      transition: transform 0.3s;
     }
 
     .nav-item {
@@ -145,6 +145,14 @@
     margin-top: -8px;
     li {
       font-size: 14px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .side-nav {
+      .nav-item a,.nav-group__title {
+          font-size: 15px;
+        }
     }
   }
 </style>
@@ -285,12 +293,8 @@
         this.handlePathChange();
       },
       handlePathChange() {
-        if (!this.isSmallScreen) {
-          this.expandAllMenu();
-          return;
-        }
         this.$nextTick(() => {
-          this.hideAllMenu();
+          this.expandAllMenu();
           let activeAnchor = this.$el.querySelector('a.active');
           let ul = activeAnchor.parentNode;
           while (ul.tagName !== 'UL') {

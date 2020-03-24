@@ -1,5 +1,6 @@
 <template>
   <div id="app" :class="{ 'is-component': isComponent, 'is-guide': isGuide }">
+    <drawer-wrapper v-if="isComponent || isGuide" :data="isComponent ? navsData[lang] : designData[lang]" :base=" isComponent ? `/${ lang }/component` : `/${ lang }/guide`"></drawer-wrapper>
     <main-header v-if="lang !== 'play'&& `/${lang}` !== $route.path"></main-header>
     <div class="main-cnt">
       <router-view></router-view>
@@ -14,6 +15,8 @@
   import enLocale from 'main/locale/lang/en';
   import esLocale from 'main/locale/lang/es';
   import frLocale from 'main/locale/lang/fr';
+  import navsData from './nav.config.json';
+  import designData from './design.config';
 
   const lang = location.hash.replace('#', '').split('/')[1] || '';
   const localize = lang => {
@@ -35,7 +38,12 @@
 
   export default {
     name: 'app',
-
+    data() {
+      return {
+        navsData,
+        designData
+      };
+    },
     computed: {
       lang() {
         return this.$route.path.split('/')[1] || '';
