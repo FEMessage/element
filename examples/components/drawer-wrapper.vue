@@ -36,6 +36,15 @@
         return {
           drawer: false
         };
+      },
+      watch: {
+        '$route.path': {
+          handler(val) {
+            if (this.drawer && val) {
+              this.drawer = false;
+            }
+          }
+        }
       }
     };
 </script>
