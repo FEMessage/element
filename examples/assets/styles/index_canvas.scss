@@ -5,17 +5,23 @@
 }
 
 #canvas-1 {
-  left: 0px;
-  top: 0px;
+  left: 0;
+  top: 0;
 }
 
 #canvas-2 {
-  right: 0px;
-  top: 0px;
+  right: 0;
+  top: 0;
 }
 
 @media (max-width: 1140px) {
   #canvas-1, #canvas-2 {
     width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  #canvas-1, #canvas-2 {
+    height: 280px;
   }
 }

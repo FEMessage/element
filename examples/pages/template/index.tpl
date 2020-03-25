@@ -28,6 +28,7 @@
       width: 69%;
     }
   }
+
   .banner-btn {
     padding-bottom: 154px;
 
@@ -40,11 +41,12 @@
       margin-left: 24px;
     }
   }
+
   .content {
     margin: 95px auto 110px;
     width: 1140px;
-
   }
+
   .design {
     width: 100%;
   }
@@ -182,6 +184,7 @@
     }
 
     .banner-btn {
+      padding-bottom: 60px;
 
       .el-button {
         width: 120px;
@@ -225,6 +228,10 @@
       a {
         padding: 0 10px;
       }
+    }
+
+    .content {
+      margin: 48px auto;
     }
 
   }
