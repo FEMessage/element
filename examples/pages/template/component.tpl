@@ -178,7 +178,7 @@
     <el-backtop
       v-if="showBackToTop"
       target=".page-component__scroll .el-scrollbar__wrap"
-      :right="100"
+      :right="isSmallScreen ? 25 : 100"
       :bottom="150"
     ></el-backtop>
   </div>
@@ -196,6 +196,7 @@
         navsData,
         scrollTop: 0,
         showHeader: true,
+        isSmallScreen: false,
         componentScrollBar: null,
         componentScrollBoxElement: null
       };
@@ -259,6 +260,7 @@
       });
     },
     mounted() {
+      this.isSmallScreen = document.documentElement.clientWidth < 768
       this.componentScrollBar = this.$refs.componentScrollBar;
       this.componentScrollBox = this.componentScrollBar.$el.querySelector('.el-scrollbar__wrap');
       this.throttledScrollHandler = throttle(300, this.handleScroll);
