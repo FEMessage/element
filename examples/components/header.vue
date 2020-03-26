@@ -84,6 +84,9 @@
     .nav-logo {
      vertical-align: middle;
     }
+    .small-logo {
+      display: none;
+    }
 
     .nav-item {
       margin: 0 22px;
@@ -222,10 +225,21 @@
     }
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 768px) {
     .header {
+      .nav-logo {
+        display: none;
+      }
+      .small-logo {
+        display: block;
+        width: 22px;
+        height: 22px;
+      }
       .container {
         padding: 0 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
       }
       .nav-item {
         a {
@@ -255,6 +269,9 @@
       .nav-gap {
         padding: 0 8px;
       }
+      .is-hidden {
+        display: none;
+      }
       .nav-versions {
         display: none;
       }
@@ -272,6 +289,8 @@
               src="https://deepexi.oss-cn-shenzhen.aliyuncs.com/deepexi-design/logo.svg"
               alt=""
               class="nav-logo">
+            <img class="small-logo" src="https://deepexi.oss-cn-shenzhen.aliyuncs.com/deepexi-design/logo_small.svg" alt="">
+
           </slot>
         </router-link></h1>
 
@@ -309,7 +328,7 @@
           </li>
 
           <!-- gap -->
-          <li class="nav-item" v-show="isComponentPage">
+          <li class="nav-item is-hidden" v-show="isComponentPage">
             <div class="nav-gap"></div>
           </li>
 

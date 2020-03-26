@@ -120,6 +120,10 @@
 
 
   @media (max-width: 768px) {
+    .page-container h2 {
+      font-size: 28px;
+    }
+
     .page-component {
       .page-component__main {
         padding-left: 0;
@@ -128,6 +132,7 @@
         width: 100%;
         position: static;
         margin-top: 0;
+        display: none;
       }
       .side-nav {
         padding-top: 0;
@@ -150,6 +155,7 @@
         .container {
           width: 100%;
           margin: 0;
+          padding: 30px;
         }
       }
     }
@@ -172,8 +178,8 @@
     <el-backtop
       v-if="showBackToTop"
       target=".page-component__scroll .el-scrollbar__wrap"
-      :right="100"
-      :bottom="150"
+      :right="isSmallScreen ? 25 : 100"
+      :bottom="isSmallScreen ? 60 : 150"
     ></el-backtop>
   </div>
   </el-scrollbar>
@@ -190,6 +196,7 @@
         navsData,
         scrollTop: 0,
         showHeader: true,
+        isSmallScreen: false,
         componentScrollBar: null,
         componentScrollBoxElement: null
       };
@@ -253,6 +260,7 @@
       });
     },
     mounted() {
+      this.isSmallScreen = document.documentElement.clientWidth < 768;
       this.componentScrollBar = this.$refs.componentScrollBar;
       this.componentScrollBox = this.componentScrollBar.$el.querySelector('.el-scrollbar__wrap');
       this.throttledScrollHandler = throttle(300, this.handleScroll);
