@@ -18,6 +18,10 @@
       margin: 0;
       opacity: 0;
       visibility: hidden;
+
+      & span {
+        font-size: 12px;
+      }
     }
 
     .el-switch__label.is-active {
@@ -33,6 +37,11 @@
 
     .el-switch__label--right {
       left: 6px;
+    }
+
+    &:not(.is-checked) .el-switch__core {
+      background-color: #bbb;
+      border-color: #bbb;
     }
   }
 }

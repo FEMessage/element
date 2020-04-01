@@ -28,7 +28,7 @@
 ```html
 <el-switch-enhance
   v-model="value1"
-  :width="85"
+  :width="77"
   inline-text
   active-text="按月付费"
   inactive-text="按年付费"
@@ -55,7 +55,7 @@ export default {
   v-model="value2"
   square
   inline-text
-  :width="70"
+  :width="67"
   active-text="已启用"
   inactive-text="已关闭"
 />
