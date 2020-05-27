@@ -141,6 +141,12 @@ export default {
     }
   },
 
+  watch: {
+    value(v) {
+      this.indexKeys = v.map((_, i) => i);
+    }
+  },
+
   beforeMount() {
     let initLen = this.value.length;
     if (initLen < this.minCount) {
