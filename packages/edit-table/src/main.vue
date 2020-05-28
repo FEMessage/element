@@ -92,10 +92,10 @@ export default {
   },
   data() {
     return {
-      currentKey: 0,
       indexKeys: [],
       commonOptionsData: {},
-      rowOptionsData: {}
+      rowOptionsData: {},
+      oldValue: []
     };
   },
 
@@ -128,6 +128,12 @@ export default {
       };
     },
 
+    selectColumnIds() {
+      return this.columns
+        .filter(({ type }) => type === 'select')
+        .map(({ id }) => id);
+    },
+
     isReadOnly() {
       return column => isUndefined(this.readonly) ? !!column.readonly : this.readonly;
     },
@@ -151,15 +157,22 @@ export default {
     const values = [];
     for (let i = 0; i < initLen; i++) {
       const value = this.value[i] || {};
-      this.addIndexKey();
       values.push(Object.assign({}, this.basicData, value));
     }
-    this.$emit('input', values);
+    this.updateValue(values);
     this.columns.forEach(column => {
       if (column.options) {
         this.commonOptionsData[column.id] = column.options;
       }
     });
+  },
+
+  watch: {
+    value(v) {
+      this.resetRowOptionsData(v, this.oldValue);
+
+      this.indexKeys = v.map((_, i) => i);
+    }
   },
 
   methods: {
@@ -169,21 +182,13 @@ export default {
       }
       return false;
     },
-    addIndexKey() {
-      this.indexKeys.push(this.currentKey);
-      this.currentKey++;
-    },
 
     deleteRow(row, index) {
       if (this.value.length <= this.minCount) {
         return;
       }
       const deleteIndex = () => {
-        this.deleteRowOptions(index);
-        this.$emit(
-          'input',
-          this.model.data.filter((item, i) => i !== index)
-        );
+        this.updateValue(this.model.data.filter((item, i) => i !== index));
         this.$emit('delete', row, index);
       };
       if (Object.keys(row).some(key => row[key] !== this.basicData[key])) {
@@ -197,17 +202,35 @@ export default {
       if (this.value.length >= this.maxCount) {
         return ;
       }
-      this.addIndexKey();
-      this.$emit('input', this.model.data.concat([{ ...this.basicData }]));
+
+      this.updateValue(this.model.data.concat([{ ...this.basicData }]));
     },
 
-    deleteRowOptions(index) {
-      Object.keys(this.rowOptionsData).forEach(key => {
-        if (+key.split('-')[1] === this.indexKeys[index]) {
-          delete this.rowOptionsData[key];
+    updateValue(value) {
+      this.oldValue = [...this.model.data];
+      this.$emit('input', value);
+    },
+
+    resetRowOptionsData(value, oldValue) {
+      const newRowOptionsData = {};
+
+      value.forEach((newItem, newIndex) => {
+        const oldIndex = oldValue.findIndex((oldItem) => oldItem === newItem);
+
+        if (oldIndex !== -1) {
+          // 根据旧的 index 将对应的 rowOptions 放到新的 index 下面
+          this.selectColumnIds.forEach((id) => {
+            const rowOptions = this.rowOptionsData[
+              `${id}-${this.indexKeys[oldIndex]}`
+            ];
+            if (rowOptions) {
+              newRowOptionsData[`${id}-${this.indexKeys[newIndex]}`] = [...rowOptions];
+            }
+          });
         }
       });
-      this.indexKeys = this.indexKeys.filter((indexKey, i) => i !== index);
+
+      this.rowOptionsData = newRowOptionsData;
     },
 
     setOptions(id, options, index = -1) {
