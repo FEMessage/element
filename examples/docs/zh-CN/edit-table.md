@@ -511,6 +511,84 @@ export default {
 
 :::
 
+### 异步更新和单独 setOptions
+
+:::demo
+
+```html
+<el-button @click="onSyncUpdate">异步更新</el-button>
+<el-button @click="onSetOptions">SetOptions</el-button>
+<el-edit-table ref="form" :columns="columns" v-model="data"></el-edit-table>
+
+<script>
+  export default {
+    data() {
+      return {
+        data: [],
+        columns: [
+          {
+            id: 'id',
+            label: '第几列',
+            type: 'input',
+            el: { placeholder: '请输入' },
+          },
+          {
+            id: 'option',
+            label: '选项',
+            type: 'select',
+            el: { placeholder: '请选择' },
+          },
+        ],
+      }
+    },
+    mounted() {
+      this.$refs.form.setOptions('option', [
+        { label: '这是统一选项 A', value: '1' },
+        { label: '这是统一选项 B', value: '2' },
+      ])
+    },
+    methods: {
+      onSyncUpdate() {
+        this.data = [
+          {
+            id: '第 1 列',
+            option: '',
+          },
+          {
+            id: '第 2 列',
+            option: '',
+          },
+          {
+            id: '第 3 列',
+            option: '',
+          },
+        ]
+      },
+      onSetOptions() {
+        this.data.forEach((e, i) => {
+          this.$refs.form.setOptions(
+            'option',
+            [
+              {
+                value: `第 ${i + 1} 列的选项 A`,
+                label: `第 ${i + 1} 列的选项 A`,
+              },
+              {
+                value: `第 ${i + 1} 列的选项 B`,
+                label: `第 ${i + 1} 列的选项 B`,
+              },
+            ],
+            i,
+          )
+        })
+      },
+    },
+  }
+</script>
+```
+
+:::
+
 ### Attributes
 
 | 参数      |   说明    |  类型     | 可选值       | 默认值   |
