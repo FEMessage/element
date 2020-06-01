@@ -528,7 +528,7 @@ export default {
         columns: [
           {
             id: 'id',
-            label: '第几列',
+            label: '第几行',
             type: 'input',
             el: { placeholder: '请输入' },
           },
@@ -543,23 +543,23 @@ export default {
     },
     mounted() {
       this.$refs.form.setOptions('option', [
-        { label: '这是统一选项 A', value: '1' },
-        { label: '这是统一选项 B', value: '2' },
+        { label: '这是统一的选项 A', value: 1 },
+        { label: '这是统一的选项 B', value: 2 },
       ])
     },
     methods: {
       onSyncUpdate() {
         this.data = [
           {
-            id: '第 1 列',
+            id: '第 1 行',
             option: '',
           },
           {
-            id: '第 2 列',
+            id: '第 2 行',
             option: '',
           },
           {
-            id: '第 3 列',
+            id: '第 3 行',
             option: '',
           },
         ]
@@ -570,12 +570,12 @@ export default {
             'option',
             [
               {
-                value: `第 ${i + 1} 列的选项 A`,
-                label: `第 ${i + 1} 列的选项 A`,
+                label: `第 ${i + 1} 行的选项 A`,
+                value: 1,
               },
               {
-                value: `第 ${i + 1} 列的选项 B`,
-                label: `第 ${i + 1} 列的选项 B`,
+                label: `第 ${i + 1} 行的选项 B`,
+                value: 2,
               },
             ],
             i,
