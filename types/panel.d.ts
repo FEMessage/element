@@ -14,7 +14,7 @@ export declare class ElPanel extends ElementUIComponent {
 
   /** bodyPadding */
   bodyPadding: string
-|     
+  
   /** Panel width */
   width: string | number
 }

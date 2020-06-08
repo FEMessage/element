@@ -135,6 +135,9 @@ export const Message: ElMessage
 /** A set of modal boxes simulating system message box, mainly for message prompt, success tips, error messages and query information */
 export const MessageBox: ElMessageBox
 
+/** A set of modal boxes simulating system message box center, mainly for message prompt, success tips, error messages and query information */
+export const MessageBoxCenter: ElMessageBoxCenter
+
 /** Displays a global notification message at the upper right corner of the page */
 export const Notification: ElNotification
 
@@ -370,9 +373,6 @@ export class LrContainer extends ElLrContainer {}
 
 /** LoadingButton Component */
 export class LoadingButton extends ElLoadingButton {}
-
-/** MessageBoxCenter Component */
-export class MessageBoxCenter extends ElMessageBoxCenter {}
 
 /** TabsDotted Component */
 export class TabsDotted extends ElTabsDotted {}

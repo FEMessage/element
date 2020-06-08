@@ -9,7 +9,7 @@ export declare class ElDataMapper extends ElementUIComponent {
   columns:object[]
 
   /** formatter col*/
-  formatter:function (data,col,index) 
+  formatter: <T>(data: object,col: object,index: number) => T
 
   /** The placeholder of data-mapper content */
   placeholder:string

@@ -4,5 +4,5 @@ import { ElementUIComponent } from './component'
 export declare class ElAffix extends ElementUIComponent {
   offsetBottom?: number
   offsetTop?: number
-  target?: function
+  target?: () => HTMLElement
 }
