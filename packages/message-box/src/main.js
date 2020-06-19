@@ -31,7 +31,7 @@ const defaults = {
   center: false,
   roundButton: false,
   distinguishCancelAndClose: false,
-  appendTarget: null,
+  appendTarget: null
 };
 
 import Vue from 'vue';
@@ -46,15 +46,15 @@ let msgQueue = [];
 
 const getAppendTarget = (target) => {
   if (!target) {
-    return document.body
+    return document.body;
   }
   if (typeof target === 'string') {
-    return document.querySelector(target)
+    return document.querySelector(target);
   }
   if (target instanceof HTMLElement) {
-    return target
+    return target;
   }
-}
+};
 
 const defaultCallback = action => {
   if (currentMsg) {
