@@ -30,7 +30,8 @@ const defaults = {
   dangerouslyUseHTMLString: false,
   center: false,
   roundButton: false,
-  distinguishCancelAndClose: false
+  distinguishCancelAndClose: false,
+  appendTarget: null,
 };
 
 import Vue from 'vue';
@@ -42,6 +43,18 @@ const MessageBoxConstructor = Vue.extend(msgboxVue);
 
 let currentMsg, instance;
 let msgQueue = [];
+
+const getAppendTarget = (target) => {
+  if (!target) {
+    return document.body
+  }
+  if (typeof target === 'string') {
+    return document.querySelector(target)
+  }
+  if (target instanceof HTMLElement) {
+    return target
+  }
+}
 
 const defaultCallback = action => {
   if (currentMsg) {
@@ -111,7 +124,7 @@ const showNextMsg = () => {
           instance[prop] = true;
         }
       });
-      document.body.appendChild(instance.$el);
+      getAppendTarget(options.appendTarget).appendChild(instance.$el);
 
       Vue.nextTick(() => {
         instance.visible = true;
