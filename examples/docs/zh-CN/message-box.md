@@ -63,7 +63,7 @@
           this.$message({
             type: 'info',
             message: '已取消删除'
-          });          
+          });
         });
       }
     }
@@ -101,7 +101,7 @@
           this.$message({
             type: 'info',
             message: '取消输入'
-          });       
+          });
         });
       }
     }
@@ -273,6 +273,35 @@
 ```
 :::
 
+### 实例插入位置
+支持实例插入文档位置
+
+:::demo 将 `appendTarget` 设置为 要插入的位置 即可
+
+```html
+<template>
+  <div ref="target" id="target">
+    <el-button type="text" @click="open">点击打开 Message Box</el-button>
+  </div>
+</template>
+
+<script>
+  export default {
+    methods: {
+      open() {
+        this.$confirm('打开控制台查看插入的位置', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          center: true,
+          appendTarget: this.$refs.target // '#target'
+        })
+      }
+    }
+  }
+</script>
+```
+:::
+
 ### 全局方法
 
 如果你完整引入了 Element，它会为 Vue.prototype 添加如下全局方法：$msgbox, $alert, $confirm 和 $prompt。因此在 Vue instance 中可以采用本页面中的方式调用 `MessageBox`。调用参数为：
@@ -324,3 +353,4 @@ import { MessageBox } from 'element-ui';
 | inputErrorMessage | 校验未通过时的提示文本 | string | — | 输入的数据不合法! |
 | center | 是否居中布局 | boolean | — | false |
 | roundButton | 是否使用圆角按钮 | boolean | — | false |
+| appendTarget | 实例插入文档的目标位置 | HTMLElement / string | — | document.body |
