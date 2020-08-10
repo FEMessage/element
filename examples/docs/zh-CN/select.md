@@ -530,9 +530,9 @@
         :value="item.value">
       </el-option>
       <div slot="extra">
-        <el-button type="text" @click="handleRefresh">
-          刷新城市列表
-        </el-button>
+        <el-button type="text" @click="handleRefresh" style="width: 100%;">
+          刷新城市列表
+        </el-button>
       </div>
     </el-select>
   </div>
