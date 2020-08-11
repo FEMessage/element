@@ -6,6 +6,10 @@
       reverse: {
         type: Boolean,
         default: false
+      },
+      direction: {
+        type: String,
+        default: 'vertical'
       }
     },
 
@@ -17,9 +21,11 @@
 
     render() {
       const reverse = this.reverse;
+      const direction = this.direction;
       const classes = {
         'el-timeline': true,
-        'is-reverse': reverse
+        'is-reverse': reverse,
+        'is-horizontal': direction === 'horizontal'
       };
       let slots = this.$slots.default || [];
       if (reverse) {

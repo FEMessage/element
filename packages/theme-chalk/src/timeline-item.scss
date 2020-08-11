@@ -11,6 +11,11 @@
     top: -3px;
   }
 
+  @include e(horizontal){
+    position: relative;
+    display: none;
+  }
+
   @include e(tail) {
     position: absolute;
     left: 4px;

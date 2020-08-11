@@ -1,9 +1,9 @@
 <template>
   <li class="el-timeline-item">
-    <div class="el-timeline-item__tail"></div>
+    <div class="el-timeline-item__tail el-timeline-item__vertical"></div>
 
     <div v-if="!$slots.dot"
-      class="el-timeline-item__node"
+      class="el-timeline-item__node el-timeline-item__vertical"
       :class="[
         `el-timeline-item__node--${size || ''}`,
         `el-timeline-item__node--${type || ''}`
@@ -27,8 +27,50 @@
         {{timestamp}}
       </div>
 
+      <div v-if="!hideTimestamp && placement === 'top'" class="el-timeline-item__horizontal">
+        <div class="el-timeline-item__tail"></div>
+
+        <div
+          v-if="!$slots.dot"
+          class="el-timeline-item__node"
+          :class="[
+            `el-timeline-item__node--${size || ''}`,
+            `el-timeline-item__node--${type || ''}`
+          ]"
+          :style="{
+            backgroundColor: color
+          }"
+        >
+          <i v-if="icon" class="el-timeline-item__icon" :class="icon"></i>
+        </div>
+        <div v-if="$slots.dot" class="el-timeline-item__dot">
+          <slot name="dot"></slot>
+        </div>
+      </div>
+
       <div class="el-timeline-item__content">
         <slot></slot>
+      </div>
+
+      <div v-if="placement === 'bottom'" class="el-timeline-item__horizontal">
+        <div class="el-timeline-item__tail"></div>
+
+        <div
+          v-if="!$slots.dot"
+          class="el-timeline-item__node"
+          :class="[
+            `el-timeline-item__node--${size || ''}`,
+            `el-timeline-item__node--${type || ''}`
+          ]"
+          :style="{
+            backgroundColor: color
+          }"
+        >
+          <i v-if="icon" class="el-timeline-item__icon" :class="icon"></i>
+        </div>
+        <div v-if="$slots.dot" class="el-timeline-item__dot">
+          <slot name="dot"></slot>
+        </div>
       </div>
 
       <div v-if="!hideTimestamp && placement === 'bottom'"
