@@ -13,7 +13,6 @@
 
   @include e(horizontal){
     position: relative;
-    display: none;
   }
 
   @include e(tail) {

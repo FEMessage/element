@@ -14,10 +14,15 @@ Timeline 可拆分成多个按照时间戳正序或倒序排列的 activity，�
     <el-radio-group v-model="reverse">
       <el-radio :label="true">倒序</el-radio>
       <el-radio :label="false">正序</el-radio>
+    </el-radio-group><br />
+    排列：
+    <el-radio-group v-model="direction">
+      <el-radio label="vertical">竖排</el-radio>
+      <el-radio label="horizontal">横排</el-radio>
     </el-radio-group>
   </div>
 
-  <el-timeline :reverse="reverse">
+  <el-timeline :reverse="reverse" :direction="direction">
     <el-timeline-item
       v-for="(activity, index) in activities"
       :key="index"
@@ -32,6 +37,7 @@ Timeline 可拆分成多个按照时间戳正序或倒序排列的 activity，�
     data() {
       return {
         reverse: true,
+        direction: 'vertical',
         activities: [{
           content: '活动按期开始',
           timestamp: '2018-04-15'
@@ -56,7 +62,14 @@ Timeline 可拆分成多个按照时间戳正序或倒序排列的 activity，�
 :::demo
 ```html
 <div class="block">
-  <el-timeline>
+  <div class="radio">
+    排列：
+    <el-radio-group v-model="direction">
+      <el-radio label="vertical">竖排</el-radio>
+      <el-radio label="horizontal">横排</el-radio>
+    </el-radio-group>
+  </div>
+  <el-timeline :direction="direction">
     <el-timeline-item
       v-for="(activity, index) in activities"
       :key="index"
@@ -74,6 +87,7 @@ Timeline 可拆分成多个按照时间戳正序或倒序排列的 activity，�
   export default {
     data() {
       return {
+        direction: 'vertical',
         activities: [{
           content: '支持使用图标',
           timestamp: '2018-04-12 20:46',
@@ -106,7 +120,14 @@ Timeline 可拆分成多个按照时间戳正序或倒序排列的 activity，�
 :::demo
 ```html
 <div class="block">
-  <el-timeline>
+  <div class="radio">
+    排列：
+    <el-radio-group v-model="direction">
+      <el-radio label="vertical">竖排</el-radio>
+      <el-radio label="horizontal">横排</el-radio>
+    </el-radio-group>
+  </div>
+  <el-timeline :direction="direction">
     <el-timeline-item timestamp="2018/4/12" placement="top">
       <el-card>
         <h4>更新 Github 模板</h4>
@@ -127,61 +148,24 @@ Timeline 可拆分成多个按照时间戳正序或倒序排列的 activity，�
     </el-timeline-item>
   </el-timeline>
 </div>
-```
-:::
-
-### 水平排列方式
-
-设置direction为horizontal即可水平排列，默认值为vertical即呈现竖排
-
-:::demo
-```html
-<div class="block">
-  <div class="radio">
-    排序：
-    <el-radio-group v-model="reverse">
-      <el-radio :label="true">倒序</el-radio>
-      <el-radio :label="false">正序</el-radio>
-    </el-radio-group>
-  </div>
-
-  <el-timeline :reverse="reverse" direction="horizontal">
-    <el-timeline-item
-      v-for="(activity, index) in activities"
-      :key="index"
-      :timestamp="activity.timestamp">
-      {{activity.content}}
-    </el-timeline-item>
-  </el-timeline>
-</div>
 
 <script>
-  export default {
-    data() {
+  export default{
+    data(){
       return {
-        reverse: true,
-        activities: [{
-          content: '活动按期开始',
-          timestamp: '2018-04-15'
-        }, {
-          content: '通过审核',
-          timestamp: '2018-04-13'
-        }, {
-          content: '创建成功',
-          timestamp: '2018-04-11'
-        }]
-      };
+        direction: 'vertical'
+      }
     }
-  };
+  }
 </script>
 ```
 :::
-
 
 ### Timeline Attributes
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |-------------  |-------- |
 | reverse | 指定节点排序方向，默认为正序 | boolean | — | false |
+| direction | 排列方向，默认为竖向 | string| vertical/horizontal | vertical |
 
 ### Timeline-item Attributes
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
