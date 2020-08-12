@@ -1,9 +1,6 @@
 <template>
   <li class="el-timeline-item">
     
-    <div v-if="timeline.direction==='vertical' && placement==='left'" class="el-timeline-item__timestamp is-left">
-      {{timestamp}}
-    </div>
     <div
       v-if="timeline.direction==='vertical'"
       class="el-timeline-item__tail el-timeline-item__vertical"
@@ -83,10 +80,7 @@ export default {
     renderTimelineWrapper() {
       const slotDefault = this.$slots.default;
       const direction = this.timeline.direction;
-      let { hideTimestamp, placement, timestamp } = this;
-      if (direction === 'horizontal' && placement === 'left') {
-        placement = 'bottom';
-      }
+      const { hideTimestamp, placement, timestamp } = this;
       const timestampContent =
         hideTimestamp || placement === 'left' ? (
           ''
