@@ -1,5 +1,6 @@
 <template>
   <li class="el-timeline-item">
+    
     <div v-if="timeline.direction==='vertical' && placement==='left'" class="el-timeline-item__timestamp is-left">
       {{timestamp}}
     </div>
