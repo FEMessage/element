@@ -1,5 +1,7 @@
 <template>
-  <li class="el-timeline-item">
+  <li class="el-timeline-item" :class="[
+    'is-' + timeline.direction
+  ]">
     
     <div
       v-if="timeline.direction==='vertical'"
@@ -12,6 +14,7 @@
       :type="type"
       :color="color"
       :icon="icon"
+      :size="size"
     ></el-timeline-dot>
     <div v-if="$slots.dot && timeline.direction==='vertical'" class="el-timeline-item__dot">
       <slot name="dot"></slot>
@@ -60,7 +63,7 @@ export default {
   computed: {
     renderTimelineStroke() {
       const slotDot = this.$slots.dot;
-      const { type, color, icon } = this;
+      const { type, color, icon, size } = this;
       return (
         <div class='el-timeline-item__horizontal'>
           <div class='el-timeline-item__tail'></div>
@@ -71,6 +74,7 @@ export default {
               type={type}
               color={color}
               icon={icon}
+              size={size}
             ></el-timeline-dot>
           )}
         </div>

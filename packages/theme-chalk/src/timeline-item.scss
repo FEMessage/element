@@ -87,4 +87,63 @@
       margin-top: 8px;
     }
   }
+  
+  &.is-horizontal {
+    padding-bottom: 0;
+    padding-right: 20px;
+
+    @include e(wrapper){
+      & > .el-timeline-item__horizontal{
+        & > {
+          @include e(tail) {
+            left: 0;
+            top: 5px;
+            border-left: 0;
+            height: 0;
+            width: calc(100% + 20px + 28px);
+            border-bottom: 2px solid $--timeline-node-color;
+          }
+    
+          @include e(node) {
+    
+            @include m(normal) {
+              left: 50%;
+              transform: translateX(-50%);
+            }
+
+            @include m(large) {
+              left: 50%;
+              transform: translateX(-50%);
+            }
+          }
+        }
+      }
+    }
+
+    @include e(horizontal){
+      display: block;
+      margin-bottom: 28px;
+    }
+  
+    @include e(dot) {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @include e(content) {
+      margin-bottom: 8px;
+    }
+  
+    @include e(timestamp) {  
+      @include when(top) {
+        margin-bottom: 8px;
+        padding-top: 4px;
+      }
+      @include when(bottom) {
+        margin-top: 8px;
+      }
+    }
+  }
 }

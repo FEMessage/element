@@ -9,64 +9,24 @@
   &.is-horizontal{
     display: flex;
 
-    @include b(timeline-item) {
-      padding-bottom: 0;
-      padding-right: 20px;
-
-      @include e(wrapper){
-        text-align: center;
-      }
-
-      @include e(horizontal){
-        display: block;
-        margin-bottom: 28px;
-      }
-    
-      @include e(tail) {
-        left: 0;
-        top: 5px;
-        border-left: 0;
-        height: 0;
-        width: calc(100% + 20px + 28px);
-        border-bottom: 2px solid $--timeline-node-color;
-      }
-    
-      @include e(node) {
-    
-        @include m(normal) {
-          left: 50%;
-          transform: translateX(-50%);
-        }
-        @include m(large) {
-          left: 50%;
-          transform: translateX(-50%);
-        }
-      }
-    
-      @include e(dot) {
-        position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      @include e(content) {
-        margin-bottom: 8px;
-      }
-    
-      @include e(timestamp) {
-    
-        @include when(top) {
-          margin-bottom: 8px;
-          padding-top: 4px;
-        }
-        @include when(bottom) {
-          margin-top: 8px;
-        }
+    & > .el-timeline-item{
+      & > .el-timeline-item__wrapper{
+        text-align:center;
       }
     }
 
-    & .el-timeline-item:first-child{
+    & > .el-timeline-item:first-child{
+      .el-timeline-item__wrapper{
+        & > .el-timeline-item__horizontal{
+          & > {
+            .el-timeline-item__tail{
+              width: calc(50% + 20px + 28px);
+              left: 50%;
+            }
+          }
+        }
+      }
+
       & .el-timeline-item__tail{
         width: calc(50% + 20px + 28px);
         left: 50%;
