@@ -81,18 +81,22 @@ export default {
       );
     },
 
+    renderTimeStamp() {
+      const slotTimestamp = this.$slots.timestamp;
+      const { hideTimestamp, placement, timestamp } = this;
+      const timestampContent = slotTimestamp || timestamp;
+      return hideTimestamp ? '' : (
+        <div class={'el-timeline-item__timestamp is-' + placement}>
+          {timestampContent}
+        </div>
+      );
+    },
+
     renderTimelineWrapper() {
       const slotDefault = this.$slots.default;
       const direction = this.timeline.direction;
-      const { hideTimestamp, placement, timestamp } = this;
-      const timestampContent =
-        hideTimestamp || placement === 'left' ? (
-          ''
-        ) : (
-          <div class={'el-timeline-item__timestamp is-' + placement}>
-            {timestamp}
-          </div>
-        );
+      const { placement } = this;
+      const timestampContent = this.renderTimeStamp;
       const renderTimelineStroke = (direction === 'horizontal'
         ? this.renderTimelineStroke
         : '');

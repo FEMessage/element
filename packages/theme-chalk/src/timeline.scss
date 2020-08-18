@@ -40,9 +40,12 @@
     }
   }
 
-  & .el-timeline-item:last-child {
+  &.is-vertical{
+    & .el-timeline-item.is-vertical:last-child {
     & .el-timeline-item__tail {
       display: none;
     }
   }
+  }
+  
 }

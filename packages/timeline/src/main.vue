@@ -25,7 +25,8 @@
       const classes = {
         'el-timeline': true,
         'is-reverse': reverse,
-        'is-horizontal': direction === 'horizontal'
+        'is-horizontal': direction === 'horizontal',
+        'is-vertical': direction === 'vertical'
       };
       let slots = this.$slots.default || [];
       if (reverse) {

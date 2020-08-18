@@ -149,6 +149,38 @@ Timeline 可拆分成多个按照时间戳正序或倒序排列的 activity，�
   </el-timeline>
 </div>
 
+:::
+
+### ⾃定义时间戳内容
+
+设置slot=timestamp可以自定义内容
+
+:::demo
+```html
+<div class="block">
+  <div class="radio">
+    排列：
+    <el-radio-group v-model="direction">
+      <el-radio label="vertical">竖排</el-radio>
+      <el-radio label="horizontal">横排</el-radio>
+    </el-radio-group>
+  </div>
+  <el-timeline :direction="direction">
+    <el-timeline-item timestamp="2018/4/12" placement="top">
+      <el-button slot="timestamp" type="text">2018/4/12</el-button>
+      创建成功
+    </el-timeline-item>
+    <el-timeline-item timestamp="2018/4/3" placement="top">
+      <el-button slot="timestamp" type="text">2018/4/3</el-button>
+      通过审核
+    </el-timeline-item>
+    <el-timeline-item timestamp="2018/4/2" placement="top">
+      <el-button slot="timestamp" type="text">2018/4/2</el-button>
+      活动按期开始
+    </el-timeline-item>
+  </el-timeline>
+</div>
+
 <script>
   export default{
     data(){
@@ -183,3 +215,4 @@ Timeline 可拆分成多个按照时间戳正序或倒序排列的 activity，�
 |------|--------|
 | — | Timeline-Item 的内容 |
 | dot | 自定义节点 |
+| timestamp | 时间戳内容 |
