@@ -149,6 +149,15 @@ Timeline 可拆分成多个按照时间戳正序或倒序排列的 activity，�
   </el-timeline>
 </div>
 
+<script>
+  export default{
+    data(){
+      return {
+        direction: 'vertical'
+      }
+    }
+  }
+</script>
 :::
 
 ### ⾃定义时间戳内容
