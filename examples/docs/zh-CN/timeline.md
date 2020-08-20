@@ -30,6 +30,7 @@ Timeline 可拆分成多个按照时间戳正序或倒序排列的 activity，�
       {{activity.content}}
     </el-timeline-item>
   </el-timeline>
+  <el-button @click="changeContent">改变内容</el-button>
 </div>
 
 <script>
@@ -49,6 +50,20 @@ Timeline 可拆分成多个按照时间戳正序或倒序排列的 activity，�
           timestamp: '2018-04-11'
         }]
       };
+    },
+    methods:{
+      changeContent(){
+        this.activities = [{
+          content: '活动按期借书',
+          timestamp: '2018-04-15'
+        }, {
+          content: '通过测试',
+          timestamp: '2018-04-13'
+        }, {
+          content: '创建成功2',
+          timestamp: '2018-04-11'
+        }]
+      }
     }
   };
 </script>

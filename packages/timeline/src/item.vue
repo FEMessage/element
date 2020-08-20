@@ -26,6 +26,8 @@
 
 <script>
 import ElTimelineDot from './dot';
+// 不能使用utils的isEqual，会出问题
+import isEqual from 'lodash.isequal';
 export default {
   name: 'ElTimelineItem',
 
@@ -60,9 +62,17 @@ export default {
     icon: String
   },
 
+  data() {
+    return {
+      defaultContent: null,
+      timestampContent: null,
+      dotContent: null
+    };
+  },
+
   computed: {
     renderTimelineStroke() {
-      const slotDot = this.$slots.dot;
+      const slotDot = this.dotContent || this.$slots.dot;
       const { type, color, icon, size } = this;
       return (
         <div class='el-timeline-item__horizontal'>
@@ -82,7 +92,7 @@ export default {
     },
 
     renderTimeStamp() {
-      const slotTimestamp = this.$slots.timestamp;
+      const slotTimestamp = this.timestampContent || this.$slots.timestamp;
       const { hideTimestamp, placement, timestamp } = this;
       const timestampContent = slotTimestamp || timestamp;
       return hideTimestamp ? '' : (
@@ -93,7 +103,7 @@ export default {
     },
 
     renderTimelineWrapper() {
-      const slotDefault = this.$slots.default;
+      const slotDefault = this.defaultContent || this.$slots.default;
       const direction = this.timeline.direction;
       const { placement } = this;
       const timestampContent = this.renderTimeStamp;
@@ -120,6 +130,26 @@ export default {
         }
       };
     }
+  },
+
+  methods: {
+    updateSlotsRender() {
+      if (!isEqual(this.$slots.default, this.defaultContent)) {
+        this.defaultContent = this.$slots.default;
+      }
+
+      if (!isEqual(this.$slots.timestamp, this.timestampContent)) {
+        this.timestampContent = this.$slots.timestamp;
+      }
+
+      if (!isEqual(this.$slots.dot, this.dotContent)) {
+        this.dotContent = this.$slots.dot;
+      }
+    }
+  },
+
+  updated() {
+    this.updatedSlots();
   }
 };
 </script>
