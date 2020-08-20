@@ -148,8 +148,8 @@ export default {
     }
   },
 
-  updated() {
-    this.updatedSlots();
+  beforeUpdate() {
+    this.updateSlotsRender();
   }
 };
 </script>
