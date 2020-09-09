@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import merge from 'element-ui/src/utils/merge';
-import { getKeysMap, getRowIdentity, getColumnById, getColumnByKey, orderBy, toggleRowStatus } from '../util';
+import { getKeysMap, getRowIdentity, getColumnById, getColumnByKey, orderBy, toggleRowStatus, findParentData } from '../util';
 import expand from './expand';
 import current from './current';
 import tree from './tree';
@@ -23,6 +23,27 @@ const doFlattenColumns = (columns) => {
     }
   });
   return result;
+};
+
+const changeAllSelectionState = (data, states, selection, status) => {
+  let selectionChanged = false;
+  // 这里递归解决
+  data.forEach((row, index) => {
+    if (states.selectable) {
+      if (states.selectable.call(null, row, index) && toggleRowStatus(selection, row, status)) {
+        selectionChanged = true;
+      }
+    } else {
+      if (toggleRowStatus(selection, row, status)) {
+        selectionChanged = true;
+      }
+    }
+    if (row[ states.childrenColumnName ]) {
+      selectionChanged = changeAllSelectionState(row[ states.childrenColumnName ], states, selection, status) || selectionChanged;
+    }
+  });
+
+  return selectionChanged;
 };
 
 export default Vue.extend({
@@ -54,6 +75,7 @@ export default Vue.extend({
         // 选择
         isAllSelected: false,
         selection: [],
+        halfSelection: [],
         reserveSelection: false,
         selectOnIndeterminate: false,
         selectable: null,
@@ -122,6 +144,11 @@ export default Vue.extend({
       return selection.indexOf(row) > -1;
     },
 
+    isHalfSelected(row) {
+      const { halfSelection = [] } = this.states;
+      return halfSelection.indexOf(row) > -1;
+    },
+
     clearSelection() {
       const states = this.states;
       states.isAllSelected = false;
@@ -156,7 +183,47 @@ export default Vue.extend({
     },
 
     toggleRowSelection(row, selected, emitChange = true) {
-      const changed = toggleRowStatus(this.states.selection, row, selected);
+      let changed = toggleRowStatus(this.states.selection, row, selected);
+      const {checkStrictly, childrenColumnName, data = []} = this.states;
+      selected = this.isSelected(row);
+      // 切换半选状态
+      const toggleHalfSelect = (row, isHalfSelected) => {
+        if (typeof isHalfSelected !== 'boolean') {
+          isHalfSelected = this.isHalfSelected(row) && !selected;
+        }
+        toggleRowStatus(this.states.halfSelection, row, isHalfSelected);
+      };
+      toggleHalfSelect(row);
+      // 同步子级数据及父级数据
+      if (!checkStrictly) {
+        // 同步子级数据
+        // 递归调用子数据
+        const asyncChildrenData = (row) => {
+          if (row[childrenColumnName]) {
+            row[childrenColumnName].forEach(child => {
+              changed = toggleRowStatus(this.states.selection, child, selected) || changed;
+              toggleHalfSelect(child);
+              asyncChildrenData(child);
+            });
+          }
+        };
+        asyncChildrenData(row);
+        // 同步父数据
+        // 兄弟数据状态查找
+        // 兄弟全为选中，父数据添加进selection，再递归同步父数据
+        // 兄弟不全为选中，selection移除父数据，父数据添加进halfSelection，递归父数据添加进halfSelection
+        const asyncParentData = (parentData, current, childKey) => {
+          const parent = findParentData(parentData, current, childKey);
+          if (parent) {
+            const isAllSelected = parent[childKey].every(this.isSelected);
+            const isSomeSelected = parent[childKey].some(child => this.isSelected(child) || this.isHalfSelected(child));
+            toggleHalfSelect(parent, isSomeSelected && !isAllSelected);
+            changed = toggleRowStatus(this.states.selection, parent, isAllSelected) || changed;
+            asyncParentData(parentData, parent, childKey);
+          }
+        };
+        asyncParentData(data, row, childrenColumnName);
+      }
       if (changed) {
         const newSelection = (this.states.selection || []).slice();
         // 调用 API 修改选中值，不触发 select 事件
@@ -170,6 +237,7 @@ export default Vue.extend({
     _toggleAllSelection() {
       const states = this.states;
       const { data = [], selection } = states;
+      states.halfSelection = [];
       // when only some rows are selected (but not all), select or deselect all of them
       // depending on the value of selectOnIndeterminate
       const value = states.selectOnIndeterminate
@@ -177,18 +245,7 @@ export default Vue.extend({
         : !(states.isAllSelected || selection.length);
       states.isAllSelected = value;
 
-      let selectionChanged = false;
-      data.forEach((row, index) => {
-        if (states.selectable) {
-          if (states.selectable.call(null, row, index) && toggleRowStatus(selection, row, value)) {
-            selectionChanged = true;
-          }
-        } else {
-          if (toggleRowStatus(selection, row, value)) {
-            selectionChanged = true;
-          }
-        }
-      });
+      const selectionChanged = changeAllSelectionState(data, states, selection, value);
 
       if (selectionChanged) {
         this.table.$emit('selection-change', selection ? selection.slice() : []);

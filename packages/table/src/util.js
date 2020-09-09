@@ -253,3 +253,24 @@ export function walkTreeNode(root, cb, childrenKey = 'children', lazyKey = 'hasC
     }
   });
 }
+
+export function findParentData(data, row, childKey = 'children') {
+  let parent = null;
+  for (let i = 0; i < data.length; i++) {
+    const item = data[i];
+    const children = item[childKey] || [];
+    // 如果children里的数据包含row，则找到parent了
+    if (children.indexOf(row) > -1) {
+      parent = item;
+    }
+    // 如果没找到并且该item有children，则继续查找该item的children
+    if (!parent && children.length) {
+      parent = findParentData(children, row, childKey);
+    }
+    // 找到后立刻返回
+    if (parent) {
+      return parent;
+    }
+  }
+  return null;
+}

@@ -331,7 +331,12 @@
 
       lazy: Boolean,
 
-      load: Function
+      load: Function,
+
+      checkStrictly: {
+        type: Boolean,
+        default: false
+      }
     },
 
     components: {
@@ -668,7 +673,8 @@
         indent: this.indent,
         lazy: this.lazy,
         lazyColumnIdentifier: hasChildren,
-        childrenColumnName: children
+        childrenColumnName: children,
+        checkStrictly: this.checkStrictly
       });
       const layout = new TableLayout({
         store: this.store,

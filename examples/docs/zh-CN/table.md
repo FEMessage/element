@@ -1848,6 +1848,132 @@
 ```
 :::
 
+### 树形数据与勾选联动
+
+:::demo 支持树类型的数据的显示。暂时不支持懒加载的联动。通过 `check-strictly` 控制是否严格的遵循父子不互相关联的做法，默认为 `false`
+
+```html
+<template>
+<div>
+  <el-table
+    v-for="strictly in checkStrictly"
+    :data="tableData"
+    style="width: 100%;margin-bottom: 20px;"
+    row-key="id"
+    border
+    default-expand-all
+    :key="strictly"
+    :check-strictly="strictly"
+    :tree-props="{children: 'children', hasChildren: 'hasChildren'}"
+    @selection-change="onSelectionChange"
+  >
+    <el-table-column
+      type="selection"
+    >
+    </el-table-column>
+    <el-table-column
+      prop="date"
+      label="日期"
+      sortable
+      width="180">
+    </el-table-column>
+    <el-table-column
+      prop="name"
+      label="姓名"
+      sortable
+      width="180">
+    </el-table-column>
+    <el-table-column
+      prop="address"
+      label="地址">
+    </el-table-column>
+  </el-table>
+</div>
+</template>
+<script>
+  export default {
+    data() {
+      return {
+        checkStrictly: [false, true],
+        tableData: [{
+          id: 1,
+          date: '2016-05-02',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1518 弄'
+        }, {
+          id: 2,
+          date: '2016-05-04',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1517 弄'
+        }, {
+          id: 3,
+          date: '2016-05-01',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1519 弄',
+          children: [{
+              id: 31,
+              date: '2016-05-11',
+              name: '王小虎-1',
+              address: '上海市普陀区金沙江路 1519-1 弄'
+            }, {
+              id: 32,
+              date: '2016-05-12',
+              name: '王小虎-2',
+              address: '上海市普陀区金沙江路 1519-2 弄',
+              children: [
+                {
+                  id: 321,
+                  date: '2016-05-21',
+                  name: '王小虎-2-1',
+                  address: '上海市普陀区金沙江路 1519-2-1 弄'
+                },{
+                  id: 322,
+                  date: '2016-05-22',
+                  name: '王小虎-2-2',
+                  address: '上海市普陀区金沙江路 1519-2-2 弄'
+                }
+              ]
+          }]
+        }, {
+          id: 4,
+          date: '2016-05-03',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1516 弄'
+        }],
+        tableData1: [{
+          id: 1,
+          date: '2016-05-02',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1518 弄'
+        }, {
+          id: 2,
+          date: '2016-05-04',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1517 弄'
+        }, {
+          id: 3,
+          date: '2016-05-01',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1519 弄',
+          hasChildren: true
+        }, {
+          id: 4,
+          date: '2016-05-03',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1516 弄'
+        }]
+      }
+    },
+    methods: {
+      onSelectionChange(selection){
+        console.log(selection)
+      }
+    },
+  }
+</script>
+```
+:::
+
 ### Table Attributes
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |
 |---------- |-------------- |---------- |--------------------------------  |-------- |
