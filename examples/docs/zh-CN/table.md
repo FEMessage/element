@@ -2010,6 +2010,7 @@
 | lazy        | 是否懒加载子节点数据 | Boolean | — | — |
 | load        | 加载子节点数据的函数，lazy 为 true 时生效，函数第二个参数包含了节点的层级信息 | Function(row, treeNode, resolve) | — | — |
 | tree-props  | 渲染嵌套数据的配置选项 | Object | — | { hasChildren: 'hasChildren', children: 'children' } |
+| check-strictly | 在显示复选框的情况下，是否严格的遵循父子不互相关联的做法，默认为 false | Boolean | - | false |
 
 ### Table Events
 | 事件名 | 说明 | 参数 |
