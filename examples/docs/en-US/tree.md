@@ -785,12 +785,12 @@ You can drag and drop Tree nodes by adding a `draggable` attribute.
 
 ### Virtual scroll
 
-Use virtual list through `virtual-height` prop.
+Use virtual list through `height` prop.
 
 **WARNING：The draggable and lazy mode will be invalid when use virtual list**
 :::demo
 ```html
-<el-tree :data="data" nodeKey="key" :props="defaultProps" default-expand-all :virtual-height="300" showCheckbox />
+<el-tree :data="data" nodeKey="key" :props="defaultProps" default-expand-all :height="300" show-checkbox />
 
 <script>
   export default {
@@ -853,7 +853,7 @@ Use virtual list through `virtual-height` prop.
 | draggable             | whether enable tree nodes drag and drop | boolean            | —    | false |
 | allow-drag            | this function will be executed before dragging a node. If `false` is returned, the node can not be dragged | Function(node)  | —  | —  |
 | allow-drop            | this function will be executed before the dragging node is dropped. If `false` is returned, the dragging node can not be dropped at the target node. `type` has three possible values: 'prev' (inserting the dragging node before the target node), 'inner' (inserting the dragging node to the target node) and 'next' (inserting the dragging node after the target node) | Function(draggingNode, dropNode, type)  | —    | —     |
-| virtual-height                  | Config virtual scroll height           | number                     | —    | 0 |
+| height                  | Config virtual scroll height           | number                     | —    | 0 |
 | extra-line                  | Set item count under(without) the virtual container           | number                     | —    | 8 |
 
 ### props

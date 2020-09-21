@@ -9,11 +9,11 @@
     }"
     role="tree"
   >
-    <virtual-list v-if="virtualHeight" :style="{ height: virtualHeight + 'px', 'overflow-y': 'auto' }"
+    <virtual-list v-if="height" :style="{ height: height + 'px', 'overflow-y': 'auto' }"
       :data-key="getNodeKey"
       :data-sources="visibleList"
       :data-component="itemComponent"
-      :keeps="Math.ceil(virtualHeight / 22) + extraLine"
+      :keeps="Math.ceil(height / 22) + extraLine"
       :extra-props="{
         renderAfterExpand,
         showCheckbox,
@@ -146,7 +146,7 @@
         default: 18
       },
       iconClass: String,
-      virtualHeight: {
+      height: {
         type: Number,
         default: 0
       },
