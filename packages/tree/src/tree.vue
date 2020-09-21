@@ -9,7 +9,20 @@
     }"
     role="tree"
   >
+    <virtual-list v-if="virtualHeight" :style="{ height: virtualHeight + 'px', 'overflow-y': 'auto' }"
+      :data-key="getNodeKey"
+      :data-sources="visibleList"
+      :data-component="itemComponent"
+      :keeps="Math.ceil(virtualHeight / 22) + extraLine"
+      :extra-props="{
+        renderAfterExpand,
+        showCheckbox,
+        renderContent,
+        onNodeExpand: handleNodeExpand
+      }"
+    />
     <el-tree-node
+      v-else
       v-for="child in root.childNodes"
       :node="child"
       :props="props"
@@ -32,8 +45,10 @@
 
 <script>
   import TreeStore from './model/tree-store';
+  import VirtualList from 'vue-virtual-scroll-list';
   import { getNodeKey, findNearestComponent } from './model/util';
   import ElTreeNode from './tree-node.vue';
+  import ElVirtualNode from './tree-virtual-node.vue';
   import {t} from 'element-ui/src/locale';
   import emitter from 'element-ui/src/mixins/emitter';
   import { addClass, removeClass } from 'element-ui/src/utils/dom';
@@ -44,6 +59,7 @@
     mixins: [emitter],
 
     components: {
+      VirtualList,
       ElTreeNode
     },
 
@@ -59,7 +75,8 @@
           draggingNode: null,
           dropNode: null,
           allowDrop: true
-        }
+        },
+        itemComponent: ElVirtualNode
       };
     },
 
@@ -128,7 +145,15 @@
         type: Number,
         default: 18
       },
-      iconClass: String
+      iconClass: String,
+      virtualHeight: {
+        type: Number,
+        default: 0
+      },
+      extraLine: {
+        type: Number,
+        default: 8
+      }
     },
 
     computed: {
@@ -148,6 +173,10 @@
       isEmpty() {
         const { childNodes } = this.root;
         return !childNodes || childNodes.length === 0 || childNodes.every(({visible}) => !visible);
+      },
+
+      visibleList() {
+        return this.flattenTree(this.root.childNodes);
       }
     },
 
@@ -177,6 +206,16 @@
     },
 
     methods: {
+      flattenTree(datas) {
+        return datas.reduce((conn, data) => {
+          conn.push(data);
+          if (data.expanded && data.childNodes.length) {
+            conn.push(...this.flattenTree(data.childNodes));
+          }
+
+          return conn;
+        }, []);
+      },
       filter(value) {
         if (!this.filterNodeMethod) throw new Error('[Tree] filterNodeMethod is required when filter');
         this.store.filter(value);

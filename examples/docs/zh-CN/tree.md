@@ -792,6 +792,48 @@
 ```
 :::
 
+### 虚拟滚动
+
+通过 `virtual-height` 切换为虚拟滚动，使长列表拥有更好的表现
+
+**注意：当启动虚拟滚动后，懒加载、可拖拽节点功能将失效**
+:::demo
+```html
+<el-tree :data="data" nodeKey="key" :props="defaultProps" default-expand-all :virtual-height="300" showCheckbox />
+
+<script>
+  export default {
+    data() {
+      function dig(path = '0', level = 3) {
+        const list = [];
+        for (let i = 0; i < 10; i += 1) {
+          const key = `${path}-${i}`;
+          const treeNode = {
+            title: key,
+            key,
+          };
+
+          if (level > 0) {
+            treeNode.children = dig(key, level - 1);
+          }
+
+          list.push(treeNode);
+        }
+        return list;
+      }
+      return {
+        data: dig(),
+        defaultProps: {
+          children: 'children',
+          label: 'title'
+        }
+      };
+    }
+  };
+</script>
+```
+:::
+
 ### Attributes
 | 参数                  | 说明                                               | 类型                        | 可选值  | 默认值   |
 | --------------------- | ---------------------------------------- | --------------------------- | ---- | ----- |
@@ -820,6 +862,8 @@
 | draggable             | 是否开启拖拽节点功能                                   | boolean            | —    | false |
 | allow-drag            | 判断节点能否被拖拽                  | Function(node)  | —  | —  |
 | allow-drop            | 拖拽时判定目标节点能否被放置。`type` 参数有三种情况：'prev'、'inner' 和 'next'，分别表示放置在目标节点前、插入至目标节点和放置在目标节点后 | Function(draggingNode, dropNode, type)  | —    | —     |
+| virtual-height                  | 设置虚拟滚动容器高度，设置后自动启动虚拟容器           | number                     | —    | 0 |
+| extra-line                  | 容器外数据数目，需与 virtual-height 方法结合使用           | number                     | —    | 8 |
 
 ### props
 | 参数       | 说明                | 类型     | 可选值  | 默认值  |
