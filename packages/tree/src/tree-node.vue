@@ -75,6 +75,7 @@
   import ElCollapseTransition from 'element-ui/src/transitions/collapse-transition';
   import ElCheckbox from 'element-ui/packages/checkbox';
   import emitter from 'element-ui/src/mixins/emitter';
+  import mixinNode from './mixin/node';
   import { getNodeKey } from './model/util';
 
   export default {
@@ -82,7 +83,7 @@
 
     componentName: 'ElTreeNode',
 
-    mixins: [emitter],
+    mixins: [emitter, mixinNode],
 
     props: {
       node: {
@@ -155,71 +156,6 @@
     },
 
     methods: {
-      getNodeKey(node) {
-        return getNodeKey(this.tree.nodeKey, node.data);
-      },
-
-      handleSelectChange(checked, indeterminate) {
-        if (this.oldChecked !== checked && this.oldIndeterminate !== indeterminate) {
-          this.tree.$emit('check-change', this.node.data, checked, indeterminate);
-        }
-        this.oldChecked = checked;
-        this.indeterminate = indeterminate;
-      },
-
-      handleClick() {
-        const store = this.tree.store;
-        store.setCurrentNode(this.node);
-        this.tree.$emit('current-change', store.currentNode ? store.currentNode.data : null, store.currentNode);
-        this.tree.currentNode = this;
-        if (this.tree.expandOnClickNode) {
-          this.handleExpandIconClick();
-        }
-        if (this.tree.checkOnClickNode && !this.node.disabled) {
-          this.handleCheckChange(null, {
-            target: { checked: !this.node.checked }
-          });
-        }
-        this.tree.$emit('node-click', this.node.data, this.node, this);
-      },
-
-      handleContextMenu(event) {
-        if (this.tree._events['node-contextmenu'] && this.tree._events['node-contextmenu'].length > 0) {
-          event.stopPropagation();
-          event.preventDefault();
-        }
-        this.tree.$emit('node-contextmenu', event, this.node.data, this.node, this);
-      },
-
-      handleExpandIconClick() {
-        if (this.node.isLeaf) return;
-        if (this.expanded) {
-          this.tree.$emit('node-collapse', this.node.data, this.node, this);
-          this.node.collapse();
-        } else {
-          this.node.expand();
-          this.$emit('node-expand', this.node.data, this.node, this);
-        }
-      },
-
-      handleCheckChange(value, ev) {
-        this.node.setChecked(ev.target.checked, !this.tree.checkStrictly);
-        this.$nextTick(() => {
-          const store = this.tree.store;
-          this.tree.$emit('check', this.node.data, {
-            checkedNodes: store.getCheckedNodes(),
-            checkedKeys: store.getCheckedKeys(),
-            halfCheckedNodes: store.getHalfCheckedNodes(),
-            halfCheckedKeys: store.getHalfCheckedKeys(),
-          });
-        });
-      },
-
-      handleChildNodeExpand(nodeData, node, instance) {
-        this.broadcast('ElTreeNode', 'tree-node-expand', node);
-        this.tree.$emit('node-expand', nodeData, node, instance);
-      },
-
       handleDragStart(event) {
         if (!this.tree.draggable) return;
         this.tree.$emit('tree-node-drag-start', event, this);
@@ -243,37 +179,8 @@
 
     created() {
       const parent = this.$parent;
-
-      if (parent.isTree) {
-        this.tree = parent;
-      } else {
-        this.tree = parent.tree;
-      }
-
-      const tree = this.tree;
-      if (!tree) {
-        console.warn('Can not find node\'s tree.');
-      }
-
-      const props = tree.props || {};
-      const childrenKey = props['children'] || 'children';
-
-      this.$watch(`node.data.${childrenKey}`, () => {
-        this.node.updateChildren();
-      });
-
-      if (this.node.expanded) {
-        this.expanded = true;
-        this.childNodeRendered = true;
-      }
-
-      if(this.tree.accordion) {
-        this.$on('tree-node-expand', node => {
-          if(this.node !== node) {
-            this.node.collapse();
-          }
-        });
-      }
+      const node = this.node;
+      this.creator(parent, node);
     }
   };
 </script>
