@@ -179,8 +179,7 @@
 
     created() {
       const parent = this.$parent;
-      const node = this.node;
-      this.creator(parent, node);
+      this.creator(parent, 'node');
     }
   };
 </script>

@@ -2,7 +2,9 @@ import { getNodeKey } from '../model/util';
 
 export default {
   methods: {
-    creator(parent, node) {
+    creator(parent, nodeTag) {
+      const node = this[nodeTag];
+
       if (parent.isTree) {
         this.tree = parent;
       } else {
@@ -17,7 +19,7 @@ export default {
       const props = tree.props || {};
       const childrenKey = props['children'] || 'children';
 
-      this.$watch(`source.data.${childrenKey}`, () => {
+      this.$watch(`${nodeTag}.data.${childrenKey}`, () => {
         node.updateChildren();
       });
 

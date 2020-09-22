@@ -125,8 +125,7 @@
 
     created() {
       const parent = this.$parent.$parent.$parent;
-      const node = this.source
-      this.creator(parent, node);
+      this.creator(parent, 'source');
     }
   };
 </script>
