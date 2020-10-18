@@ -30,15 +30,17 @@
   v-model="value1"
   :width="77"
   inline-text
+  active-value="按月付费"
+  inactive-value="按年付费"
   active-text="按月付费"
   inactive-text="按年付费"
 />
-
+<div>{{value1}}</div>
 <script>
 export default {
   data() {
     return {
-      value1: true
+      value1: '按月付费'
     }
   }
 }
