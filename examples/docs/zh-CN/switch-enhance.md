@@ -30,8 +30,6 @@
   v-model="value1"
   :width="77"
   inline-text
-  active-value="按月付费"
-  inactive-value="按年付费"
   active-text="按月付费"
   inactive-text="按年付费"
 />
