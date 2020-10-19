@@ -33,7 +33,6 @@
   active-text="按月付费"
   inactive-text="按年付费"
 />
-<div>{{value1}}</div>
 <script>
 export default {
   data() {
