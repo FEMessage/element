@@ -139,7 +139,7 @@ export default {
     },
 
     minCount() {
-      return this.min < 1 ? 1 : this.min;
+      return this.min < 0 ? 0 : this.min;
     },
 
     maxCount() {
