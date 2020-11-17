@@ -7,7 +7,8 @@
     "lib",
     "src",
     "packages",
-    "types"
+    "types",
+    "vetur-helper"
   ],
   "publishConfig": {
     "access": "public"
@@ -170,5 +171,9 @@
       "post-commit": "git update-index --again"
     }
   },
-  "gren": "@femessage/grenrc"
+  "gren": "@femessage/grenrc",
+  "vetur": {
+    "tags": "vetur-helper/element-tags.json",
+    "attributes": "vetur-helper/element-attributes.json"
+  }
 }
